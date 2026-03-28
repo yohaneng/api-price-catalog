@@ -6,47 +6,65 @@
     <title>API Price Catalog | Research Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .sticky-header { position: sticky; top: 0; z-index: 10; }
+        #backToTop { transition: opacity 0.3s, transform 0.3s; }
+        #backToTop.hidden { opacity: 0; pointer-events: none; transform: translateY(20px); }
+    </style>
 </head>
-<body class="bg-slate-50 min-h-screen p-4 md:p-8 font-sans">
-    <div class="max-w-full mx-auto">
-        <header class="mb-8">
-            <h1 class="text-4xl font-extrabold text-slate-900 mb-2 tracking-tight">API Pricing Catalog</h1>
-            <p class="text-slate-600 text-lg">A research audit of 400+ APIs for PhD Digital Transparency studies.</p>
+<body class="bg-slate-50 min-h-screen font-sans text-slate-900">
+
+    <button id="backToTop" onclick="window.scrollTo(0,0)" class="hidden fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center hover:bg-blue-700 z-50 focus:outline-none">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="max-w-full mx-auto px-4 md:px-8 py-8">
+        <header class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+                <h1 class="text-4xl font-extrabold tracking-tight text-slate-900">API Pricing Catalog</h1>
+                <p class="text-slate-500 text-lg mt-1">Research Audit: 400+ Digital Interfaces</p>
+            </div>
+            <div id="counter" class="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-bold text-sm border border-blue-200">
+                Loading APIs...
+            </div>
         </header>
 
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8 grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div>
-                <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Search Name</label>
-                <input type="text" id="searchInput" placeholder="Search..." class="w-full p-2.5 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500">
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8 grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="relative">
+                <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Search Catalog</label>
+                <input type="text" id="searchInput" placeholder="Type name..." class="w-full p-3 pl-10 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none">
+                <i class="fas fa-search absolute left-3 bottom-4 text-slate-300"></i>
             </div>
             <div>
-                <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Domain</label>
-                <select id="domainFilter" class="w-full p-2.5 border border-slate-200 rounded-xl bg-white outline-none"></select>
+                <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Domain</label>
+                <select id="domainFilter" class="w-full p-3 border border-slate-200 rounded-xl bg-white outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"></select>
             </div>
             <div>
-                <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Pricing Model</label>
-                <select id="modelFilter" class="w-full p-2.5 border border-slate-200 rounded-xl bg-white outline-none"></select>
+                <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Model</label>
+                <select id="modelFilter" class="w-full p-3 border border-slate-200 rounded-xl bg-white outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"></select>
             </div>
             <div>
-                <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Scope</label>
-                <select id="scopeFilter" class="w-full p-2.5 border border-slate-200 rounded-xl bg-white outline-none"></select>
+                <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Scope</label>
+                <select id="scopeFilter" class="w-full p-3 border border-slate-200 rounded-xl bg-white outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"></select>
             </div>
         </div>
 
         <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
-            <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-slate-200" id="apiTable">
-                    <thead class="bg-slate-50">
+            <div class="overflow-x-auto max-h-[800px] overflow-y-auto">
+                <table class="min-w-full divide-y divide-slate-200">
+                    <thead class="bg-slate-800 text-white sticky-header">
                         <tr>
-                            <th onclick="sortTable('name')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600">Name <i class="fas fa-sort ml-1"></i></th>
-                            <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase">Description</th>
-                            <th onclick="sortTable('domain')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600">Domain <i class="fas fa-sort ml-1"></i></th>
-                            <th onclick="sortTable('pricing_model')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600">Model <i class="fas fa-sort ml-1"></i></th>
-                            <th onclick="sortTable('current_price')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600">Price <i class="fas fa-sort ml-1"></i></th>
+                            <th onclick="sortTable('name')" class="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider cursor-pointer hover:bg-slate-700 transition-colors">Name <i class="fas fa-sort ml-1 opacity-50"></i></th>
+                            <th class="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider">Description</th>
+                            <th onclick="sortTable('domain')" class="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider cursor-pointer hover:bg-slate-700 transition-colors">Domain <i class="fas fa-sort ml-1 opacity-50"></i></th>
+                            <th onclick="sortTable('pricing_model')" class="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider cursor-pointer hover:bg-slate-700 transition-colors">Model <i class="fas fa-sort ml-1 opacity-50"></i></th>
+                            <th onclick="sortTable('current_price')" class="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider cursor-pointer hover:bg-slate-700 transition-colors">Price <i class="fas fa-sort ml-1 opacity-50"></i></th>
                         </tr>
                     </thead>
                     <tbody id="tableBody" class="divide-y divide-slate-100 bg-white">
-                        </tbody>
+                        <tr><td colspan="5" class="p-20 text-center text-slate-400 animate-pulse">Synchronizing database...</td></tr>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -60,7 +78,6 @@
             try {
                 let response = await fetch('./dataset_400.json', { cache: 'no-cache' });
                 if (!response.ok) response = await fetch('./Dataset_400.json', { cache: 'no-cache' });
-                
                 apiData = await response.json();
                 
                 populateDropdown('domainFilter', 'domain');
@@ -71,7 +88,15 @@
                 ['searchInput', 'domainFilter', 'modelFilter', 'scopeFilter'].forEach(id => {
                     document.getElementById(id).addEventListener('input', applyFilters);
                 });
-            } catch (err) { console.error("Error:", err); }
+
+                // Scroll Listener for Back to Top
+                window.addEventListener('scroll', () => {
+                    const btn = document.getElementById('backToTop');
+                    if (window.scrollY > 300) btn.classList.remove('hidden');
+                    else btn.classList.add('hidden');
+                });
+
+            } catch (err) { console.error("Data failure:", err); }
         }
 
         function populateDropdown(id, key) {
@@ -83,20 +108,35 @@
 
         function renderTable(data) {
             const body = document.getElementById('tableBody');
+            const counter = document.getElementById('counter');
+            
+            counter.innerText = `Showing ${data.length} of ${apiData.length} APIs`;
+
+            if (data.length === 0) {
+                body.innerHTML = '<tr><td colspan="5" class="p-20 text-center text-slate-400 font-medium"><i class="fas fa-search mb-4 text-4xl block opacity-20"></i>No matching APIs found. Try adjusting your filters.</td></tr>';
+                return;
+            }
+
             body.innerHTML = data.map(api => `
-                <tr class="hover:bg-blue-50/50 transition-colors">
+                <tr class="hover:bg-blue-50/50 transition-all border-b border-slate-50 last:border-0">
                     <td class="px-6 py-5 whitespace-nowrap">
-                        <a href="${api.pricing_url}" target="_blank" class="text-blue-600 font-bold hover:underline">${api.name}</a>
+                        <a href="${api.pricing_url}" target="_blank" class="text-blue-600 font-bold hover:text-blue-800 transition-colors flex items-center">
+                            ${api.name} <i class="fas fa-external-link-alt ml-2 text-[10px] opacity-0 hover:opacity-100 transition-opacity"></i>
+                        </a>
                     </td>
-                    <td class="px-6 py-5 text-sm text-slate-500 max-w-md">
-                        ${api.description || '<span class="text-slate-300 italic">No description provided</span>'}
+                    <td class="px-6 py-5 text-sm text-slate-500 max-w-md leading-relaxed">
+                        ${api.description || 'Audit in progress...'}
                     </td>
-                    <td class="px-6 py-5 text-sm text-slate-600">${api.domain || 'N/A'}</td>
+                    <td class="px-6 py-5 text-sm text-slate-600">
+                        <span class="bg-slate-100 px-2 py-1 rounded text-[11px] font-semibold text-slate-500 uppercase tracking-tighter">${api.domain || 'N/A'}</span>
+                    </td>
                     <td class="px-6 py-5 text-sm font-medium text-slate-700">${api.pricing_model || 'N/A'}</td>
                     <td class="px-6 py-5">
-                        <span class="${api.current_price ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-400'} px-3 py-1 rounded-full text-xs font-bold border border-current">
-                            ${api.current_price || 'Updating...'}
-                        </span>
+                        <div class="flex items-center">
+                            <span class="${api.current_price ? 'bg-green-100 text-green-700 border-green-200' : 'bg-slate-100 text-slate-400 border-slate-200'} px-3 py-1 rounded-full text-[10px] font-extrabold border uppercase tracking-widest">
+                                ${api.current_price || 'Updating'}
+                            </span>
+                        </div>
                     </td>
                 </tr>
             `).join('');
