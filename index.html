@@ -20,116 +20,108 @@
         /* CUSTOM DROPDOWN SYSTEM */
         .custom-dropdown { position: relative; width: 100%; }
         .dropdown-trigger {
-            width: 100%; padding: 10px 16px; border: 2px solid #e2e8f0;
-            border-radius: 12px; background: white; font-size: 14px; font-weight: 700;
+            width: 100%; padding: 12px 20px; border: 2px solid #e2e8f0;
+            border-radius: 14px; background: white; font-size: 14px; font-weight: 700;
             display: flex; justify-content: space-between; align-items: center; cursor: pointer;
             transition: all 0.2s;
         }
         .dropdown-trigger:hover { border-color: #cbd5e1; }
-        .dropdown-trigger.filtered { border-color: #3b82f6; background: #eff6ff; }
-        
+        .dropdown-trigger.filtered { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
+        .dropdown-trigger.filtered i { color: #3b82f6; } /* Blue Filter Icon */
+
         .dropdown-menu {
-            display: none; position: absolute; top: 110%; left: 0; width: 100%;
-            max-height: 350px; overflow-y: auto; background: white;
-            border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            display: none; position: absolute; top: 115%; left: 0; width: 100%;
+            max-height: 400px; overflow-y: auto; background: white;
+            border: 1px solid #e2e8f0; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
             z-index: 200;
         }
         .dropdown-menu.show { display: block; }
 
         /* OVERLAY STYLES */
         #categoryOverlay {
-            display: none; position: absolute; top: 100%; left: 0; width: 320px;
+            display: none; position: absolute; top: 100%; left: 0; width: 340px;
             max-height: 450px; overflow-y: auto; background: white;
-            border: 1px solid #e2e8f0; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0; border-radius: 20px; box-shadow: 0 25px 30px -5px rgba(0,0,0,0.1);
             z-index: 150;
         }
         #topDomainsBox:hover #categoryOverlay { display: block; }
         .overlay-sticky-header { position: sticky; top: 0; background: white; padding: 16px; border-bottom: 1px solid #f1f5f9; z-index: 10; }
 
         /* INFOGRAPHICS */
-        .spectrum-container { display: flex; height: 10px; width: 180px; border-radius: 12px; overflow: hidden; background: #e2e8f0; margin-top: 6px; }
+        .spectrum-container { display: flex; height: 12px; width: 200px; border-radius: 12px; overflow: hidden; background: #e2e8f0; margin-top: 6px; }
         #specFree { background: #10b981; transition: width 0.5s ease; }
         #specFreemium { background: #3b82f6; transition: width 0.5s ease; }
         #specPaid { background: #f59e0b; transition: width 0.5s ease; }
 
-        .pulse-icon { display: inline-block; width: 12px; height: 12px; background-color: #10b981; border-radius: 50%; margin-right: 10px; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); } 70% { box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
-
         #resetBtn { transition: all 0.3s ease; opacity: 0.3; filter: grayscale(1); pointer-events: none; }
         #resetBtn.active { opacity: 1; filter: grayscale(0); pointer-events: auto; background: #ef4444; color: white; }
 
+        /* TABLE HEADER RESTORATION */
+        .table-fixed-head { background: #0f172a; color: white; }
+
         .clickable-row:hover { background-color: #f1f5f9 !important; box-shadow: inset 12px 0 0 0 #3b82f6; }
-        .hover-hint { color: #3b82f6; font-size: 10px; font-weight: 700; opacity: 0; transition: 0.2s; margin-left: 8px; display: inline-flex; align-items: center; gap: 4px; }
-        .clickable-row:hover .hover-hint { opacity: 1; }
-
-        .check-item { display: flex; align-items: center; gap: 10px; padding: 8px 16px; cursor: pointer; font-size: 12px; font-weight: 600; }
+        
+        /* FIX #1: Checkbox reliability */
+        .check-item { display: flex; align-items: center; gap: 12px; padding: 10px 18px; cursor: pointer; transition: background 0.15s; }
         .check-item:hover { background: #f8fafc; }
-        .check-item input { width: 16px; height: 16px; cursor: pointer; }
+        .check-item input { pointer-events: none; width: 18px; height: 18px; accent-color: #3b82f6; }
 
-        button:disabled { opacity: 0.3; cursor: not-allowed; text-decoration: none !important; }
+        button:disabled { opacity: 0.2; cursor: not-allowed; }
     </style>
 </head>
 <body class="text-slate-900" onclick="closeAllDropdowns(event)">
 
-    <button id="backToTop" onclick="window.scrollTo(0,0)" class="hidden fixed bottom-10 right-10 bg-slate-900 text-white w-14 h-14 rounded-2xl shadow-2xl flex items-center justify-center hover:bg-blue-600 z-[200] transition-all">
-        <i class="fas fa-chevron-up text-xl"></i>
-    </button>
-
     <div class="glass-header">
-        <div class="px-6 md:px-12 pt-5 pb-3">
-            <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-4">
-                <div class="flex items-center gap-8">
+        <div class="px-6 md:px-12 pt-6 pb-4">
+            <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-5">
+                <div class="flex items-center gap-10">
                     <div>
-                        <div class="flex items-center">
-                            <span class="pulse-icon"></span>
-                            <h1 class="text-5xl font-[900] tracking-tighter text-slate-900 uppercase">API<span class="text-blue-600">WORLD</span></h1>
-                        </div>
+                        <h1 class="text-5xl font-[900] tracking-tighter text-slate-900 uppercase">API<span class="text-blue-600">WORLD</span></h1>
                         <p class="text-[12px] font-extrabold text-slate-400 uppercase tracking-[0.3em] mt-1">Realtime Pricing Feed</p>
                     </div>
 
-                    <div id="topDomainsBox" class="hidden 2xl:block border-l-2 border-slate-200 pl-8 relative cursor-help">
+                    <div id="topDomainsBox" class="hidden 2xl:block border-l-2 border-slate-200 pl-10 relative cursor-help">
                         <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Domain Insights <i class="fas fa-chart-pie ml-1 opacity-30"></i></p>
-                        <div id="domainPills" class="flex gap-2 mt-1.5"></div>
+                        <div id="domainPills" class="flex gap-2 mt-2"></div>
                         <div id="categoryOverlay">
                             <div class="overlay-sticky-header flex justify-between items-center">
                                 <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Global Audit</p>
                                 <div class="flex gap-3">
-                                    <button onclick="selectAll('domain')" class="text-[9px] font-bold text-blue-600 hover:underline">Select All</button>
-                                    <button id="domainDeselect" onclick="deselectAll('domain')" class="text-[9px] font-bold text-red-500 hover:underline">Deselect All</button>
+                                    <button onclick="selectAll('domain')" class="text-[9px] font-bold text-blue-600">SELECT ALL</button>
+                                    <button id="domainDeselect" onclick="deselectAll('domain')" class="text-[9px] font-bold text-red-500">DESELECT ALL</button>
                                 </div>
                             </div>
-                            <div id="overlayList" class="pb-2"></div>
+                            <div id="overlayList"></div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="flex items-center gap-6">
-                    <div class="hidden xl:block border-r-2 border-slate-200 pr-8 text-right">
+                <div class="flex items-center gap-8">
+                    <div class="hidden xl:block text-right">
                         <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Pricing Ratio</p>
-                        <div class="spectrum-container ml-auto">
+                        <div class="spectrum-container">
                             <div id="specFree"></div><div id="specFreemium"></div><div id="specPaid"></div>
                         </div>
                     </div>
-                    <button id="resetBtn" onclick="fullReset()" class="flex items-center gap-2 bg-white text-slate-400 px-6 py-2.5 rounded-2xl border-2 border-slate-200 text-xs font-black transition-all">
+                    <button id="resetBtn" onclick="fullReset()" class="flex items-center gap-2 bg-white text-slate-400 px-7 py-3 rounded-2xl border-2 border-slate-200 text-xs font-black transition-all shadow-sm">
                         <i class="fas fa-filter-circle-xmark"></i> RESET
                     </button>
-                    <div id="counter" class="bg-slate-900 text-white px-8 py-2.5 rounded-2xl font-black text-sm min-w-[140px] text-center shadow-xl">---</div>
+                    <div id="counter" class="bg-slate-900 text-white px-8 py-3 rounded-2xl font-black text-sm min-w-[150px] text-center shadow-xl tracking-widest">---</div>
                 </div>
             </header>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div class="relative group">
-                    <input type="text" id="searchInput" oninput="applyFilters()" placeholder="Search API Name..." class="w-full p-2.5 pl-11 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-semibold">
-                    <i class="fas fa-search absolute left-4 top-3.5 text-slate-300"></i>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+                <div class="relative">
+                    <input type="text" id="searchInput" oninput="applyFilters()" placeholder="Search API Name..." class="w-full p-3 pl-12 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-semibold focus:border-blue-500">
+                    <i class="fas fa-search absolute left-5 top-4 text-slate-300"></i>
                 </div>
 
                 <div class="custom-dropdown" id="dd-domain">
                     <div class="dropdown-trigger" onclick="toggleDropdown('dd-domain')">
-                        <span class="label">All Domains</span>
-                        <i class="fas fa-chevron-down text-[12px] mr-2"></i>
+                        <span class="label">All Domains</span><i class="fas fa-chevron-down mr-1"></i>
                     </div>
                     <div class="dropdown-menu">
-                        <div class="overlay-sticky-header flex justify-between p-3 border-b">
+                        <div class="overlay-sticky-header flex justify-between px-4 py-3 border-b">
                             <button onclick="selectAll('domain')" class="text-[9px] font-bold text-blue-600">ALL</button>
                             <button onclick="deselectAll('domain')" class="text-[9px] font-bold text-red-500">NONE</button>
                         </div>
@@ -137,26 +129,47 @@
                     </div>
                 </div>
 
-                <div class="custom-dropdown" id="dd-model">
-                    <div class="dropdown-trigger" onclick="toggleDropdown('dd-model')">
-                        <span class="label">All Pricing</span>
-                        <i class="fas fa-chevron-down text-[12px] mr-2"></i>
+                <div class="custom-dropdown" id="dd-pricing_model">
+                    <div class="dropdown-trigger" onclick="toggleDropdown('dd-pricing_model')">
+                        <span class="label">All Pricing</span><i class="fas fa-chevron-down mr-1"></i>
                     </div>
                     <div class="dropdown-menu">
+                        <div class="overlay-sticky-header flex justify-between px-4 py-3 border-b">
+                            <button onclick="selectAll('pricing_model')" class="text-[9px] font-bold text-blue-600">ALL</button>
+                            <button onclick="deselectAll('pricing_model')" class="text-[9px] font-bold text-red-500">NONE</button>
+                        </div>
                         <div class="list-container"></div>
                     </div>
                 </div>
 
                 <div class="custom-dropdown" id="dd-scope">
                     <div class="dropdown-trigger" onclick="toggleDropdown('dd-scope')">
-                        <span class="label">All Scopes</span>
-                        <i class="fas fa-chevron-down text-[12px] mr-2"></i>
+                        <span class="label">All Scopes</span><i class="fas fa-chevron-down mr-1"></i>
                     </div>
                     <div class="dropdown-menu">
+                        <div class="overlay-sticky-header flex justify-between px-4 py-3 border-b">
+                            <button onclick="selectAll('scope')" class="text-[9px] font-bold text-blue-600">ALL</button>
+                            <button onclick="deselectAll('scope')" class="text-[9px] font-bold text-red-500">NONE</button>
+                        </div>
                         <div class="list-container"></div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="table-fixed-head px-6 md:px-12 border-b-2 border-slate-800">
+            <table class="min-w-full">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable('name')" class="w-[20%] py-4 pl-10 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 group">API IDENTITY <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i></th>
+                        <th class="w-[30%] py-4 text-left text-[14px] font-black uppercase tracking-[0.2em]">DESCRIPTION</th>
+                        <th onclick="sortTable('domain')" class="w-[12%] py-4 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">DOMAIN</th>
+                        <th onclick="sortTable('scope')" class="w-[10%] py-4 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">SCOPE</th>
+                        <th onclick="sortTable('pricing_model')" class="w-[12%] py-4 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">TYPE</th>
+                        <th onclick="sortTable('current_price')" class="w-[16%] py-4 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">PRICING</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
     </div>
 
@@ -169,12 +182,13 @@
     <script>
         let apiData = [];
         let filters = { search: '', domain: new Set(), pricing_model: new Set(), scope: new Set() };
+        let sortCol = 'name', sortDir = 1;
 
         async function init() {
             const resp = await fetch('./dataset_400.json');
             apiData = await resp.json();
             ['domain', 'pricing_model', 'scope'].forEach(key => {
-                const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean);
+                const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean).sort();
                 vals.forEach(v => filters[key].add(v));
                 buildDropdown(key, vals);
             });
@@ -182,13 +196,13 @@
         }
 
         function buildDropdown(key, vals) {
-            const container = document.querySelector(`#dd-${key === 'pricing_model' ? 'model' : key} .list-container`);
+            const container = document.querySelector(`#dd-${key} .list-container`);
             container.innerHTML = vals.map(v => `
                 <div class="check-item" onclick="toggleFilter('${key}', '${v}')">
-                    <input type="checkbox" id="dd-${key}-${v}" ${filters[key].has(v) ? 'checked' : ''} onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-${key}-${v}" ${filters[key].has(v) ? 'checked' : ''}>
                     <label class="flex justify-between w-full cursor-pointer">
                         <span>${v}</span>
-                        <span class="text-slate-400">(${apiData.filter(x => x[key] === v).length})</span>
+                        <span class="text-blue-500 font-bold">${apiData.filter(x => x[key] === v).length}</span>
                     </label>
                 </div>
             `).join('');
@@ -197,9 +211,6 @@
         function toggleFilter(key, val) {
             if (filters[key].has(val)) filters[key].delete(val);
             else filters[key].add(val);
-            
-            // Update UI
-            document.getElementById(`dd-${key}-${val}`)?.setAttribute('checked', filters[key].has(val));
             render();
         }
 
@@ -228,55 +239,43 @@
 
         function render() {
             const search = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = apiData.filter(i => 
+            let filtered = apiData.filter(i => 
                 i.name.toLowerCase().includes(search) &&
                 filters.domain.has(i.domain) &&
                 filters.pricing_model.has(i.pricing_model) &&
                 filters.scope.has(i.scope)
             );
 
-            // Update Table
-            const body = document.getElementById('tableBody');
-            body.innerHTML = filtered.map(api => `
+            filtered.sort((a,b) => (a[sortCol] > b[sortCol] ? 1 : -1) * sortDir);
+
+            document.getElementById('tableBody').innerHTML = filtered.map(api => `
                 <tr class="clickable-row group bg-white" onclick="window.open('${api.pricing_url}', '_blank')">
-                    <td class="w-[20%] py-5 pl-10"><span class="text-blue-600 font-black text-[15px]">${api.name}</span><span class="hover-hint">visit site <i class="fas fa-chevron-right"></i></span></td>
-                    <td class="w-[30%] py-5 pr-12 text-[13px] text-slate-500 font-semibold">${api.description || '...'}</td>
-                    <td class="w-[12%] py-5 text-[11px] font-black text-slate-400 uppercase tracking-tighter">${api.domain}</td>
-                    <td class="w-[10%] py-5 text-[11px] font-black text-slate-400 uppercase tracking-tighter">${api.scope}</td>
+                    <td class="w-[20%] py-5 pl-10 pr-4">
+                        <span class="text-blue-600 font-black text-[15px]">${api.name}</span>
+                        <span class="hover-hint text-[10px] font-bold text-blue-500 ml-2 opacity-0 group-hover:opacity-100 transition-opacity tracking-tight">visit site <i class="fas fa-chevron-right"></i></span>
+                    </td>
+                    <td class="w-[30%] py-5 pr-12 text-[13px] text-slate-500 font-semibold leading-relaxed">${api.description || '...'}</td>
+                    <td class="w-[12%] py-5 text-[11px] font-black text-slate-400 uppercase">${api.domain}</td>
+                    <td class="w-[10%] py-5 text-[11px] font-black text-slate-400 uppercase">${api.scope}</td>
                     <td class="w-[12%] py-5 text-[12px] text-slate-700 font-black">${api.pricing_model}</td>
                     <td class="w-[16%] py-5 text-[11px] font-black uppercase ${api.current_price ? 'text-emerald-600' : 'text-slate-300'}">${api.current_price || 'AUDITING'}</td>
                 </tr>
             `).join('');
 
-            // Update Counter & Reset Button
-            document.getElementById('counter').innerText = `${filtered.length} / ${apiData.length} NODES`;
-            const isFiltered = filtered.length < apiData.length;
-            document.getElementById('resetBtn').classList.toggle('active', isFiltered);
-
-            // Update Infographics & Sync Domain Overlays
             updateInfographics(filtered);
-            updateVisualIndicators();
+            updateDropdownVisuals();
         }
 
         function updateInfographics(data) {
             const total = data.length || 1;
-            const free = (data.filter(i => i.pricing_model === 'Free').length / total) * 100;
-            const freemium = (data.filter(i => i.pricing_model === 'Freemium').length / total) * 100;
-            document.getElementById('specFree').style.width = free + '%';
-            document.getElementById('specFreemium').style.width = freemium + '%';
-            document.getElementById('specPaid').style.width = (100 - free - freemium) + '%';
+            document.getElementById('specFree').style.width = (data.filter(i => i.pricing_model === 'Free').length / total * 100) + '%';
+            document.getElementById('specFreemium').style.width = (data.filter(i => i.pricing_model === 'Freemium').length / total * 100) + '%';
+            document.getElementById('specPaid').style.width = (data.filter(i => i.pricing_model === 'Paid').length / total * 100) + '%';
 
-            // Top Domain Pills
-            const counts = {};
-            data.forEach(i => counts[i.domain] = (counts[i.domain] || 0) + 1);
-            const top = Object.keys(counts).sort((a,b) => counts[b] - counts[a]).slice(0,3);
-            document.getElementById('domainPills').innerHTML = top.map(d => `<span class="bg-blue-600 text-white px-2 py-0.5 rounded text-[9px] font-black">${d.toUpperCase()}</span>`).join('');
-
-            // Overlay List Sync
-            const allDomains = [...new Set(apiData.map(i => i.domain))].sort();
-            document.getElementById('overlayList').innerHTML = allDomains.map(d => `
+            const domains = [...new Set(apiData.map(i => i.domain))].sort();
+            document.getElementById('overlayList').innerHTML = domains.map(d => `
                 <div class="check-item" onclick="toggleFilter('domain', '${d}')">
-                    <input type="checkbox" ${filters.domain.has(d) ? 'checked' : ''} onclick="event.stopPropagation()">
+                    <input type="checkbox" ${filters.domain.has(d) ? 'checked' : ''}>
                     <label class="flex justify-between w-full cursor-pointer">
                         <span class="${filters.domain.has(d) ? 'text-slate-900' : 'text-slate-400'}">${d}</span>
                         <span class="text-blue-600 font-bold">${apiData.filter(x => x.domain === d).length}</span>
@@ -284,20 +283,29 @@
                 </div>
             `).join('');
 
-            // Toggle Deselect All button
+            const counts = {}; data.forEach(i => counts[i.domain] = (counts[i.domain] || 0) + 1);
+            const top = Object.keys(counts).sort((a,b) => counts[b] - counts[a]).slice(0,3);
+            document.getElementById('domainPills').innerHTML = top.map(d => `<span class="bg-blue-600 text-white px-2 py-0.5 rounded text-[9px] font-black">${d.toUpperCase()}</span>`).join('');
+            
             document.getElementById('domainDeselect').disabled = filters.domain.size === 0;
+            document.getElementById('counter').innerText = `${data.length} / ${apiData.length} NODES`;
+            document.getElementById('resetBtn').classList.toggle('active', data.length < apiData.length);
         }
 
-        function updateVisualIndicators() {
+        function updateDropdownVisuals() {
             ['domain', 'pricing_model', 'scope'].forEach(key => {
-                const id = `dd-${key === 'pricing_model' ? 'model' : key}`;
-                const trigger = document.querySelector(`#${id} .dropdown-trigger`);
-                const allPossible = new Set(apiData.map(i => i[key])).size;
-                const isFiltered = filters[key].size < allPossible;
+                const trig = document.querySelector(`#dd-${key} .dropdown-trigger`);
+                const allLen = new Set(apiData.map(i => i[key])).size;
+                const isFilt = filters[key].size < allLen;
                 
-                trigger.classList.toggle('filtered', isFiltered);
-                trigger.querySelector('.label').innerText = isFiltered ? `${filters[key].size} Selected` : `All ${key.replace('_',' ')}s`;
-                trigger.querySelector('i').className = isFiltered ? 'fas fa-filter text-[12px] mr-2' : 'fas fa-chevron-down text-[12px] mr-2';
+                trig.classList.toggle('filtered', isFilt);
+                trig.querySelector('.label').innerText = isFilt ? `${filters[key].size} Selected` : `All ${key.replace('_',' ')}s`;
+                trig.querySelector('i').className = isFilt ? 'fas fa-filter mr-2' : 'fas fa-chevron-down mr-2';
+                
+                document.querySelectorAll(`#dd-${key} input`).forEach(input => {
+                    const val = input.id.split('-').pop();
+                    input.checked = filters[key].has(val);
+                });
             });
         }
 
@@ -307,6 +315,12 @@
                 const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean);
                 vals.forEach(v => filters[key].add(v));
             });
+            render();
+        }
+
+        function sortTable(col) {
+            if(sortCol === col) sortDir *= -1;
+            else { sortCol = col; sortDir = 1; }
             render();
         }
 
