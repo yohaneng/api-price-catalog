@@ -4,152 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Price Catalog | Research Dashboard</title>
-    <script>
-    let apiData = [];
-    let sortColumn = '';
-    let sortDirection = 1;
-
-    async function init() {
-        const tableBody = document.getElementById('tableBody');
-        try {
-            // Added cache: 'no-cache' to force GitHub to show latest data
-            const response = await fetch('./dataset_400.json', { cache: 'no-cache' });
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            apiData = await response.json();
-            
-            if (!apiData || apiData.length === 0) {
-                tableBody.innerHTML = '<tr><td colspan="4" class="p-10 text-center text-orange-500 font-bold">The JSON file is empty.</td></tr>';
-                return;
-            }
-
-            populateDropdown('domainFilter', 'domain');
-            populateDropdown('modelFilter', 'pricing_model');
-            populateDropdown('scopeFilter', 'scope');
-            renderTable(apiData);
-            
-            ['searchInput', 'domainFilter', 'modelFilter', 'scopeFilter'].forEach(id => {
-                document.getElementById(id).addEventListener('input', applyFilters);
-            });
-
-        } catch (error) {
-            tableBody.innerHTML = `<tr><td colspan="4" class="p-10 text-center text-red-500">
-                <p class="font-bold">Error loading data!</p>
-                <p class="text-xs mt-2">${error.message}</p>
-                <p class="text-xs">Ensure "dataset_400.json" is in the same folder as index.html</p>
-            </td></tr>`;
-        }
-    }
-
-    function populateDropdown(elementId, key) {
-        const dropdown = document.getElementById(elementId);
-        const uniqueValues = [...new Set(apiData.map(item => item[key]))].filter(Boolean).sort();
-        dropdown.innerHTML = `<option value="">All ${key.replace('_', ' ')}s</option>` + 
-            uniqueValues.map(val => `<option value="${val}">${val}</option>`).join('');
-    }
-
-    function renderTable(data) {
-        const tableBody = document.getElementById('tableBody');
-        if (data.length === 0) {
-            tableBody.innerHTML = '<tr><td colspan="4" class="p-10 text-center text-slate-400">No matching APIs found.</td></tr>';
-            return;
-        }
-        tableBody.innerHTML = data.map(api => `
-            <tr class="hover:bg-blue-50 transition-colors border-b border-slate-100">
-                <td class="px-6 py-4">
-                    <a href="${api.pricing_url}" target="_blank" class="text-blue-600 font-bold hover:underline">${api.name}</a>
-                </td>
-                <td class="px-6 py-4 text-sm text-slate-600">${api.domain || 'N/A'}</td>
-                <td class="px-6 py-4 text-sm text-slate-700 font-medium">${api.pricing_model || 'N/A'}</td>
-                <td class="px-6 py-4">
-                    <span class="${api.current_price ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-400'} px-3 py-1 rounded-full text-xs font-bold">
-                        ${api.current_price || 'Updating...'}
-                    </span>
-                </td>
-            </tr>
-        `).join('');
-    }
-
-    function applyFilters() {
-        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-        const domainTerm = document.getElementById('domainFilter').value;
-        const modelTerm = document.getElementById('modelFilter').value;
-        const scopeTerm = document.getElementById('scopeFilter').value;
-
-        const filtered = apiData.filter(item => {
-            return (item.name.toLowerCase().includes(searchTerm)) &&
-                   (domainTerm === "" || item.domain === domainTerm) &&
-                   (modelTerm === "" || item.pricing_model === modelTerm) &&
-                   (scopeTerm === "" || item.scope === scopeTerm);
-        });
-        renderTable(filtered);
-    }
-
-    function sortTable(column) {
-        if (sortColumn === column) {
-            sortDirection *= -1;
-        } else {
-            sortColumn = column;
-            sortDirection = 1;
-        }
-
-        const sortedData = [...apiData].sort((a, b) => {
-            const valA = (a[column] || '').toString().toLowerCase();
-            const valB = (b[column] || '').toString().toLowerCase();
-            return valA < valB ? -sortDirection : (valA > valB ? sortDirection : 0);
-        });
-
-        renderTable(sortedData);
-    }
-
-    init();
-</script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="bg-slate-50 min-h-screen p-4 md:p-8 font-sans">
     <div class="max-w-7xl mx-auto">
-        <header class="mb-10">
-            <h1 class="text-4xl font-extrabold text-slate-900 mb-2">API Pricing Catalog</h1>
-            <p class="text-slate-600 text-lg">A research-driven directory of 400+ APIs with advanced filtering and sorting.</p>
+        <header class="mb-10 text-center md:text-left">
+            <h1 class="text-4xl font-extrabold text-slate-900 mb-2 tracking-tight">API Pricing Catalog</h1>
+            <p class="text-slate-600 text-lg">A live audit of 400+ APIs for PhD research on Digital Transparency.</p>
         </header>
 
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-8 space-y-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div class="md:col-span-1">
-                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Search APIs</label>
-                    <input type="text" id="searchInput" placeholder="Search by name..." class="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none border-slate-300">
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Search</label>
+                    <input type="text" id="searchInput" placeholder="Search by name..." class="w-full p-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Domain</label>
-                    <select id="domainFilter" class="w-full p-2.5 border rounded-lg bg-white border-slate-300 outline-none focus:ring-2 focus:ring-blue-500"></select>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Domain</label>
+                    <select id="domainFilter" class="w-full p-3 border border-slate-200 rounded-xl bg-white outline-none focus:ring-2 focus:ring-blue-500"></select>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Pricing Model</label>
-                    <select id="modelFilter" class="w-full p-2.5 border rounded-lg bg-white border-slate-300 outline-none focus:ring-2 focus:ring-blue-500"></select>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Pricing Model</label>
+                    <select id="modelFilter" class="w-full p-3 border border-slate-200 rounded-xl bg-white outline-none focus:ring-2 focus:ring-blue-500"></select>
                 </div>
-                 <div>
-                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Scope</label>
-                    <select id="scopeFilter" class="w-full p-2.5 border rounded-lg bg-white border-slate-300 outline-none focus:ring-2 focus:ring-blue-500"></select>
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Scope</label>
+                    <select id="scopeFilter" class="w-full p-3 border border-slate-200 rounded-xl bg-white outline-none focus:ring-2 focus:ring-blue-500"></select>
                 </div>
             </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-slate-200" id="apiTable">
-                    <thead class="bg-slate-100">
+                    <thead class="bg-slate-50">
                         <tr>
-                            <th onclick="sortTable('name')" class="px-6 py-4 text-left text-xs font-bold text-slate-600 uppercase tracking-wider cursor-pointer hover:bg-slate-200 transition-colors">
-                                Name <i class="fa-solid fa-sort ml-1 opacity-50"></i>
-                            </th>
-                            <th onclick="sortTable('domain')" class="px-6 py-4 text-left text-xs font-bold text-slate-600 uppercase tracking-wider cursor-pointer hover:bg-slate-200 transition-colors">
-                                Domain <i class="fa-solid fa-sort ml-1 opacity-50"></i>
-                            </th>
-                            <th onclick="sortTable('pricing_model')" class="px-6 py-4 text-left text-xs font-bold text-slate-600 uppercase tracking-wider cursor-pointer hover:bg-slate-200 transition-colors">
-                                Pricing Model <i class="fa-solid fa-sort ml-1 opacity-50"></i>
-                            </th>
-                            <th onclick="sortTable('current_price')" class="px-6 py-4 text-left text-xs font-bold text-slate-600 uppercase tracking-wider cursor-pointer hover:bg-slate-200 transition-colors">
-                                Current Price <i class
+                            <th onclick="sortTable('name')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600 transition-colors">Name <i class="fas fa-sort ml-1"></i></th>
+                            <th onclick="sortTable('domain')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600 transition-colors">Domain <i class="fas fa-sort ml-1"></i></th>
+                            <th onclick="sortTable('pricing_model')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600 transition-colors">Model <i class="fas fa-sort ml-1"></i></th>
+                            <th onclick="sortTable('current_price')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600 transition-colors">Current Price <i class="fas fa-sort ml-1"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody" class="divide-y divide-slate-100 bg-white">
+                        <tr><td colspan="4" class="p-20 text-center text-slate-400 animate-pulse">Initializing data audit...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let apiData = [];
+        let sortDirection = 1;
+
+        async function init() {
+            const tableBody = document.getElementById('tableBody');
+            try {
+                // Try both possible filenames to be 100% sure
+                let response = await fetch('./Dataset_400.json', { cache: 'no-cache' });
+                if (!response.ok) response = await fetch('./dataset_400.json', { cache: 'no-cache' });
+                
+                if (!response.ok) throw new Error("Could not locate data file.");
+
+                apiData = await response.json();
+                
+                populateDropdown('domainFilter', 'domain');
+                populateDropdown('modelFilter', 'pricing_model');
+                populateDropdown('scopeFilter', 'scope');
+
+                renderTable(apiData);
+                
+                ['searchInput', 'domainFilter', 'modelFilter', 'scopeFilter'].forEach(id => {
+                    document.getElementById(id).addEventListener('input', applyFilters);
+                });
+            } catch (err) {
+                tableBody.innerHTML = `<tr><td colspan="4" class="p-20 text-center"><div class="text-red-500 font-bold">Data Link Broken</div><div class="text-slate-400 text-sm mt-2">${err.message}</div></td></tr>`;
+            }
+        }
+
+        function populateDropdown(id, key) {
+            const el = document.getElementById(id);
+            const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean).sort();
+            el.innerHTML = `<option value="">All ${key.split('_').join(' ')}s</option>` + 
+                vals.map(v => `<option value="${v}">${v}</option>`).join('');
+        }
+
+        function renderTable(data) {
+            const body = document.getElementById('tableBody');
+            if (!data.length) {
+                body.innerHTML = '<tr><td colspan="4" class="p-20 text-center text-slate-400 font-medium">No results found matching your filters.</td></tr>';
+                return;
+            }
+            body.innerHTML = data.map(api => `
+                <tr class="hover:bg-slate-50/80 transition-all">
+                    <td class="px-6 py-5">
+                        <a href="${api.pricing_url}" target="_blank" class="text-blue-600 font-bold hover:text-blue-800 transition-colors">${api.name}</a>
+                    </td>
+                    <td class="px-6 py-5 text-sm text-slate-500">${api.domain || 'General'}</td>
+                    <td class="px-6 py-5 text-sm font-medium text-slate-700">${api.pricing_model || 'Unknown'}</td>
+                    <td class="px-6 py-5">
+                        <span class="${api.current_price ? 'bg-green-100 text-green-700 border-green-200' : 'bg-slate-100 text-slate-400 border-slate-200'} px-3 py-1 rounded-full text-xs font-bold border">
+                            ${api.current_price || 'Updating...'}
+                        </span>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function applyFilters() {
+            const s = document.getElementById('searchInput').value.toLowerCase();
+            const d = document.getElementById('domainFilter').value;
+            const m = document.getElementById('modelFilter').value;
+            const sc = document.getElementById('scopeFilter').value;
+
+            const filtered = apiData.filter(i => 
+                (i.name.toLowerCase().includes(s)) &&
+                (d === "" || i.domain === d) &&
+                (m === "" || i.pricing_model === m) &&
+                (sc === "" || i.scope === sc)
+            );
+            renderTable(filtered);
+        }
+
+        function sortTable(col) {
+            sortDirection *= -1;
+            const sorted = [...apiData].sort((a, b) => {
+                const x = (a[col] || '').toString().toLowerCase();
+                const y = (b[col] || '').toString().toLowerCase();
+                return x < y ? -sortDirection : (x > y ? sortDirection : 0);
+            });
+            renderTable(sorted);
+        }
+
+        init();
+    </script>
+</body>
+</html>
