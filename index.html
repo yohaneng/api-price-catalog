@@ -11,7 +11,7 @@
         body { font-family: 'Inter', sans-serif; background: #fcfdfe; }
         .glass-header { position: sticky; top: 0; z-index: 100; background: rgba(248, 250, 252, 0.98); backdrop-filter: blur(24px); border-bottom: 2px solid #e2e8f0; }
 
-        /* Pricing Colors */
+        /* Status Colors */
         .price-free { color: #10b981 !important; font-weight: 800; } 
         .price-paid { color: #3b82f6 !important; font-weight: 800; } 
         .price-sales { color: #f59e0b !important; font-weight: 800; } 
@@ -29,7 +29,6 @@
         #specFreemium { background: #3b82f6; transition: width 0.5s ease; }
         #specPaid { background: #f59e0b; transition: width 0.5s ease; }
 
-        /* Reset Button Logic */
         #resetBtn { transition: all 0.3s ease; opacity: 0.3; filter: grayscale(1); pointer-events: none; }
         #resetBtn.active { opacity: 1; filter: grayscale(0); pointer-events: auto; background: #3b82f6; color: white; border-color: #3b82f6; }
 
@@ -37,7 +36,7 @@
         .check-item { display: flex; align-items: center; gap: 12px; padding: 10px 16px; cursor: pointer; transition: background 0.1s; }
         .check-item:hover { background: #f8fafc; }
         .check-item input { width: 16px; height: 16px; accent-color: #3b82f6; cursor: pointer; }
-        .inner-search { width: 100%; padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 12px; outline: none; margin-bottom: 8px; }
+        .inner-search { width: calc(100% - 24px); padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 12px; outline: none; margin: 12px; }
     </style>
 </head>
 <body class="text-slate-900" onclick="closeAllDropdowns(event)">
@@ -73,11 +72,11 @@
                 <div class="custom-dropdown" id="dd-domain">
                     <div class="dropdown-trigger" onclick="toggleDropdown('dd-domain')"><span class="label">All Domains</span><i class="fas fa-chevron-down"></i></div>
                     <div class="dropdown-menu">
-                        <div class="p-3 sticky top-0 bg-white border-b">
-                            <div class="check-item p-0 mb-2" onclick="toggleAll('domain')">
-                                <input type="checkbox" id="master-domain"> <span class="text-[10px] font-black uppercase">Select All</span>
+                        <div class="sticky top-0 bg-white border-b z-10">
+                            <div class="check-item" onclick="toggleAll('domain')">
+                                <input type="checkbox" id="master-domain"> <span class="text-[10px] font-black uppercase">Select All Categories</span>
                             </div>
-                            <input type="text" placeholder="Search..." onkeyup="filterDropdown(this, 'list-domain')" class="inner-search">
+                            <input type="text" placeholder="Search categories..." onkeyup="filterDropdown(this, 'list-domain')" class="inner-search">
                         </div>
                         <div id="list-domain"></div>
                     </div>
@@ -86,9 +85,9 @@
                 <div class="custom-dropdown" id="dd-pricing_model">
                     <div class="dropdown-trigger" onclick="toggleDropdown('dd-pricing_model')"><span class="label">All Types</span><i class="fas fa-chevron-down"></i></div>
                     <div class="dropdown-menu">
-                        <div class="p-3 sticky top-0 bg-white border-b">
-                            <div class="check-item p-0" onclick="toggleAll('pricing_model')">
-                                <input type="checkbox" id="master-pricing_model"> <span class="text-[10px] font-black uppercase">Select All</span>
+                        <div class="sticky top-0 bg-white border-b z-10">
+                            <div class="check-item" onclick="toggleAll('pricing_model')">
+                                <input type="checkbox" id="master-pricing_model"> <span class="text-[10px] font-black uppercase">Select All Types</span>
                             </div>
                         </div>
                         <div id="list-pricing_model"></div>
@@ -98,9 +97,9 @@
                 <div class="custom-dropdown" id="dd-scope">
                     <div class="dropdown-trigger" onclick="toggleDropdown('dd-scope')"><span class="label">All Scopes</span><i class="fas fa-chevron-down"></i></div>
                     <div class="dropdown-menu">
-                        <div class="p-3 sticky top-0 bg-white border-b">
-                            <div class="check-item p-0" onclick="toggleAll('scope')">
-                                <input type="checkbox" id="master-scope"> <span class="text-[10px] font-black uppercase">Select All</span>
+                        <div class="sticky top-0 bg-white border-b z-10">
+                            <div class="check-item" onclick="toggleAll('scope')">
+                                <input type="checkbox" id="master-scope"> <span class="text-[10px] font-black uppercase">Select All Scopes</span>
                             </div>
                         </div>
                         <div id="list-scope"></div>
@@ -115,10 +114,10 @@
                     <tr>
                         <th onclick="sortTable('name')" class="w-[20%] py-4 pl-10 text-left text-[11px] font-black uppercase tracking-[0.2em] cursor-pointer">IDENTITY</th>
                         <th class="w-[30%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em]">DESCRIPTION</th>
-                        <th onclick="sortTable('domain')" class="w-[12%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em] cursor-pointer">DOMAIN</th>
+                        <th class="w-[12%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em]">DOMAIN</th>
                         <th class="w-[10%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em]">SCOPE</th>
                         <th class="w-[12%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em]">MODEL</th>
-                        <th onclick="sortTable('current_price')" class="w-[16%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em] cursor-pointer">LIVE STATUS</th>
+                        <th class="w-[16%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em]">LIVE PRICE</th>
                     </tr>
                 </thead>
             </table>
@@ -182,63 +181,62 @@
             filtered.sort((a,b) => (a[sortCol] > b[sortCol] ? 1 : -1) * sortDir);
 
             document.getElementById('tableBody').innerHTML = filtered.map(api => {
-                const price = api.current_price || "PENDING AUDIT";
+                const price = api.current_price || "PENDING";
                 let colorClass = "text-slate-400";
-                if (price.includes("Free")) colorClass = "price-free";
-                else if (price.includes("Paid")) colorClass = "price-paid";
-                else if (price.includes("Sales")) colorClass = "price-sales";
+                if (price.includes("$0") || price.toLowerCase().includes("free")) colorClass = "price-free";
+                else if (price.includes("$")) colorClass = "price-paid";
+                else if (price.toLowerCase().includes("sales")) colorClass = "price-sales";
                 else if (price.includes("Error")) colorClass = "price-error";
 
                 return `
                 <tr class="clickable-row bg-white hover:bg-slate-50" onclick="window.open('${api.pricing_url}', '_blank')">
                     <td class="w-[20%] py-5 pl-10 pr-4 font-black text-blue-600">${api.name}</td>
-                    <td class="w-[30%] py-5 pr-12 text-[12px] text-slate-500 font-medium">${api.description || '...'}</td>
+                    <td class="w-[30%] py-5 pr-12 text-[12px] text-slate-500 font-medium leading-tight">${api.description || '...'}</td>
                     <td class="w-[12%] py-5 text-[10px] font-bold text-slate-400 uppercase">${api.domain}</td>
                     <td class="w-[10%] py-5 text-[10px] font-bold text-slate-400 uppercase">${api.scope}</td>
                     <td class="w-[12%] py-5 text-[11px] text-slate-700 font-bold">${api.pricing_model}</td>
-                    <td class="w-[16%] py-5 text-[11px] uppercase tracking-tighter ${colorClass}">${price}</td>
+                    <td class="w-[16%] py-5 text-[11px] font-black uppercase tracking-tighter ${colorClass}">${price}</td>
                 </tr>
             `}).join('');
 
-            updateInfographics(filtered);
             updateUI(filtered);
         }
 
         function updateUI(filtered) {
+            // Update Infographics with exact price detection
+            const total = filtered.length || 1;
+            const f = filtered.filter(i => (i.current_price || '').toLowerCase().includes('free')).length;
+            const p = filtered.filter(i => (i.current_price || '').includes('$')).length;
+            const s = filtered.filter(i => (i.current_price || '').toLowerCase().includes('sales')).length;
+
+            document.getElementById('specFree').style.width = (f / total * 100) + '%';
+            document.getElementById('specFreemium').style.width = (p / total * 100) + '%';
+            document.getElementById('specPaid').style.width = (s / total * 100) + '%';
+
+            // Update Master Checkboxes & Dropdown Labels
             ['domain', 'pricing_model', 'scope'].forEach(key => {
-                const total = [...new Set(apiData.map(i => i[key]))].filter(Boolean).length;
+                const totalVals = [...new Set(apiData.map(i => i[key]))].filter(Boolean).length;
                 const count = filters[key].size;
                 const master = document.getElementById(`master-${key}`);
-                master.checked = count === total;
-                master.indeterminate = count > 0 && count < total;
+                if(master) {
+                    master.checked = count === totalVals;
+                    master.indeterminate = count > 0 && count < totalVals;
+                }
 
                 const trig = document.querySelector(`#dd-${key} .dropdown-trigger`);
-                trig.classList.toggle('filtered', count < total);
-                trig.querySelector('.label').innerText = count < total ? `${count} Selected` : `All ${key === 'pricing_model' ? 'Types' : key + 's'}`;
+                trig.classList.toggle('filtered', count < totalVals);
+                trig.querySelector('.label').innerText = count < totalVals ? `${count} Selected` : `All ${key === 'pricing_model' ? 'Types' : key + 's'}`;
 
-                // Sync internal checkboxes
                 document.querySelectorAll(`#list-${key} input`).forEach(cb => {
                     const val = cb.parentElement.innerText.split('\n')[0].trim();
                     cb.checked = filters[key].has(val);
                 });
             });
 
-            document.getElementById('resetBtn').classList.toggle('active', filtered.length < apiData.length);
-            document.getElementById('counter').innerText = `${filtered.length} / ${apiData.length} NODES`;
-        }
-
-        function updateInfographics(data) {
-            const total = data.length || 1;
-            const f = data.filter(i => (i.current_price || '').includes('Free')).length;
-            const p = data.filter(i => (i.current_price || '').includes('Paid')).length;
-            const s = data.filter(i => (i.current_price || '').includes('Sales')).length;
-
-            document.getElementById('specFree').style.width = (f / total * 100) + '%';
-            document.getElementById('specFreemium').style.width = (p / total * 100) + '%';
-            document.getElementById('specPaid').style.width = (s / total * 100) + '%';
-
             const dates = apiData.map(d => d.last_audited).filter(Boolean).sort().reverse();
             document.getElementById('audit-timestamp').innerText = `LAST LIVE AUDIT: ${dates[0] || 'STALE'}`;
+            document.getElementById('counter').innerText = `${filtered.length} / ${apiData.length} NODES`;
+            document.getElementById('resetBtn').classList.toggle('active', filtered.length < apiData.length);
         }
 
         function filterDropdown(input, listId) {
