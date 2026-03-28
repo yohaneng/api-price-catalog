@@ -20,7 +20,7 @@
             border-bottom: 2px solid #e2e8f0;
         }
 
-        /* CATEGORY OVERLAY STYLES */
+        /* STICKY OVERLAY HEADER */
         #categoryOverlay {
             display: none;
             position: absolute;
@@ -33,8 +33,16 @@
             border: 1px solid #e2e8f0;
             border-radius: 16px;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            padding: 16px;
             z-index: 150;
+        }
+
+        .overlay-sticky-header {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 16px;
+            border-bottom: 1px solid #f1f5f9;
+            z-index: 10;
         }
 
         #topDomainsBox:hover #categoryOverlay { display: block; }
@@ -75,8 +83,8 @@
         .hover-hint { color: #3b82f6; font-size: 10px; font-weight: 700; opacity: 0; transition: 0.2s; margin-left: 8px; display: inline-flex; align-items: center; gap: 4px; }
         .clickable-row:hover .hover-hint { opacity: 1; }
 
-        /* CUSTOM CHECKBOX STYLE */
-        .check-container { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 4px 0; }
+        .check-container { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 6px 16px; transition: background 0.2s; }
+        .check-container:hover { background: #f8fafc; }
         .check-container input { cursor: pointer; width: 14px; height: 14px; }
     </style>
 </head>
@@ -116,11 +124,14 @@
                         <div id="domainPills" class="flex gap-2 mt-1.5"></div>
                         
                         <div id="categoryOverlay">
-                            <div class="flex justify-between items-center mb-3 border-b pb-2">
+                            <div class="overlay-sticky-header flex justify-between items-center">
                                 <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Select Domains</p>
-                                <button onclick="clearDomainSelection()" class="text-[9px] font-bold text-blue-600 hover:underline">Select All</button>
+                                <div class="flex gap-3">
+                                    <button onclick="selectAllDomains()" class="text-[9px] font-bold text-blue-600 hover:underline">Select All</button>
+                                    <button onclick="deselectAllDomains()" class="text-[9px] font-bold text-red-500 hover:underline">Deselect All</button>
+                                </div>
                             </div>
-                            <div id="fullCategoryList" class="space-y-1"></div>
+                            <div id="fullCategoryList" class="pb-4"></div>
                         </div>
                     </div>
                 </div>
@@ -142,11 +153,12 @@
                 </div>
             </header>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-2">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-2">
                 <div class="relative group">
                     <input type="text" id="searchInput" placeholder="Search API Name..." class="w-full p-2.5 pl-11 border-2 border-slate-200 rounded-xl bg-white focus:ring-4 focus:ring-blue-500/10 outline-none text-sm font-semibold transition-all">
                     <i class="fas fa-search absolute left-4 top-3.5 text-slate-300 group-focus-within:text-blue-500"></i>
                 </div>
+                <select id="domainFilter" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 cursor-pointer"></select>
                 <select id="modelFilter" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 cursor-pointer"></select>
                 <select id="scopeFilter" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 cursor-pointer"></select>
             </div>
@@ -157,10 +169,11 @@
                 <thead>
                     <tr>
                         <th onclick="sortTable('name')" class="w-[20%] py-3.5 pl-10 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 group">API IDENTITY <i class="fas fa-sort ml-1 opacity-20"></i></th>
-                        <th class="w-[38%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em]">DESCRIPTION</th>
-                        <th onclick="sortTable('domain')" class="w-[15%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">DOMAIN</th>
+                        <th class="w-[30%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em]">DESCRIPTION</th>
+                        <th onclick="sortTable('domain')" class="w-[12%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">DOMAIN</th>
+                        <th onclick="sortTable('scope')" class="w-[10%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">SCOPE</th>
                         <th onclick="sortTable('pricing_model')" class="w-[12%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">TYPE</th>
-                        <th onclick="sortTable('current_price')" class="w-[15%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">PRICING</th>
+                        <th onclick="sortTable('current_price')" class="w-[16%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">PRICING</th>
                     </tr>
                 </thead>
             </table>
@@ -184,15 +197,24 @@
                 if (!response.ok) response = await fetch('./Dataset_400.json', { cache: 'no-cache' });
                 apiData = await response.json();
                 
-                // Set initial domains to all
                 apiData.forEach(i => selectedDomains.add(i.domain));
                 
+                populateDropdown('domainFilter', 'domain');
                 populateDropdown('modelFilter', 'pricing_model');
                 populateDropdown('scopeFilter', 'scope');
                 renderTable(apiData);
                 
-                ['searchInput', 'modelFilter', 'scopeFilter'].forEach(id => {
-                    document.getElementById(id).addEventListener('input', () => { applyFilters(); toggleResetBtn(); });
+                ['searchInput', 'domainFilter', 'modelFilter', 'scopeFilter'].forEach(id => {
+                    document.getElementById(id).addEventListener('input', (e) => { 
+                        if(e.target.id === 'domainFilter' && e.target.value !== "") {
+                            selectedDomains.clear();
+                            selectedDomains.add(e.target.value);
+                        } else if (e.target.id === 'domainFilter' && e.target.value === "") {
+                            selectAllDomains();
+                        }
+                        applyFilters(); 
+                        toggleResetBtn(); 
+                    });
                 });
                 
                 window.addEventListener('scroll', () => {
@@ -203,34 +225,29 @@
 
         function updateInfographics(filteredData) {
             const total = filteredData.length || 1;
-            
-            // 1. Model Ratio
             const free = (filteredData.filter(i => i.pricing_model === 'Free').length / total) * 100;
             const freemium = (filteredData.filter(i => i.pricing_model === 'Freemium').length / total) * 100;
             document.getElementById('specFree').style.width = free + '%';
             document.getElementById('specFreemium').style.width = freemium + '%';
             document.getElementById('specPaid').style.width = (100 - free - freemium) + '%';
 
-            // 2. Diversity
             const globalCount = filteredData.filter(i => i.scope === 'Global').length;
             document.getElementById('diversityStat').innerText = Math.round((globalCount / total) * 100) + '% Global';
 
-            // 3. Dynamic Category List with Checkboxes
             const allCounts = {};
             apiData.forEach(i => allCounts[i.domain] = (allCounts[i.domain] || 0) + 1);
             const sortedDomains = Object.keys(allCounts).sort((a,b) => allCounts[b] - allCounts[a]);
 
             document.getElementById('fullCategoryList').innerHTML = sortedDomains.map(d => `
-                <div class="check-container">
+                <div class="check-container" onclick="event.stopPropagation();">
                     <input type="checkbox" id="check-${d}" ${selectedDomains.has(d) ? 'checked' : ''} onchange="toggleDomain('${d}')">
-                    <label for="check-${d}" class="flex justify-between w-full text-[11px] font-bold">
+                    <label for="check-${d}" class="flex justify-between w-full text-[11px] font-bold cursor-pointer">
                         <span class="${selectedDomains.has(d) ? 'text-slate-900' : 'text-slate-400'}">${d}</span>
                         <span class="text-blue-600 bg-blue-50 px-2 rounded-full">${allCounts[d]}</span>
                     </label>
                 </div>
             `).join('');
 
-            // Pills for Top 3 Selected
             const displayPills = Array.from(selectedDomains).slice(0, 3);
             document.getElementById('domainPills').innerHTML = displayPills.map(d => 
                 `<span class="bg-blue-600 text-white px-2 py-0.5 rounded text-[9px] font-black">${d.toUpperCase()}</span>`
@@ -244,29 +261,40 @@
             toggleResetBtn();
         }
 
-        function clearDomainSelection() {
+        function selectAllDomains() {
             apiData.forEach(i => selectedDomains.add(i.domain));
+            applyFilters();
+            toggleResetBtn();
+        }
+
+        function deselectAllDomains() {
+            selectedDomains.clear();
             applyFilters();
             toggleResetBtn();
         }
 
         function toggleResetBtn() {
             const hasInput = document.getElementById('searchInput').value !== '';
-            const isPartialDomains = selectedDomains.size < new Set(apiData.map(i => i.domain)).size;
-            document.getElementById('resetBtn').classList.toggle('active', hasInput || isPartialDomains);
+            const hasD = document.getElementById('domainFilter').value !== '';
+            const hasM = document.getElementById('modelFilter').value !== '';
+            const hasS = document.getElementById('scopeFilter').value !== '';
+            const allDomainsCount = new Set(apiData.map(i => i.domain)).size;
+            const isPartialDomains = selectedDomains.size < allDomainsCount;
+            
+            const btn = document.getElementById('resetBtn');
+            if (hasInput || hasD || hasM || hasS || isPartialDomains) btn.classList.add('active');
+            else btn.classList.remove('active');
         }
 
         function clearFilters() {
-            document.getElementById('searchInput').value = '';
-            document.getElementById('modelFilter').value = '';
-            document.getElementById('scopeFilter').value = '';
-            clearDomainSelection();
+            ['searchInput', 'domainFilter', 'modelFilter', 'scopeFilter'].forEach(id => document.getElementById(id).value = '');
+            selectAllDomains();
         }
 
         function populateDropdown(id, key) {
             const el = document.getElementById(id);
             const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean).sort();
-            el.innerHTML = `<option value="">ALL ${key.toUpperCase()}S</option>` + vals.map(v => `<option value="${v}">${v.toUpperCase()}</option>`).join('');
+            el.innerHTML = `<option value="">ALL ${key.toUpperCase()}S</option>` + vals.map(v => `<option value="${v}">${v.toUpperCase()} (${apiData.filter(x => x[key] === v).length})</option>`).join('');
         }
 
         function renderTable(data) {
@@ -275,7 +303,7 @@
             updateInfographics(data);
 
             if (data.length === 0) {
-                body.innerHTML = '<tr><td colspan="5" class="py-32 text-center text-slate-300 font-bold uppercase tracking-widest text-sm">No Results Found</td></tr>';
+                body.innerHTML = '<tr><td colspan="6" class="py-32 text-center text-slate-300 font-bold uppercase tracking-widest text-sm">No Results Found</td></tr>';
                 return;
             }
             body.innerHTML = data.map(api => `
@@ -284,10 +312,11 @@
                         <span class="text-blue-600 font-black text-[15px] tracking-tight group-hover:text-blue-800 transition-colors">${api.name}</span>
                         <span class="hover-hint">visit site <i class="fas fa-chevron-right ml-1"></i></span>
                     </td>
-                    <td class="w-[38%] py-5 pr-12 text-[13px] text-slate-500 font-semibold leading-relaxed relative">${api.description || '...'}</td>
-                    <td class="w-[15%] py-5 text-[11px] font-black text-slate-400 uppercase tracking-tighter">${api.domain || 'N/A'}</td>
+                    <td class="w-[30%] py-5 pr-12 text-[13px] text-slate-500 font-semibold leading-relaxed">${api.description || '...'}</td>
+                    <td class="w-[12%] py-5 text-[11px] font-black text-slate-400 uppercase tracking-tighter">${api.domain || 'N/A'}</td>
+                    <td class="w-[10%] py-5 text-[11px] font-black text-slate-400 uppercase tracking-tighter">${api.scope || 'N/A'}</td>
                     <td class="w-[12%] py-5 text-[12px] text-slate-700 font-black tracking-tighter">${api.pricing_model || 'N/A'}</td>
-                    <td class="w-[15%] py-5 text-[11px] font-black uppercase tracking-tighter ${api.current_price ? 'text-emerald-600' : 'text-slate-300'}">
+                    <td class="w-[16%] py-5 text-[11px] font-black uppercase tracking-tighter ${api.current_price ? 'text-emerald-600' : 'text-slate-300'}">
                         ${api.current_price || 'AUDITING'}
                     </td>
                 </tr>
@@ -296,12 +325,14 @@
 
         function applyFilters() {
             const s = document.getElementById('searchInput').value.toLowerCase();
+            const d = document.getElementById('domainFilter').value;
             const m = document.getElementById('modelFilter').value;
             const sc = document.getElementById('scopeFilter').value;
 
             const filtered = apiData.filter(i => 
                 (i.name.toLowerCase().includes(s)) &&
                 (selectedDomains.has(i.domain)) &&
+                (d === "" || i.domain === d) &&
                 (m === "" || i.pricing_model === m) &&
                 (sc === "" || i.scope === sc)
             );
