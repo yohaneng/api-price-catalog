@@ -238,17 +238,25 @@
         }
 
         function updateInfographics(data) {
-            const auditDates = apiData.map(d => d.last_audited).filter(Boolean);
-            const latest = auditDates.sort().reverse()[0] || "STALE DATA";
-            document.getElementById('audit-timestamp').innerText = `LAST LIVE AUDIT: ${latest}`;
+    const total = data.length || 1;
+    
+    // We use .includes() so it finds "Free" even inside "Verified: Free"
+    const freeCount = data.filter(i => (i.current_price || '').includes('Free')).length;
+    const paidCount = data.filter(i => (i.current_price || '').includes('Paid')).length;
+    const salesCount = data.filter(i => (i.current_price || '').includes('Sales')).length;
 
-            const total = data.length || 1;
-            document.getElementById('specFree').style.width = (data.filter(i => (i.current_price || '').includes('Free')).length / total * 100) + '%';
-            document.getElementById('specFreemium').style.width = (data.filter(i => (i.current_price || '').includes('Paid')).length / total * 100) + '%';
-            document.getElementById('specPaid').style.width = (data.filter(i => (i.current_price || '').includes('Sales')).length / total * 100) + '%';
+    // Update the colored bars
+    document.getElementById('specFree').style.width = (freeCount / total * 100) + '%';
+    document.getElementById('specFreemium').style.width = (paidCount / total * 100) + '%';
+    document.getElementById('specPaid').style.width = (salesCount / total * 100) + '%';
 
-            document.getElementById('counter').innerText = `${data.length} / ${apiData.length} NODES`;
-            document.getElementById('resetBtn').classList.toggle('active', data.length < apiData.length);
+    // Update the counter text
+    document.getElementById('counter').innerText = `${data.length} / ${apiData.length} NODES`;
+    
+    // Update the "Last Audit" timestamp
+    const auditDates = apiData.map(d => d.last_audited).filter(Boolean);
+    const latest = auditDates.sort().reverse()[0] || "STALE DATA";
+    document.getElementById('audit-timestamp').innerText = `LAST LIVE AUDIT: ${latest}`;
         }
 
         function applyFilters() {
