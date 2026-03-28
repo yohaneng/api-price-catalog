@@ -936,7 +936,8 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Financial data platform offering institutional-grade stock market data and financial statement metrics.",
-        "current_price": "Link Timeout/Error"
+        "current_price": "Link Error",
+        "last_audited": "2026-03-29"
     },
     {
         "name": "Polygon.io",
@@ -1425,7 +1426,8 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enterprise-grade generative AI API for creating high-quality images and vector assets from text.",
-        "current_price": "Link Timeout/Error"
+        "current_price": "Error 404",
+        "last_audited": "2026-03-29"
     },
     {
         "name": "Iconfinder API",
@@ -1474,7 +1476,8 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Subscription service providing a vast library of high-quality fonts for professional typography.",
-        "current_price": "Link Timeout/Error"
+        "current_price": "Free / Freemium",
+        "last_audited": "2026-03-29"
     },
     {
         "name": "Cloudflare API",
@@ -1603,7 +1606,8 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Distributed document-relational database with GraphQL support and multi-region ACID transactions.",
-        "current_price": "Link Timeout/Error"
+        "current_price": "Link Error",
+        "last_audited": "2026-03-29"
     },
     {
         "name": "PlanetScale API",
@@ -2012,7 +2016,8 @@
         "pricing_model": "Free",
         "scope": "Space",
         "description": "Public API providing access to European Space Agency satellite data and mission updates.",
-        "current_price": "Link Timeout/Error"
+        "current_price": "Link Error",
+        "last_audited": "2026-03-29"
     },
     {
         "name": "Open Targets",
@@ -2341,7 +2346,8 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "The Smithsonian's Design Museum API, providing data on historical and contemporary design artifacts.",
-        "current_price": "Link Timeout/Error"
+        "current_price": "Free / Freemium",
+        "last_audited": "2026-03-29"
     },
     {
         "name": "Cleveland Museum",
@@ -2350,7 +2356,8 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Open access API for the Cleveland Museum of Art's entire collection of global artworks.",
-        "current_price": "Link Timeout/Error"
+        "current_price": "Link Error",
+        "last_audited": "2026-03-29"
     },
     {
         "name": "Spotify Web API",
@@ -2439,7 +2446,8 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "A community-built movie and TV database providing posters, trailers, and cast information.",
-        "current_price": "Link Timeout/Error"
+        "current_price": "Link Error",
+        "last_audited": "2026-03-29"
     },
     {
         "name": "TVMaze API",
@@ -2608,7 +2616,8 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Access to the WayBack Machine and millions of free digital books, movies, and audio files.",
-        "current_price": "Link Timeout/Error"
+        "current_price": "Error 404",
+        "last_audited": "2026-03-29"
     },
     {
         "name": "DPLA API",
@@ -2817,7 +2826,8 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides data on BrewDog's beer catalog, including ingredients, ABV, and food pairing suggestions.",
-        "current_price": "Link Timeout/Error"
+        "current_price": "Link Error",
+        "last_audited": "2026-03-29"
     },
     {
         "name": "BreweryDB",
@@ -2866,7 +2876,8 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables search for restaurants, reviews, and menu data in thousands of cities globally.",
-        "current_price": "Link Timeout/Error"
+        "current_price": "Error 403",
+        "last_audited": "2026-03-29"
     },
     {
         "name": "Yelp Fusion API",
@@ -3265,7 +3276,8 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Provides developers with access to data for invoicing, payments, and accounting management.",
-        "current_price": "Link Timeout/Error"
+        "current_price": "Starts at $38",
+        "last_audited": "2026-03-29"
     },
     {
         "name": "Xero API",
@@ -3444,7 +3456,8 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Professional-grade API for high-fidelity PDF creation, conversion, and data extraction.",
-        "current_price": "Link Timeout/Error"
+        "current_price": "Error 404",
+        "last_audited": "2026-03-29"
     },
     {
         "name": "CloudConvert API",
@@ -3723,7 +3736,8 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Community-driven API providing characters, games, and monster data for Final Fantasy.",
-        "current_price": "Link Timeout/Error"
+        "current_price": "Link Error",
+        "last_audited": "2026-03-29"
     },
     {
         "name": "Google Maps",
