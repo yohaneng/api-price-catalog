@@ -25,12 +25,8 @@
             display: flex; justify-content: space-between; align-items: center; cursor: pointer;
             transition: all 0.2s;
         }
-        .dropdown-trigger:hover { border-color: #cbd5e1; }
         .dropdown-trigger.filtered { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
         .dropdown-trigger.filtered i { color: #3b82f6; }
-
-        /* INCREASED PADDING FOR ARROW */
-        .dropdown-trigger i { margin-left: auto; padding-left: 10px; }
 
         .dropdown-menu {
             display: none; position: absolute; top: 115%; left: 0; width: 100%;
@@ -42,15 +38,19 @@
 
         /* OVERLAY STYLES */
         #categoryOverlay {
-            display: none; position: absolute; top: 100%; left: 0; width: 340px;
-            max-height: 450px; overflow-y: auto; background: white;
+            display: none; position: absolute; top: 100%; left: 0; width: 360px;
+            max-height: 500px; overflow-y: auto; background: white;
             border: 1px solid #e2e8f0; border-radius: 20px; box-shadow: 0 25px 30px -5px rgba(0,0,0,0.1);
             z-index: 150;
         }
         #topDomainsBox:hover #categoryOverlay { display: block; }
-        .overlay-sticky-header { position: sticky; top: 0; background: white; padding: 16px; border-bottom: 1px solid #f1f5f9; z-index: 10; }
 
-        /* INFOGRAPHICS */
+        /* STICKY HEADER FOR DROPDOWNS & OVERLAY */
+        .overlay-sticky-header { 
+            position: sticky; top: 0; background: white; 
+            padding: 12px 16px; border-bottom: 1px solid #f1f5f9; z-index: 10;
+        }
+
         .spectrum-container { display: flex; height: 12px; width: 200px; border-radius: 12px; overflow: hidden; background: #e2e8f0; margin-top: 6px; }
         #specFree { background: #10b981; transition: width 0.5s ease; }
         #specFreemium { background: #3b82f6; transition: width 0.5s ease; }
@@ -59,22 +59,20 @@
         #resetBtn { transition: all 0.3s ease; opacity: 0.3; filter: grayscale(1); pointer-events: none; }
         #resetBtn.active { opacity: 1; filter: grayscale(0); pointer-events: auto; background: #ef4444; color: white; }
 
-        /* NON-BUTTON COUNTER STYLE */
-        #counter {
-            background: transparent; border: none; color: #64748b; font-weight: 800; font-size: 13px;
-            letter-spacing: 0.05em; padding: 0; min-width: auto; shadow: none;
-        }
-
         .table-fixed-head { background: #0f172a; color: white; }
-
-        /* CLICKABLE ROW WITH LEFT ACCENT */
         .clickable-row:hover { background-color: #f1f5f9 !important; box-shadow: inset 12px 0 0 0 #3b82f6; }
         
-        .check-item { display: flex; align-items: center; gap: 12px; padding: 10px 18px; cursor: pointer; transition: background 0.15s; }
+        .check-item { display: flex; align-items: center; gap: 12px; padding: 8px 16px; cursor: pointer; transition: background 0.1s; }
+        .check-item.hidden { display: none; }
         .check-item:hover { background: #f8fafc; }
-        .check-item input { pointer-events: none; width: 18px; height: 18px; accent-color: #3b82f6; }
+        .check-item input { pointer-events: none; width: 16px; height: 16px; accent-color: #3b82f6; }
 
-        button:disabled { opacity: 0.2; cursor: not-allowed; }
+        /* DROPDOWN SEARCH INPUT */
+        .inner-search {
+            width: 100%; padding: 6px 10px; border: 1px solid #e2e8f0; border-radius: 8px;
+            font-size: 11px; font-weight: 600; outline: none;
+        }
+        .inner-search:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
     </style>
 </head>
 <body class="text-slate-900" onclick="closeAllDropdowns(event)">
@@ -90,64 +88,73 @@
 
                     <div id="topDomainsBox" class="hidden 2xl:block border-l-2 border-slate-200 pl-10 relative cursor-help">
                         <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest flex items-center gap-2">
-                            Domain Insights <span id="domainCountBadge" class="bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full text-[9px] tracking-normal">---</span>
+                            Domain Insights <span id="domainCountBadge" class="bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full text-[9px]">---</span>
                         </p>
                         <div id="domainPills" class="flex gap-2 mt-2"></div>
+                        
                         <div id="categoryOverlay">
-                            <div class="overlay-sticky-header flex justify-between items-center">
-                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Global Audit</p>
-                                <div class="flex gap-3">
-                                    <button onclick="selectAll('domain')" class="text-[9px] font-bold text-blue-600">SELECT ALL</button>
-                                    <button id="domainDeselect" onclick="deselectAll('domain')" class="text-[9px] font-bold text-red-500">DESELECT ALL</button>
+                            <div class="overlay-sticky-header">
+                                <div class="flex justify-between items-center mb-3">
+                                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Global Audit</p>
+                                    <div class="flex gap-2"> <button onclick="selectAll('domain')" class="text-[9px] font-bold text-blue-600 hover:bg-blue-50 px-2 py-1 rounded">ALL</button>
+                                        <button onclick="deselectAll('domain')" class="text-[9px] font-bold text-red-500 hover:bg-red-50 px-2 py-1 rounded">NONE</button>
+                                    </div>
                                 </div>
+                                <input type="text" placeholder="Search categories..." onkeyup="filterDropdown(this, 'overlayList')" class="inner-search">
                             </div>
-                            <div id="overlayList"></div>
+                            <div id="overlayList" class="pb-2"></div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="flex items-center gap-8">
-                    <div class="hidden xl:block text-right">
+                    <div class="hidden xl:block text-right border-r-2 border-slate-100 pr-8">
                         <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Pricing Ratio</p>
                         <div class="spectrum-container">
                             <div id="specFree"></div><div id="specFreemium"></div><div id="specPaid"></div>
                         </div>
                     </div>
-                    <div id="counter" class="uppercase tracking-widest border-r-2 border-slate-100 pr-8 hidden md:block">---</div>
-                    
-                    <button id="resetBtn" onclick="fullReset()" class="flex items-center gap-2 bg-white text-slate-400 px-7 py-3 rounded-2xl border-2 border-slate-200 text-xs font-black transition-all shadow-sm">
+                    <div id="counter" class="uppercase tracking-widest text-[13px] font-extrabold text-slate-400 hidden md:block">---</div>
+                    <button id="resetBtn" onclick="fullReset()" class="flex items-center gap-2 bg-white text-slate-400 px-7 py-3 rounded-2xl border-2 border-slate-200 text-xs font-black transition-all">
                         <i class="fas fa-filter-circle-xmark"></i> RESET
                     </button>
                 </div>
             </header>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div class="relative">
-                    <input type="text" id="searchInput" onkeyup="applyFilters()" placeholder="Search API Name..." class="w-full p-3 pl-12 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-semibold focus:border-blue-500">
+                    <input type="text" id="searchInput" onkeyup="applyFilters()" placeholder="Search Identity (sequential)..." class="w-full p-3 pl-12 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-semibold focus:border-blue-500">
                     <i class="fas fa-search absolute left-5 top-4 text-slate-300"></i>
                 </div>
 
                 <div class="custom-dropdown" id="dd-domain">
                     <div class="dropdown-trigger" onclick="toggleDropdown('dd-domain')">
-                        <span class="label">All Domains</span><i class="fas fa-chevron-down"></i>
+                        <span class="label">All Domains</span><i class="fas fa-chevron-down mr-1"></i>
                     </div>
                     <div class="dropdown-menu">
-                        <div class="overlay-sticky-header flex justify-between px-4 py-3 border-b">
-                            <button onclick="selectAll('domain')" class="text-[9px] font-bold text-blue-600">ALL</button>
-                            <button onclick="deselectAll('domain')" class="text-[9px] font-bold text-red-500">NONE</button>
+                        <div class="overlay-sticky-header">
+                            <div class="flex justify-between items-center mb-3">
+                                <input type="text" placeholder="Search domains..." onkeyup="filterDropdown(this, 'dd-domain-list')" class="inner-search w-3/4">
+                                <div class="flex gap-2"> <button onclick="selectAll('domain')" class="text-[9px] font-bold text-blue-600">ALL</button>
+                                    <button onclick="deselectAll('domain')" class="text-[9px] font-bold text-red-500">NONE</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="list-container"></div>
+                        <div class="list-container" id="dd-domain-list"></div>
                     </div>
                 </div>
 
                 <div class="custom-dropdown" id="dd-pricing_model">
                     <div class="dropdown-trigger" onclick="toggleDropdown('dd-pricing_model')">
-                        <span class="label">All Pricing Models</span><i class="fas fa-chevron-down"></i>
+                        <span class="label">All Pricing Models</span><i class="fas fa-chevron-down mr-1"></i>
                     </div>
                     <div class="dropdown-menu">
-                        <div class="overlay-sticky-header flex justify-between px-4 py-3 border-b">
-                            <button onclick="selectAll('pricing_model')" class="text-[9px] font-bold text-blue-600">ALL</button>
-                            <button onclick="deselectAll('pricing_model')" class="text-[9px] font-bold text-red-500">NONE</button>
+                        <div class="overlay-sticky-header flex justify-between items-center">
+                            <p class="text-[9px] font-bold text-slate-400">PRICING MODELS</p>
+                            <div class="flex gap-2">
+                                <button onclick="selectAll('pricing_model')" class="text-[9px] font-bold text-blue-600">ALL</button>
+                                <button onclick="deselectAll('pricing_model')" class="text-[9px] font-bold text-red-500">NONE</button>
+                            </div>
                         </div>
                         <div class="list-container"></div>
                     </div>
@@ -155,12 +162,15 @@
 
                 <div class="custom-dropdown" id="dd-scope">
                     <div class="dropdown-trigger" onclick="toggleDropdown('dd-scope')">
-                        <span class="label">All Scopes</span><i class="fas fa-chevron-down"></i>
+                        <span class="label">All Scopes</span><i class="fas fa-chevron-down mr-1"></i>
                     </div>
                     <div class="dropdown-menu">
-                        <div class="overlay-sticky-header flex justify-between px-4 py-3 border-b">
-                            <button onclick="selectAll('scope')" class="text-[9px] font-bold text-blue-600">ALL</button>
-                            <button onclick="deselectAll('scope')" class="text-[9px] font-bold text-red-500">NONE</button>
+                        <div class="overlay-sticky-header flex justify-between items-center">
+                            <p class="text-[9px] font-bold text-slate-400">AUDIT SCOPE</p>
+                            <div class="flex gap-2">
+                                <button onclick="selectAll('scope')" class="text-[9px] font-bold text-blue-600">ALL</button>
+                                <button onclick="deselectAll('scope')" class="text-[9px] font-bold text-red-500">NONE</button>
+                            </div>
                         </div>
                         <div class="list-container"></div>
                     </div>
@@ -196,22 +206,21 @@
         let sortCol = 'name', sortDir = 1;
 
         async function init() {
-            try {
-                const resp = await fetch('./dataset_400.json');
-                apiData = await resp.json();
-                ['domain', 'pricing_model', 'scope'].forEach(key => {
-                    const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean).sort();
-                    vals.forEach(v => filters[key].add(v));
-                    buildDropdown(key, vals);
-                });
-                render();
-            } catch (err) { console.error("Loading Error:", err); }
+            const resp = await fetch('./dataset_400.json');
+            apiData = await resp.json();
+            ['domain', 'pricing_model', 'scope'].forEach(key => {
+                const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean).sort();
+                vals.forEach(v => filters[key].add(v));
+                buildDropdown(key, vals);
+            });
+            render();
         }
 
         function buildDropdown(key, vals) {
-            const container = document.querySelector(`#dd-${key} .list-container`);
+            const id = key === 'pricing_model' ? 'model' : key;
+            const container = document.querySelector(`#dd-${id} .list-container`);
             container.innerHTML = vals.map(v => `
-                <div class="check-item" onclick="toggleFilter('${key}', '${v}')">
+                <div class="check-item" data-val="${v.toLowerCase()}" onclick="toggleFilter('${key}', '${v}')">
                     <input type="checkbox" id="check-${key}-${v}" ${filters[key].has(v) ? 'checked' : ''}>
                     <label class="flex justify-between w-full cursor-pointer">
                         <span>${v}</span>
@@ -221,6 +230,16 @@
             `).join('');
         }
 
+        // MOD 3: SEARCH WITHIN DROPDOWN LOGIC
+        function filterDropdown(input, containerId) {
+            const term = input.value.toLowerCase();
+            const items = document.querySelectorAll(`#${containerId} .check-item`);
+            items.forEach(item => {
+                const val = item.getAttribute('data-val');
+                item.classList.toggle('hidden', !val.includes(term));
+            });
+        }
+
         function toggleFilter(key, val) {
             if (filters[key].has(val)) filters[key].delete(val);
             else filters[key].add(val);
@@ -228,7 +247,8 @@
         }
 
         function selectAll(key) {
-            [...new Set(apiData.map(i => i[key]))].filter(Boolean).forEach(v => filters[key].add(v));
+            const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean);
+            vals.forEach(v => filters[key].add(v));
             render();
         }
 
@@ -255,12 +275,17 @@
         }
 
         function render() {
-            let filtered = apiData.filter(i => 
-                (i.name.toLowerCase().includes(filters.search)) &&
-                filters.domain.has(i.domain) &&
-                filters.pricing_model.has(i.pricing_model) &&
-                filters.scope.has(i.scope)
-            );
+            // MOD 1: Sequential Substring Search Logic
+            let filtered = apiData.filter(i => {
+                const name = i.name.toLowerCase();
+                // Sequential check: does it contain the substring exactly as typed?
+                const matchesSearch = name.includes(filters.search);
+                
+                return matchesSearch &&
+                       filters.domain.has(i.domain) &&
+                       filters.pricing_model.has(i.pricing_model) &&
+                       filters.scope.has(i.scope);
+            });
 
             filtered.sort((a,b) => {
                 const valA = (a[sortCol] || '').toString().toLowerCase();
@@ -272,7 +297,7 @@
                 <tr class="clickable-row group bg-white" onclick="window.open('${api.pricing_url}', '_blank')">
                     <td class="w-[20%] py-5 pl-10 pr-4">
                         <span class="text-blue-600 font-black text-[15px]">${api.name}</span>
-                        <span class="hover-hint text-[10px] font-bold text-blue-500 ml-2 opacity-0 group-hover:opacity-100 transition-opacity">visit site <i class="fas fa-chevron-right"></i></span>
+                        <span class="hover-hint text-[10px] font-bold text-blue-500 ml-2 opacity-0 group-hover:opacity-100 transition-opacity tracking-tight">visit site <i class="fas fa-chevron-right"></i></span>
                     </td>
                     <td class="w-[30%] py-5 pr-12 text-[13px] text-slate-500 font-semibold leading-relaxed">${api.description || '...'}</td>
                     <td class="w-[12%] py-5 text-[11px] font-black text-slate-400 uppercase tracking-tighter">${api.domain}</td>
@@ -294,7 +319,7 @@
 
             const domains = [...new Set(apiData.map(i => i.domain))].sort();
             document.getElementById('overlayList').innerHTML = domains.map(d => `
-                <div class="check-item" onclick="toggleFilter('domain', '${d}')">
+                <div class="check-item" data-val="${d.toLowerCase()}" onclick="toggleFilter('domain', '${d}')">
                     <input type="checkbox" ${filters.domain.has(d) ? 'checked' : ''}>
                     <label class="flex justify-between w-full cursor-pointer">
                         <span class="${filters.domain.has(d) ? 'text-slate-900' : 'text-slate-400'}">${d}</span>
@@ -308,26 +333,25 @@
             document.getElementById('domainPills').innerHTML = top.map(d => `<span class="bg-blue-600 text-white px-2 py-0.5 rounded text-[9px] font-black">${d.toUpperCase()}</span>`).join('');
             
             document.getElementById('domainCountBadge').innerText = `${filters.domain.size} ACTIVE`;
-            document.getElementById('domainDeselect').disabled = filters.domain.size === 0;
             document.getElementById('counter').innerText = `${data.length} / ${apiData.length} NODES`;
             document.getElementById('resetBtn').classList.toggle('active', data.length < apiData.length);
         }
 
         function updateVisuals() {
             ['domain', 'pricing_model', 'scope'].forEach(key => {
-                const trig = document.querySelector(`#dd-${key} .dropdown-trigger`);
+                const id = key === 'pricing_model' ? 'model' : key;
+                const trig = document.querySelector(`#dd-${id} .dropdown-trigger`);
                 const allLen = new Set(apiData.map(i => i[key])).size;
                 const isFilt = filters[key].size < allLen;
                 
                 trig.classList.toggle('filtered', isFilt);
-                
-                let defaultLabel = `All ${key === 'pricing_model' ? 'Pricing Models' : key + 's'}`;
-                trig.querySelector('.label').innerText = isFilt ? `${filters[key].size} Selected` : defaultLabel;
+                let label = isFilt ? `${filters[key].size} Selected` : (key === 'pricing_model' ? 'All Pricing Models' : `All ${key}s`);
+                trig.querySelector('.label').innerText = label;
                 trig.querySelector('i').className = isFilt ? 'fas fa-filter mr-2' : 'fas fa-chevron-down mr-2';
                 
-                document.querySelectorAll(`#dd-${key} input`).forEach(input => {
-                    const val = input.id.split('-').pop();
-                    input.checked = filters[key].has(val);
+                document.querySelectorAll(`#dd-${id} input`).forEach(input => {
+                    const val = input.parentElement.getAttribute('data-val');
+                    input.checked = filters[key].has([...filters[key]].find(f => f.toLowerCase() === val));
                 });
             });
         }
