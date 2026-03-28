@@ -8,30 +8,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="bg-slate-50 min-h-screen p-4 md:p-8 font-sans">
-    <div class="max-w-7xl mx-auto">
-        <header class="mb-10 text-center md:text-left">
+    <div class="max-w-full mx-auto">
+        <header class="mb-8">
             <h1 class="text-4xl font-extrabold text-slate-900 mb-2 tracking-tight">API Pricing Catalog</h1>
-            <p class="text-slate-600 text-lg">A live audit of 400+ APIs for PhD research on Digital Transparency.</p>
+            <p class="text-slate-600 text-lg">A research audit of 400+ APIs for PhD Digital Transparency studies.</p>
         </header>
 
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div>
-                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Search</label>
-                    <input type="text" id="searchInput" placeholder="Search by name..." class="w-full p-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Domain</label>
-                    <select id="domainFilter" class="w-full p-3 border border-slate-200 rounded-xl bg-white outline-none focus:ring-2 focus:ring-blue-500"></select>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Pricing Model</label>
-                    <select id="modelFilter" class="w-full p-3 border border-slate-200 rounded-xl bg-white outline-none focus:ring-2 focus:ring-blue-500"></select>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Scope</label>
-                    <select id="scopeFilter" class="w-full p-3 border border-slate-200 rounded-xl bg-white outline-none focus:ring-2 focus:ring-blue-500"></select>
-                </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8 grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div>
+                <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Search Name</label>
+                <input type="text" id="searchInput" placeholder="Search..." class="w-full p-2.5 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Domain</label>
+                <select id="domainFilter" class="w-full p-2.5 border border-slate-200 rounded-xl bg-white outline-none"></select>
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Pricing Model</label>
+                <select id="modelFilter" class="w-full p-2.5 border border-slate-200 rounded-xl bg-white outline-none"></select>
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Scope</label>
+                <select id="scopeFilter" class="w-full p-2.5 border border-slate-200 rounded-xl bg-white outline-none"></select>
             </div>
         </div>
 
@@ -40,15 +38,15 @@
                 <table class="min-w-full divide-y divide-slate-200" id="apiTable">
                     <thead class="bg-slate-50">
                         <tr>
-                            <th onclick="sortTable('name')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600 transition-colors">Name <i class="fas fa-sort ml-1"></i></th>
-                            <th onclick="sortTable('domain')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600 transition-colors">Domain <i class="fas fa-sort ml-1"></i></th>
-                            <th onclick="sortTable('pricing_model')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600 transition-colors">Model <i class="fas fa-sort ml-1"></i></th>
-                            <th onclick="sortTable('current_price')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600 transition-colors">Current Price <i class="fas fa-sort ml-1"></i></th>
+                            <th onclick="sortTable('name')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600">Name <i class="fas fa-sort ml-1"></i></th>
+                            <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase">Description</th>
+                            <th onclick="sortTable('domain')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600">Domain <i class="fas fa-sort ml-1"></i></th>
+                            <th onclick="sortTable('pricing_model')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600">Model <i class="fas fa-sort ml-1"></i></th>
+                            <th onclick="sortTable('current_price')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase cursor-pointer hover:text-blue-600">Price <i class="fas fa-sort ml-1"></i></th>
                         </tr>
                     </thead>
                     <tbody id="tableBody" class="divide-y divide-slate-100 bg-white">
-                        <tr><td colspan="4" class="p-20 text-center text-slate-400 animate-pulse">Initializing data audit...</td></tr>
-                    </tbody>
+                        </tbody>
                 </table>
             </div>
         </div>
@@ -59,52 +57,44 @@
         let sortDirection = 1;
 
         async function init() {
-            const tableBody = document.getElementById('tableBody');
             try {
-                // Try both possible filenames to be 100% sure
-                let response = await fetch('./Dataset_400.json', { cache: 'no-cache' });
-                if (!response.ok) response = await fetch('./dataset_400.json', { cache: 'no-cache' });
+                let response = await fetch('./dataset_400.json', { cache: 'no-cache' });
+                if (!response.ok) response = await fetch('./Dataset_400.json', { cache: 'no-cache' });
                 
-                if (!response.ok) throw new Error("Could not locate data file.");
-
                 apiData = await response.json();
                 
                 populateDropdown('domainFilter', 'domain');
                 populateDropdown('modelFilter', 'pricing_model');
                 populateDropdown('scopeFilter', 'scope');
-
                 renderTable(apiData);
                 
                 ['searchInput', 'domainFilter', 'modelFilter', 'scopeFilter'].forEach(id => {
                     document.getElementById(id).addEventListener('input', applyFilters);
                 });
-            } catch (err) {
-                tableBody.innerHTML = `<tr><td colspan="4" class="p-20 text-center"><div class="text-red-500 font-bold">Data Link Broken</div><div class="text-slate-400 text-sm mt-2">${err.message}</div></td></tr>`;
-            }
+            } catch (err) { console.error("Error:", err); }
         }
 
         function populateDropdown(id, key) {
             const el = document.getElementById(id);
             const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean).sort();
-            el.innerHTML = `<option value="">All ${key.split('_').join(' ')}s</option>` + 
+            el.innerHTML = `<option value="">All ${key.replace('_',' ')}s</option>` + 
                 vals.map(v => `<option value="${v}">${v}</option>`).join('');
         }
 
         function renderTable(data) {
             const body = document.getElementById('tableBody');
-            if (!data.length) {
-                body.innerHTML = '<tr><td colspan="4" class="p-20 text-center text-slate-400 font-medium">No results found matching your filters.</td></tr>';
-                return;
-            }
             body.innerHTML = data.map(api => `
-                <tr class="hover:bg-slate-50/80 transition-all">
-                    <td class="px-6 py-5">
-                        <a href="${api.pricing_url}" target="_blank" class="text-blue-600 font-bold hover:text-blue-800 transition-colors">${api.name}</a>
+                <tr class="hover:bg-blue-50/50 transition-colors">
+                    <td class="px-6 py-5 whitespace-nowrap">
+                        <a href="${api.pricing_url}" target="_blank" class="text-blue-600 font-bold hover:underline">${api.name}</a>
                     </td>
-                    <td class="px-6 py-5 text-sm text-slate-500">${api.domain || 'General'}</td>
-                    <td class="px-6 py-5 text-sm font-medium text-slate-700">${api.pricing_model || 'Unknown'}</td>
+                    <td class="px-6 py-5 text-sm text-slate-500 max-w-md">
+                        ${api.description || '<span class="text-slate-300 italic">No description provided</span>'}
+                    </td>
+                    <td class="px-6 py-5 text-sm text-slate-600">${api.domain || 'N/A'}</td>
+                    <td class="px-6 py-5 text-sm font-medium text-slate-700">${api.pricing_model || 'N/A'}</td>
                     <td class="px-6 py-5">
-                        <span class="${api.current_price ? 'bg-green-100 text-green-700 border-green-200' : 'bg-slate-100 text-slate-400 border-slate-200'} px-3 py-1 rounded-full text-xs font-bold border">
+                        <span class="${api.current_price ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-400'} px-3 py-1 rounded-full text-xs font-bold border border-current">
                             ${api.current_price || 'Updating...'}
                         </span>
                     </td>
