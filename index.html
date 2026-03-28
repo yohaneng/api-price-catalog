@@ -13,7 +13,7 @@
         
         .glass-header {
             position: sticky; top: 0; z-index: 100;
-            background: rgba(248, 250, 252, 0.95);
+            background: rgba(248, 250, 252, 0.98);
             backdrop-filter: blur(24px); border-bottom: 2px solid #e2e8f0;
         }
 
@@ -27,7 +27,10 @@
         }
         .dropdown-trigger:hover { border-color: #cbd5e1; }
         .dropdown-trigger.filtered { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
-        .dropdown-trigger.filtered i { color: #3b82f6; } /* Blue Filter Icon */
+        .dropdown-trigger.filtered i { color: #3b82f6; }
+
+        /* INCREASED PADDING FOR ARROW */
+        .dropdown-trigger i { margin-left: auto; padding-left: 10px; }
 
         .dropdown-menu {
             display: none; position: absolute; top: 115%; left: 0; width: 100%;
@@ -56,12 +59,17 @@
         #resetBtn { transition: all 0.3s ease; opacity: 0.3; filter: grayscale(1); pointer-events: none; }
         #resetBtn.active { opacity: 1; filter: grayscale(0); pointer-events: auto; background: #ef4444; color: white; }
 
-        /* TABLE HEADER RESTORATION */
+        /* NON-BUTTON COUNTER STYLE */
+        #counter {
+            background: transparent; border: none; color: #64748b; font-weight: 800; font-size: 13px;
+            letter-spacing: 0.05em; padding: 0; min-width: auto; shadow: none;
+        }
+
         .table-fixed-head { background: #0f172a; color: white; }
 
+        /* CLICKABLE ROW WITH LEFT ACCENT */
         .clickable-row:hover { background-color: #f1f5f9 !important; box-shadow: inset 12px 0 0 0 #3b82f6; }
         
-        /* FIX #1: Checkbox reliability */
         .check-item { display: flex; align-items: center; gap: 12px; padding: 10px 18px; cursor: pointer; transition: background 0.15s; }
         .check-item:hover { background: #f8fafc; }
         .check-item input { pointer-events: none; width: 18px; height: 18px; accent-color: #3b82f6; }
@@ -81,7 +89,9 @@
                     </div>
 
                     <div id="topDomainsBox" class="hidden 2xl:block border-l-2 border-slate-200 pl-10 relative cursor-help">
-                        <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Domain Insights <i class="fas fa-chart-pie ml-1 opacity-30"></i></p>
+                        <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest flex items-center gap-2">
+                            Domain Insights <span id="domainCountBadge" class="bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full text-[9px] tracking-normal">---</span>
+                        </p>
                         <div id="domainPills" class="flex gap-2 mt-2"></div>
                         <div id="categoryOverlay">
                             <div class="overlay-sticky-header flex justify-between items-center">
@@ -103,22 +113,23 @@
                             <div id="specFree"></div><div id="specFreemium"></div><div id="specPaid"></div>
                         </div>
                     </div>
+                    <div id="counter" class="uppercase tracking-widest border-r-2 border-slate-100 pr-8 hidden md:block">---</div>
+                    
                     <button id="resetBtn" onclick="fullReset()" class="flex items-center gap-2 bg-white text-slate-400 px-7 py-3 rounded-2xl border-2 border-slate-200 text-xs font-black transition-all shadow-sm">
                         <i class="fas fa-filter-circle-xmark"></i> RESET
                     </button>
-                    <div id="counter" class="bg-slate-900 text-white px-8 py-3 rounded-2xl font-black text-sm min-w-[150px] text-center shadow-xl tracking-widest">---</div>
                 </div>
             </header>
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
                 <div class="relative">
-                    <input type="text" id="searchInput" oninput="applyFilters()" placeholder="Search API Name..." class="w-full p-3 pl-12 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-semibold focus:border-blue-500">
+                    <input type="text" id="searchInput" onkeyup="applyFilters()" placeholder="Search API Name..." class="w-full p-3 pl-12 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-semibold focus:border-blue-500">
                     <i class="fas fa-search absolute left-5 top-4 text-slate-300"></i>
                 </div>
 
                 <div class="custom-dropdown" id="dd-domain">
                     <div class="dropdown-trigger" onclick="toggleDropdown('dd-domain')">
-                        <span class="label">All Domains</span><i class="fas fa-chevron-down mr-1"></i>
+                        <span class="label">All Domains</span><i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="dropdown-menu">
                         <div class="overlay-sticky-header flex justify-between px-4 py-3 border-b">
@@ -131,7 +142,7 @@
 
                 <div class="custom-dropdown" id="dd-pricing_model">
                     <div class="dropdown-trigger" onclick="toggleDropdown('dd-pricing_model')">
-                        <span class="label">All Pricing</span><i class="fas fa-chevron-down mr-1"></i>
+                        <span class="label">All Pricing Models</span><i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="dropdown-menu">
                         <div class="overlay-sticky-header flex justify-between px-4 py-3 border-b">
@@ -144,7 +155,7 @@
 
                 <div class="custom-dropdown" id="dd-scope">
                     <div class="dropdown-trigger" onclick="toggleDropdown('dd-scope')">
-                        <span class="label">All Scopes</span><i class="fas fa-chevron-down mr-1"></i>
+                        <span class="label">All Scopes</span><i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="dropdown-menu">
                         <div class="overlay-sticky-header flex justify-between px-4 py-3 border-b">
@@ -161,12 +172,12 @@
             <table class="min-w-full">
                 <thead>
                     <tr>
-                        <th onclick="sortTable('name')" class="w-[20%] py-4 pl-10 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 group">API IDENTITY <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i></th>
+                        <th onclick="sortTable('name')" class="w-[20%] py-4 pl-10 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 group">IDENTITY <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i></th>
                         <th class="w-[30%] py-4 text-left text-[14px] font-black uppercase tracking-[0.2em]">DESCRIPTION</th>
-                        <th onclick="sortTable('domain')" class="w-[12%] py-4 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">DOMAIN</th>
-                        <th onclick="sortTable('scope')" class="w-[10%] py-4 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">SCOPE</th>
-                        <th onclick="sortTable('pricing_model')" class="w-[12%] py-4 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">TYPE</th>
-                        <th onclick="sortTable('current_price')" class="w-[16%] py-4 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">PRICING</th>
+                        <th onclick="sortTable('domain')" class="w-[12%] py-4 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 group">DOMAIN <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i></th>
+                        <th onclick="sortTable('scope')" class="w-[10%] py-4 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 group">SCOPE <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i></th>
+                        <th onclick="sortTable('pricing_model')" class="w-[12%] py-4 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 group">TYPE <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i></th>
+                        <th onclick="sortTable('current_price')" class="w-[16%] py-4 text-left text-[14px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 group">PRICING <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i></th>
                     </tr>
                 </thead>
             </table>
@@ -185,14 +196,16 @@
         let sortCol = 'name', sortDir = 1;
 
         async function init() {
-            const resp = await fetch('./dataset_400.json');
-            apiData = await resp.json();
-            ['domain', 'pricing_model', 'scope'].forEach(key => {
-                const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean).sort();
-                vals.forEach(v => filters[key].add(v));
-                buildDropdown(key, vals);
-            });
-            render();
+            try {
+                const resp = await fetch('./dataset_400.json');
+                apiData = await resp.json();
+                ['domain', 'pricing_model', 'scope'].forEach(key => {
+                    const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean).sort();
+                    vals.forEach(v => filters[key].add(v));
+                    buildDropdown(key, vals);
+                });
+                render();
+            } catch (err) { console.error("Loading Error:", err); }
         }
 
         function buildDropdown(key, vals) {
@@ -215,8 +228,7 @@
         }
 
         function selectAll(key) {
-            const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean);
-            vals.forEach(v => filters[key].add(v));
+            [...new Set(apiData.map(i => i[key]))].filter(Boolean).forEach(v => filters[key].add(v));
             render();
         }
 
@@ -237,33 +249,41 @@
             document.querySelectorAll('.dropdown-menu').forEach(d => d.classList.remove('show'));
         }
 
+        function applyFilters() {
+            filters.search = document.getElementById('searchInput').value.toLowerCase();
+            render();
+        }
+
         function render() {
-            const search = document.getElementById('searchInput').value.toLowerCase();
             let filtered = apiData.filter(i => 
-                i.name.toLowerCase().includes(search) &&
+                (i.name.toLowerCase().includes(filters.search)) &&
                 filters.domain.has(i.domain) &&
                 filters.pricing_model.has(i.pricing_model) &&
                 filters.scope.has(i.scope)
             );
 
-            filtered.sort((a,b) => (a[sortCol] > b[sortCol] ? 1 : -1) * sortDir);
+            filtered.sort((a,b) => {
+                const valA = (a[sortCol] || '').toString().toLowerCase();
+                const valB = (b[sortCol] || '').toString().toLowerCase();
+                return (valA > valB ? 1 : -1) * sortDir;
+            });
 
             document.getElementById('tableBody').innerHTML = filtered.map(api => `
                 <tr class="clickable-row group bg-white" onclick="window.open('${api.pricing_url}', '_blank')">
                     <td class="w-[20%] py-5 pl-10 pr-4">
                         <span class="text-blue-600 font-black text-[15px]">${api.name}</span>
-                        <span class="hover-hint text-[10px] font-bold text-blue-500 ml-2 opacity-0 group-hover:opacity-100 transition-opacity tracking-tight">visit site <i class="fas fa-chevron-right"></i></span>
+                        <span class="hover-hint text-[10px] font-bold text-blue-500 ml-2 opacity-0 group-hover:opacity-100 transition-opacity">visit site <i class="fas fa-chevron-right"></i></span>
                     </td>
                     <td class="w-[30%] py-5 pr-12 text-[13px] text-slate-500 font-semibold leading-relaxed">${api.description || '...'}</td>
-                    <td class="w-[12%] py-5 text-[11px] font-black text-slate-400 uppercase">${api.domain}</td>
-                    <td class="w-[10%] py-5 text-[11px] font-black text-slate-400 uppercase">${api.scope}</td>
-                    <td class="w-[12%] py-5 text-[12px] text-slate-700 font-black">${api.pricing_model}</td>
-                    <td class="w-[16%] py-5 text-[11px] font-black uppercase ${api.current_price ? 'text-emerald-600' : 'text-slate-300'}">${api.current_price || 'AUDITING'}</td>
+                    <td class="w-[12%] py-5 text-[11px] font-black text-slate-400 uppercase tracking-tighter">${api.domain}</td>
+                    <td class="w-[10%] py-5 text-[11px] font-black text-slate-400 uppercase tracking-tighter">${api.scope}</td>
+                    <td class="w-[12%] py-5 text-[12px] text-slate-700 font-black tracking-tighter">${api.pricing_model}</td>
+                    <td class="w-[16%] py-5 text-[11px] font-black uppercase tracking-tighter ${api.current_price ? 'text-emerald-600' : 'text-slate-300'}">${api.current_price || 'AUDITING'}</td>
                 </tr>
             `).join('');
 
             updateInfographics(filtered);
-            updateDropdownVisuals();
+            updateVisuals();
         }
 
         function updateInfographics(data) {
@@ -287,19 +307,22 @@
             const top = Object.keys(counts).sort((a,b) => counts[b] - counts[a]).slice(0,3);
             document.getElementById('domainPills').innerHTML = top.map(d => `<span class="bg-blue-600 text-white px-2 py-0.5 rounded text-[9px] font-black">${d.toUpperCase()}</span>`).join('');
             
+            document.getElementById('domainCountBadge').innerText = `${filters.domain.size} ACTIVE`;
             document.getElementById('domainDeselect').disabled = filters.domain.size === 0;
             document.getElementById('counter').innerText = `${data.length} / ${apiData.length} NODES`;
             document.getElementById('resetBtn').classList.toggle('active', data.length < apiData.length);
         }
 
-        function updateDropdownVisuals() {
+        function updateVisuals() {
             ['domain', 'pricing_model', 'scope'].forEach(key => {
                 const trig = document.querySelector(`#dd-${key} .dropdown-trigger`);
                 const allLen = new Set(apiData.map(i => i[key])).size;
                 const isFilt = filters[key].size < allLen;
                 
                 trig.classList.toggle('filtered', isFilt);
-                trig.querySelector('.label').innerText = isFilt ? `${filters[key].size} Selected` : `All ${key.replace('_',' ')}s`;
+                
+                let defaultLabel = `All ${key === 'pricing_model' ? 'Pricing Models' : key + 's'}`;
+                trig.querySelector('.label').innerText = isFilt ? `${filters[key].size} Selected` : defaultLabel;
                 trig.querySelector('i').className = isFilt ? 'fas fa-filter mr-2' : 'fas fa-chevron-down mr-2';
                 
                 document.querySelectorAll(`#dd-${key} input`).forEach(input => {
@@ -311,6 +334,7 @@
 
         function fullReset() {
             document.getElementById('searchInput').value = '';
+            filters.search = '';
             ['domain', 'pricing_model', 'scope'].forEach(key => {
                 const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean);
                 vals.forEach(v => filters[key].add(v));
