@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
         body { font-family: 'Inter', sans-serif; background: #fcfdfe; }
         html { scroll-behavior: smooth; }
         
@@ -15,20 +15,20 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(248, 250, 252, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid #e2e8f0;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(24px);
+            border-bottom: 2px solid #e2e8f0;
         }
 
-        /* INFOGRAPHIC: Pricing Spectrum Bar */
+        /* INCREASED INFOGRAPHIC SIZE */
         .spectrum-container {
             display: flex;
-            height: 6px;
-            width: 140px;
-            border-radius: 10px;
+            height: 10px; /* Increased height */
+            width: 200px; /* Increased width */
+            border-radius: 12px;
             overflow: hidden;
             background: #e2e8f0;
-            margin-top: 4px;
+            margin-top: 6px;
         }
         .spec-free { background: #10b981; width: 45%; }
         .spec-freemium { background: #3b82f6; width: 40%; }
@@ -36,17 +36,17 @@
 
         .pulse-icon {
             display: inline-block;
-            width: 8px;
-            height: 8px;
+            width: 12px;
+            height: 12px;
             background-color: #10b981;
             border-radius: 50%;
-            margin-right: 8px;
+            margin-right: 10px;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            70% { box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
             100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
@@ -63,11 +63,12 @@
             pointer-events: auto;
             background: #ef4444;
             color: white;
+            transform: scale(1.05);
         }
 
         .clickable-row:hover {
-            background-color: #f8fafc !important;
-            box-shadow: inset 4px 0 0 0 #3b82f6;
+            background-color: #f1f5f9 !important;
+            box-shadow: inset 6px 0 0 0 #3b82f6;
         }
 
         .hover-hint {
@@ -76,96 +77,98 @@
             top: 50%;
             transform: translateY(-50%);
             color: #3b82f6;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 800;
             opacity: 0;
             transition: 0.2s;
         }
 
         .clickable-row:hover .hover-hint { opacity: 1; }
-        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
     </style>
 </head>
 <body class="text-slate-900">
 
-    <button id="backToTop" onclick="window.scrollTo(0,0)" class="hidden fixed bottom-10 right-10 bg-slate-900 text-white w-12 h-12 rounded-2xl shadow-2xl flex items-center justify-center hover:bg-blue-600 z-[200] transition-all">
-        <i class="fas fa-chevron-up"></i>
+    <button id="backToTop" onclick="window.scrollTo(0,0)" class="hidden fixed bottom-10 right-10 bg-slate-900 text-white w-14 h-14 rounded-2xl shadow-2xl flex items-center justify-center hover:bg-blue-600 z-[200] transition-all">
+        <i class="fas fa-chevron-up text-xl"></i>
     </button>
 
     <div class="glass-header">
-        <div class="px-6 md:px-12 py-4"> <header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-                <div class="flex items-center gap-6">
+        <div class="px-6 md:px-12 py-5">
+            <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-4">
+                <div class="flex items-center gap-10">
                     <div>
                         <div class="flex items-center">
                             <span class="pulse-icon"></span>
-                            <h1 class="text-3xl font-[900] tracking-tighter text-slate-900 uppercase">API<span class="text-blue-600">WORLD</span></h1>
+                            <h1 class="text-5xl font-[900] tracking-tighter text-slate-900 uppercase">API<span class="text-blue-600">WORLD</span></h1>
                         </div>
-                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mt-1">Global Audit Feed</p>
+                        <p class="text-[12px] font-extrabold text-slate-400 uppercase tracking-[0.3em] mt-2">The Global Pricing Audit Feed</p>
                     </div>
 
-                    <div class="hidden lg:block border-l border-slate-200 pl-6">
-                        <p class="text-[9px] font-black text-slate-400 uppercase tracking-tighter">Pricing Spectrum</p>
+                    <div class="hidden xl:block border-l-2 border-slate-200 pl-10">
+                        <p class="text-[11px] font-black text-slate-500 uppercase tracking-widest">Model Distribution</p>
                         <div class="spectrum-container">
-                            <div class="spec-free" title="Free"></div>
-                            <div class="spec-freemium" title="Freemium"></div>
-                            <div class="spec-paid" title="Paid"></div>
+                            <div class="spec-free"></div>
+                            <div class="spec-freemium"></div>
+                            <div class="spec-paid"></div>
                         </div>
-                        <div class="flex gap-2 mt-1">
-                            <span class="text-[8px] font-bold text-slate-400"><i class="fas fa-circle text-emerald-500 mr-0.5"></i> Free</span>
-                            <span class="text-[8px] font-bold text-slate-400"><i class="fas fa-circle text-blue-500 mr-0.5"></i> Freemium</span>
+                        <div class="flex gap-4 mt-2">
+                            <span class="text-[10px] font-bold text-slate-500"><i class="fas fa-circle text-emerald-500 mr-1.5"></i> FREE</span>
+                            <span class="text-[10px] font-bold text-slate-500"><i class="fas fa-circle text-blue-500 mr-1.5"></i> FREEMIUM</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="flex items-center gap-3">
-                    <div class="hidden xl:flex items-center gap-4 mr-4 border-r border-slate-200 pr-6">
+                <div class="flex items-center gap-6">
+                    <div class="hidden xl:flex items-center gap-8 mr-6 border-r-2 border-slate-200 pr-10">
                         <div class="text-center">
-                            <p class="text-[9px] font-black text-slate-400 uppercase">Uptime</p>
-                            <p class="text-[11px] font-bold text-emerald-600">99.8%</p>
+                            <p class="text-[11px] font-black text-slate-400 uppercase tracking-widest">Auth Standard</p>
+                            <p class="text-[14px] font-black text-slate-800">OAuth / Key</p>
                         </div>
                         <div class="text-center">
-                            <p class="text-[9px] font-black text-slate-400 uppercase">Protocols</p>
-                            <p class="text-[11px] font-bold text-slate-700">REST/GQL</p>
+                            <p class="text-[11px] font-black text-slate-400 uppercase tracking-widest">Access Diversity</p>
+                            <p class="text-[14px] font-black text-blue-600">Global Coverage</p>
                         </div>
                     </div>
                     
-                    <button id="resetBtn" onclick="clearFilters()" class="flex items-center gap-2 bg-white text-slate-400 px-4 py-2 rounded-xl border border-slate-200 text-[10px] font-bold transition-all">
-                        <i class="fas fa-filter-circle-xmark"></i> RESET
+                    <button id="resetBtn" onclick="clearFilters()" class="flex items-center gap-2 bg-white text-slate-400 px-6 py-3 rounded-2xl border-2 border-slate-200 text-xs font-black transition-all shadow-sm">
+                        <i class="fas fa-filter-circle-xmark text-lg"></i> RESET
                     </button>
-                    <div id="counter" class="bg-slate-900 text-white px-5 py-2 rounded-xl font-black text-[11px] min-w-[120px] text-center shadow-lg">
-                        ---
+                    <div id="counter" class="bg-slate-900 text-white px-8 py-3 rounded-2xl font-black text-sm min-w-[150px] text-center shadow-xl tracking-widest">
+                        LOADING...
                     </div>
                 </div>
             </header>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-2.5"> <div class="relative group">
-                    <input type="text" id="searchInput" placeholder="Search Identity..." class="w-full p-2.5 pl-9 border border-slate-200 rounded-lg bg-white focus:ring-4 focus:ring-blue-500/10 outline-none text-xs font-medium transition-all">
-                    <i class="fas fa-search absolute left-3 top-3 text-slate-300 group-focus-within:text-blue-500"></i>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                <div class="relative group">
+                    <input type="text" id="searchInput" placeholder="Search Identity..." class="w-full p-3 pl-11 border-2 border-slate-200 rounded-xl bg-white focus:ring-4 focus:ring-blue-500/10 outline-none text-sm font-semibold transition-all">
+                    <i class="fas fa-search absolute left-4 top-4 text-slate-300 text-lg group-focus-within:text-blue-500"></i>
                 </div>
-                <select id="domainFilter" class="w-full p-2.5 border border-slate-200 rounded-lg bg-white outline-none text-xs font-bold text-slate-600 focus:ring-4 focus:ring-blue-500/10 cursor-pointer"></select>
-                <select id="modelFilter" class="w-full p-2.5 border border-slate-200 rounded-lg bg-white outline-none text-xs font-bold text-slate-600 focus:ring-4 focus:ring-blue-500/10 cursor-pointer"></select>
-                <select id="scopeFilter" class="w-full p-2.5 border border-slate-200 rounded-lg bg-white outline-none text-xs font-bold text-slate-600 focus:ring-4 focus:ring-blue-500/10 cursor-pointer"></select>
+                <select id="domainFilter" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 focus:ring-4 focus:ring-blue-500/10 cursor-pointer"></select>
+                <select id="modelFilter" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 focus:ring-4 focus:ring-blue-500/10 cursor-pointer"></select>
+                <select id="scopeFilter" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 focus:ring-4 focus:ring-blue-500/10 cursor-pointer"></select>
             </div>
         </div>
 
-        <div class="bg-slate-900 px-6 md:px-12">
+        <div class="bg-slate-900 px-6 md:px-12 border-b-2 border-slate-800">
             <table class="min-w-full">
                 <thead>
                     <tr>
-                        <th onclick="sortTable('name')" class="w-[20%] py-3 text-left text-[12px] font-black text-white uppercase tracking-widest cursor-pointer hover:text-blue-400 transition-colors group">
+                        <th onclick="sortTable('name')" class="w-[20%] py-4 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 transition-colors group">
                             API IDENTITY <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i>
                         </th>
-                        <th class="w-[38%] py-3 text-left text-[12px] font-black text-white uppercase tracking-widest">
+                        <th class="w-[38%] py-4 text-left text-[14px] font-black text-white uppercase tracking-[0.2em]">
                             DESCRIPTION
                         </th>
-                        <th onclick="sortTable('domain')" class="w-[15%] py-3 text-left text-[12px] font-black text-white uppercase tracking-widest cursor-pointer hover:text-blue-400 transition-colors group">
+                        <th onclick="sortTable('domain')" class="w-[15%] py-4 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 transition-colors group">
                             DOMAIN <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i>
                         </th>
-                        <th onclick="sortTable('pricing_model')" class="w-[12%] py-3 text-left text-[12px] font-black text-white uppercase tracking-widest cursor-pointer hover:text-blue-400 transition-colors group">
+                        <th onclick="sortTable('pricing_model')" class="w-[12%] py-4 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 transition-colors group">
                             TYPE <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i>
                         </th>
-                        <th onclick="sortTable('current_price')" class="w-[15%] py-3 text-left text-[12px] font-black text-white uppercase tracking-widest cursor-pointer hover:text-blue-400 transition-colors group">
+                        <th onclick="sortTable('current_price')" class="w-[15%] py-4 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 transition-colors group">
                             AUDIT <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i>
                         </th>
                     </tr>
@@ -176,7 +179,7 @@
 
     <div class="px-6 md:px-12 pb-24">
         <table class="min-w-full border-collapse">
-            <tbody id="tableBody" class="divide-y divide-slate-100"></tbody>
+            <tbody id="tableBody" class="divide-y-2 divide-slate-100"></tbody>
         </table>
     </div>
 
@@ -222,21 +225,21 @@
             const body = document.getElementById('tableBody');
             document.getElementById('counter').innerText = `${data.length} / ${apiData.length} NODES`;
             if (data.length === 0) {
-                body.innerHTML = '<tr><td colspan="5" class="py-32 text-center text-slate-300 font-bold uppercase tracking-widest text-xs">No Nodes Found</td></tr>';
+                body.innerHTML = '<tr><td colspan="5" class="py-32 text-center text-slate-300 font-bold uppercase tracking-widest text-sm">No Audit Nodes Found</td></tr>';
                 return;
             }
             body.innerHTML = data.map(api => `
-                <tr class="clickable-row group" onclick="window.open('${api.pricing_url}', '_blank')">
-                    <td class="w-[20%] py-4 pr-4">
-                        <span class="text-blue-600 font-[700] text-[13px] tracking-tight group-hover:text-blue-800 transition-colors">${api.name}</span>
+                <tr class="clickable-row group bg-white" onclick="window.open('${api.pricing_url}', '_blank')">
+                    <td class="w-[20%] py-5 pr-4">
+                        <span class="text-blue-600 font-black text-[15px] tracking-tight group-hover:text-blue-800 transition-colors">${api.name}</span>
                     </td>
-                    <td class="w-[38%] py-4 pr-10 text-[11px] text-slate-500 font-medium leading-relaxed relative">
+                    <td class="w-[38%] py-5 pr-12 text-[13px] text-slate-500 font-semibold leading-relaxed relative">
                         ${api.description || '...'}
-                        <div class="hover-hint">SOURCE <i class="fas fa-arrow-right ml-1"></i></div>
+                        <div class="hover-hint">AUDIT SOURCE <i class="fas fa-chevron-right ml-1"></i></div>
                     </td>
-                    <td class="w-[15%] py-4 text-[10px] font-bold text-slate-400 uppercase tracking-tighter">${api.domain || 'N/A'}</td>
-                    <td class="w-[12%] py-4 text-[11px] text-slate-600 font-semibold tracking-tighter">${api.pricing_model || 'N/A'}</td>
-                    <td class="w-[15%] py-4 text-[10px] font-black uppercase tracking-tighter ${api.current_price ? 'text-emerald-600' : 'text-slate-300'}">
+                    <td class="w-[15%] py-5 text-[11px] font-black text-slate-400 uppercase tracking-tighter">${api.domain || 'N/A'}</td>
+                    <td class="w-[12%] py-5 text-[12px] text-slate-700 font-black tracking-tighter">${api.pricing_model || 'N/A'}</td>
+                    <td class="w-[15%] py-5 text-[11px] font-black uppercase tracking-tighter ${api.current_price ? 'text-emerald-600' : 'text-slate-300'}">
                         ${api.current_price || 'AUDITING'}
                     </td>
                 </tr>
