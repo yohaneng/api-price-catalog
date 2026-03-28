@@ -38,7 +38,6 @@
             100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
-        /* DYNAMIC RESET BUTTON STYLES */
         #resetBtn {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 0.4;
@@ -50,7 +49,7 @@
             opacity: 1;
             filter: grayscale(0);
             pointer-events: auto;
-            background-color: #ef4444; /* Bright Red for high visibility */
+            background-color: #ef4444;
             color: white;
             border-color: #dc2626;
             box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
@@ -102,7 +101,7 @@
                 <div>
                     <div class="flex items-center mb-1">
                         <span class="pulse-icon"></span>
-                        <h1 class="text-4xl font-[900] tracking-tighter text-slate-900">API<span class="text-blue-600">WORLD</span></h1>
+                        <h1 class="text-4xl font-[900] tracking-tighter text-slate-900 uppercase">API<span class="text-blue-600">WORLD</span></h1>
                     </div>
                     <p class="text-slate-500 text-[11px] font-bold tracking-[0.2em] uppercase opacity-70">Global Pricing Index • Realtime Directory</p>
                 </div>
@@ -132,19 +131,19 @@
             <table class="min-w-full">
                 <thead>
                     <tr>
-                        <th onclick="sortTable('name')" class="w-[20%] py-5 text-left text-[13px] font-black text-white uppercase tracking-widest cursor-pointer hover:text-blue-400 transition-colors group">
+                        <th onclick="sortTable('name')" class="w-[20%] py-3.5 text-left text-[13px] font-black text-white uppercase tracking-widest cursor-pointer hover:text-blue-400 transition-colors group">
                             API IDENTITY <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i>
                         </th>
-                        <th class="w-[38%] py-5 text-left text-[13px] font-black text-white uppercase tracking-widest">
+                        <th class="w-[38%] py-3.5 text-left text-[13px] font-black text-white uppercase tracking-widest">
                             SERVICE DESCRIPTION
                         </th>
-                        <th onclick="sortTable('domain')" class="w-[15%] py-5 text-left text-[13px] font-black text-white uppercase tracking-widest cursor-pointer hover:text-blue-400 transition-colors group">
+                        <th onclick="sortTable('domain')" class="w-[15%] py-3.5 text-left text-[13px] font-black text-white uppercase tracking-widest cursor-pointer hover:text-blue-400 transition-colors group">
                             DOMAIN <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i>
                         </th>
-                        <th onclick="sortTable('pricing_model')" class="w-[12%] py-5 text-left text-[13px] font-black text-white uppercase tracking-widest cursor-pointer hover:text-blue-400 transition-colors group">
+                        <th onclick="sortTable('pricing_model')" class="w-[12%] py-3.5 text-left text-[13px] font-black text-white uppercase tracking-widest cursor-pointer hover:text-blue-400 transition-colors group">
                             MODEL <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i>
                         </th>
-                        <th onclick="sortTable('current_price')" class="w-[15%] py-5 text-left text-[13px] font-black text-white uppercase tracking-widest cursor-pointer hover:text-blue-400 transition-colors group">
+                        <th onclick="sortTable('current_price')" class="w-[15%] py-3.5 text-left text-[13px] font-black text-white uppercase tracking-widest cursor-pointer hover:text-blue-400 transition-colors group">
                             AUDIT <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i>
                         </th>
                     </tr>
@@ -178,7 +177,7 @@
                 ['searchInput', 'domainFilter', 'modelFilter', 'scopeFilter'].forEach(id => {
                     document.getElementById(id).addEventListener('input', () => {
                         applyFilters();
-                        toggleResetBtn(); // Check if we should activate reset btn
+                        toggleResetBtn();
                     });
                 });
 
@@ -188,19 +187,14 @@
             } catch (err) { console.error(err); }
         }
 
-        // DYNAMIC BUTTON LOGIC
         function toggleResetBtn() {
             const hasInput = document.getElementById('searchInput').value !== '';
             const hasDomain = document.getElementById('domainFilter').value !== '';
             const hasModel = document.getElementById('modelFilter').value !== '';
             const hasScope = document.getElementById('scopeFilter').value !== '';
-            
             const btn = document.getElementById('resetBtn');
-            if (hasInput || hasDomain || hasModel || hasScope) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
+            if (hasInput || hasDomain || hasModel || hasScope) btn.classList.add('active');
+            else btn.classList.remove('active');
         }
 
         function clearFilters() {
@@ -230,18 +224,18 @@
 
             body.innerHTML = data.map(api => `
                 <tr class="clickable-row group" onclick="window.open('${api.pricing_url}', '_blank')">
-                    <td class="w-[20%] py-4.5 pr-4">
+                    <td class="w-[20%] py-5 pr-4">
                         <span class="text-blue-600 font-[700] text-[13.5px] tracking-tight group-hover:text-blue-800 transition-colors">${api.name}</span>
                     </td>
-                    <td class="w-[38%] py-4.5 pr-10 text-[11.5px] text-slate-500 font-medium leading-relaxed relative">
+                    <td class="w-[38%] py-5 pr-10 text-[11.5px] text-slate-500 font-medium leading-relaxed relative">
                         ${api.description || 'System audit in progress...'}
                         <div class="hover-hint">VISIT SOURCE <i class="fas fa-chevron-right ml-1"></i></div>
                     </td>
-                    <td class="w-[15%] py-4.5">
+                    <td class="w-[15%] py-5">
                         <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">${api.domain || 'N/A'}</span>
                     </td>
-                    <td class="w-[12%] py-4.5 text-[11px] text-slate-600 font-semibold tracking-tighter">${api.pricing_model || 'N/A'}</td>
-                    <td class="w-[15%] py-4.5">
+                    <td class="w-[12%] py-5 text-[11px] text-slate-600 font-semibold tracking-tighter">${api.pricing_model || 'N/A'}</td>
+                    <td class="w-[15%] py-5">
                         <span class="${api.current_price ? 'text-emerald-600' : 'text-slate-300'} text-[10px] font-black uppercase tracking-tighter">
                             ${api.current_price || 'AUDITING'}
                         </span>
