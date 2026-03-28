@@ -4,7 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Price Catalog | Research Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    let apiData = [];
+    let sortColumn = '';
+    let sortDirection = 1;
+
+    async function init() {
+        const tableBody = document.getElementById('tableBody');
+        try {
+            // Added cache: 'no-cache' to force GitHub to show latest data
+            const response = await fetch('./dataset_400.json', { cache: 'no-cache' });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            apiData = await response.json();
+            
+            if (!apiData || apiData.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="4" class="p-10 text-center text-orange-500 font-bold">The JSON file is empty.</td></tr>';
+                return;
+            }
+
+            populateDropdown('domainFilter', 'domain');
+            populateDropdown('modelFilter', 'pricing_model');
+            populateDropdown('scopeFilter', 'scope');
+            renderTable(apiData);
+            
+            ['searchInput', 'domainFilter', 'modelFilter', 'scopeFilter'].forEach(id => {
+                document.getElementById(id).addEventListener('input', applyFilters);
+            });
+
+        } catch (error) {
+            tableBody.innerHTML = `<tr><td colspan="4" class="p-10 text-center text-red-500">
+                <p class="font-bold">Error loading data!</p>
+                <p class="text-xs mt-2">${error.message}</p>
+                <p class="text-xs">Ensure "dataset_400.json" is in the same folder as index.html</p>
+            </td></tr>`;
+        }
+    }
+
+    function populateDropdown(elementId, key) {
+        const dropdown = document.getElementById(elementId);
+        const uniqueValues = [...new Set(apiData.map(item => item[key]))].filter(Boolean).sort();
+        dropdown.innerHTML = `<option value="">All ${key.replace('_', ' ')}s</option>` + 
+            uniqueValues.map(val => `<option value="${val}">${val}</option>`).join('');
+    }
+
+    function renderTable(data) {
+        const tableBody = document.getElementById('tableBody');
+        if (data.length === 0) {
+            tableBody.innerHTML = '<tr><td colspan="4" class="p-10 text-center text-slate-400">No matching APIs found.</td></tr>';
+            return;
+        }
+        tableBody.innerHTML = data.map(api => `
+            <tr class="hover:bg-blue-50 transition-colors border-b border-slate-100">
+                <td class="px-6 py-4">
+                    <a href="${api.pricing_url}" target="_blank" class="text-blue-600 font-bold hover:underline">${api.name}</a>
+                </td>
+                <td class="px-6 py-4 text-sm text-slate-600">${api.domain || 'N/A'}</td>
+                <td class="px-6 py-4 text-sm text-slate-700 font-medium">${api.pricing_model || 'N/A'}</td>
+                <td class="px-6 py-4">
+                    <span class="${api.current_price ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-400'} px-3 py-1 rounded-full text-xs font-bold">
+                        ${api.current_price || 'Updating...'}
+                    </span>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    function applyFilters() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const domainTerm = document.getElementById('domainFilter').value;
+        const modelTerm = document.getElementById('modelFilter').value;
+        const scopeTerm = document.getElementById('scopeFilter').value;
+
+        const filtered = apiData.filter(item => {
+            return (item.name.toLowerCase().includes(searchTerm)) &&
+                   (domainTerm === "" || item.domain === domainTerm) &&
+                   (modelTerm === "" || item.pricing_model === modelTerm) &&
+                   (scopeTerm === "" || item.scope === scopeTerm);
+        });
+        renderTable(filtered);
+    }
+
+    function sortTable(column) {
+        if (sortColumn === column) {
+            sortDirection *= -1;
+        } else {
+            sortColumn = column;
+            sortDirection = 1;
+        }
+
+        const sortedData = [...apiData].sort((a, b) => {
+            const valA = (a[column] || '').toString().toLowerCase();
+            const valB = (b[column] || '').toString().toLowerCase();
+            return valA < valB ? -sortDirection : (valA > valB ? sortDirection : 0);
+        });
+
+        renderTable(sortedData);
+    }
+
+    init();
+</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="bg-slate-50 min-h-screen p-4 md:p-8 font-sans">
