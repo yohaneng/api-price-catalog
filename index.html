@@ -9,7 +9,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
         body { font-family: 'Inter', sans-serif; background: #fcfdfe; }
-        html { scroll-behavior: smooth; }
         
         .glass-header {
             position: sticky; top: 0; z-index: 100;
@@ -17,18 +16,17 @@
             backdrop-filter: blur(24px); border-bottom: 2px solid #e2e8f0;
         }
 
-        /* Status Coloring for the Audit Engine Results */
-        .price-free { color: #10b981 !important; font-weight: 800; } /* Emerald */
-        .price-paid { color: #3b82f6 !important; font-weight: 800; } /* Blue */
-        .price-sales { color: #f59e0b !important; font-weight: 800; } /* Orange */
-        .price-error { color: #ef4444 !important; font-weight: 800; } /* Red */
+        /* Status Colors for Audit Results */
+        .price-free { color: #10b981 !important; font-weight: 800; } 
+        .price-paid { color: #3b82f6 !important; font-weight: 800; } 
+        .price-sales { color: #f59e0b !important; font-weight: 800; } 
+        .price-error { color: #ef4444 !important; font-weight: 800; } 
 
         .custom-dropdown { position: relative; width: 100%; }
         .dropdown-trigger {
             width: 100%; padding: 12px 20px; border: 2px solid #e2e8f0;
             border-radius: 14px; background: white; font-size: 14px; font-weight: 700;
             display: flex; justify-content: space-between; align-items: center; cursor: pointer;
-            transition: all 0.2s;
         }
         .dropdown-trigger.filtered { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
 
@@ -50,7 +48,6 @@
 
         .table-fixed-head { background: #0f172a; color: white; }
         .clickable-row:hover { background-color: #f1f5f9 !important; box-shadow: inset 12px 0 0 0 #3b82f6; cursor: pointer; }
-        
         .check-item { display: flex; align-items: center; gap: 12px; padding: 8px 16px; cursor: pointer; }
         .inner-search { width: 100%; padding: 6px 10px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 11px; outline: none; }
     </style>
@@ -60,23 +57,14 @@
     <div class="glass-header">
         <div class="px-6 md:px-12 pt-6 pb-4">
             <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-5">
-                <div class="flex items-center gap-10">
-                    <div>
-                        <h1 class="text-5xl font-[900] tracking-tighter text-slate-900 uppercase">API<span class="text-blue-600">WORLD</span></h1>
-                        <p id="audit-timestamp" class="text-[10px] font-extrabold text-blue-500 uppercase tracking-[0.2em] mt-1">LAST LIVE AUDIT: LOADING...</p>
-                    </div>
-
-                    <div id="topDomainsBox" class="hidden 2xl:block border-l-2 border-slate-200 pl-10 relative">
-                        <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest flex items-center gap-2">
-                            Top Categories <span id="domainCountBadge" class="bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full text-[9px]">---</span>
-                        </p>
-                        <div id="domainPills" class="flex gap-2 mt-2"></div>
-                    </div>
+                <div>
+                    <h1 class="text-5xl font-[900] tracking-tighter text-slate-900 uppercase">API<span class="text-blue-600">WORLD</span></h1>
+                    <p id="audit-timestamp" class="text-[10px] font-extrabold text-blue-500 uppercase tracking-[0.2em] mt-1">LAST LIVE AUDIT: LOADING...</p>
                 </div>
                 
                 <div class="flex items-center gap-8">
                     <div class="hidden xl:block text-right border-r-2 border-slate-100 pr-8">
-                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Pricing Transparency</p>
+                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Pricing Transparency Ratio</p>
                         <div class="spectrum-container">
                             <div id="specFree"></div><div id="specFreemium"></div><div id="specPaid"></div>
                         </div>
@@ -99,9 +87,7 @@
                         <span class="label">All Domains</span><i class="fas fa-chevron-down mr-1"></i>
                     </div>
                     <div class="dropdown-menu">
-                        <div class="overlay-sticky-header p-4 border-b">
-                            <input type="text" placeholder="Filter list..." onkeyup="filterDropdown(this, 'list-domain')" class="inner-search">
-                        </div>
+                        <div class="p-4 border-b"><input type="text" placeholder="Filter list..." onkeyup="filterDropdown(this, 'list-domain')" class="inner-search"></div>
                         <div class="list-container" id="list-domain"></div>
                     </div>
                 </div>
@@ -110,18 +96,14 @@
                     <div class="dropdown-trigger" onclick="toggleDropdown('dd-pricing_model')">
                         <span class="label">All Pricing Models</span><i class="fas fa-chevron-down mr-1"></i>
                     </div>
-                    <div class="dropdown-menu">
-                        <div class="list-container" id="list-pricing_model"></div>
-                    </div>
+                    <div class="dropdown-menu"><div class="list-container" id="list-pricing_model"></div></div>
                 </div>
 
                 <div class="custom-dropdown" id="dd-scope">
                     <div class="dropdown-trigger" onclick="toggleDropdown('dd-scope')">
                         <span class="label">All Scopes</span><i class="fas fa-chevron-down mr-1"></i>
                     </div>
-                    <div class="dropdown-menu">
-                        <div class="list-container" id="list-scope"></div>
-                    </div>
+                    <div class="dropdown-menu"><div class="list-container" id="list-scope"></div></div>
                 </div>
             </div>
         </div>
@@ -130,12 +112,12 @@
             <table class="min-w-full">
                 <thead>
                     <tr>
-                        <th onclick="sortTable('name')" class="w-[20%] py-4 pl-10 text-left text-[11px] font-black uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">IDENTITY <i class="fas fa-sort ml-1"></i></th>
+                        <th onclick="sortTable('name')" class="w-[20%] py-4 pl-10 text-left text-[11px] font-black uppercase tracking-[0.2em] cursor-pointer">IDENTITY</th>
                         <th class="w-[30%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em]">DESCRIPTION</th>
-                        <th onclick="sortTable('domain')" class="w-[12%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em] cursor-pointer">DOMAIN</th>
-                        <th onclick="sortTable('scope')" class="w-[10%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em] cursor-pointer">SCOPE</th>
-                        <th onclick="sortTable('pricing_model')" class="w-[12%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em] cursor-pointer">MODEL</th>
-                        <th onclick="sortTable('current_price')" class="w-[16%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em] cursor-pointer">LIVE PRICING</th>
+                        <th class="w-[12%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em]">DOMAIN</th>
+                        <th class="w-[10%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em]">SCOPE</th>
+                        <th class="w-[12%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em]">MODEL</th>
+                        <th class="w-[16%] py-4 text-left text-[11px] font-black uppercase tracking-[0.2em]">LIVE PRICING</th>
                     </tr>
                 </thead>
             </table>
@@ -157,14 +139,13 @@
             try {
                 const resp = await fetch('./dataset_400.json');
                 apiData = await resp.json();
-                
                 ['domain', 'pricing_model', 'scope'].forEach(key => {
                     const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean).sort();
                     vals.forEach(v => filters[key].add(v));
                     buildDropdown(key, vals);
                 });
                 render();
-            } catch (err) { console.error("Could not load dataset_400.json", err); }
+            } catch (err) { console.error(err); }
         }
 
         function buildDropdown(key, vals) {
@@ -173,7 +154,7 @@
             container.innerHTML = vals.map(v => `
                 <div class="check-item hover:bg-slate-50" onclick="toggleFilter('${key}', '${v}')">
                     <input type="checkbox" id="check-${key}-${v}" ${filters[key].has(v) ? 'checked' : ''}>
-                    <label class="flex justify-between w-full text-xs font-bold cursor-pointer">
+                    <label class="flex justify-between w-full text-xs font-bold pointer-events-none">
                         <span>${v}</span>
                         <span class="text-blue-500">${apiData.filter(x => x[key] === v).length}</span>
                     </label>
@@ -227,55 +208,44 @@
             updateUIState();
         }
 
+        function updateInfographics(data) {
+            const total = data.length || 1;
+            const fCount = data.filter(i => (i.current_price || '').includes('Free')).length;
+            const pCount = data.filter(i => (i.current_price || '').includes('Paid')).length;
+            const sCount = data.filter(i => (i.current_price || '').includes('Sales')).length;
+
+            document.getElementById('specFree').style.width = (fCount / total * 100) + '%';
+            document.getElementById('specFreemium').style.width = (pCount / total * 100) + '%';
+            document.getElementById('specPaid').style.width = (sCount / total * 100) + '%';
+
+            const auditDates = apiData.map(d => d.last_audited).filter(Boolean);
+            const latest = auditDates.sort().reverse()[0] || "STALE DATA";
+            document.getElementById('audit-timestamp').innerText = `LAST LIVE AUDIT: ${latest}`;
+            document.getElementById('counter').innerText = `${data.length} / ${apiData.length} NODES`;
+            document.getElementById('resetBtn').classList.toggle('active', data.length < apiData.length);
+        }
+
         function updateUIState() {
             ['domain', 'pricing_model', 'scope'].forEach(key => {
                 const trig = document.querySelector(`#dd-${key} .dropdown-trigger`);
                 const allPossible = [...new Set(apiData.map(i => i[key]))].filter(Boolean).length;
                 const isFilt = filters[key].size < allPossible;
                 trig.classList.toggle('filtered', isFilt);
-                trig.querySelector('.label').innerText = isFilt ? `${filters[key].size} Selected` : (key === 'pricing_model' ? 'All Models' : `All ${key}s`);
+                trig.querySelector('.label').innerText = isFilt ? `${filters[key].size} Selected` : `All ${key}s`;
             });
         }
 
-        function updateInfographics(data) {
-    const total = data.length || 1;
-    
-    // We use .includes() so it finds "Free" even inside "Verified: Free"
-    const freeCount = data.filter(i => (i.current_price || '').includes('Free')).length;
-    const paidCount = data.filter(i => (i.current_price || '').includes('Paid')).length;
-    const salesCount = data.filter(i => (i.current_price || '').includes('Sales')).length;
-
-    // Update the colored bars
-    document.getElementById('specFree').style.width = (freeCount / total * 100) + '%';
-    document.getElementById('specFreemium').style.width = (paidCount / total * 100) + '%';
-    document.getElementById('specPaid').style.width = (salesCount / total * 100) + '%';
-
-    // Update the counter text
-    document.getElementById('counter').innerText = `${data.length} / ${apiData.length} NODES`;
-    
-    // Update the "Last Audit" timestamp
-    const auditDates = apiData.map(d => d.last_audited).filter(Boolean);
-    const latest = auditDates.sort().reverse()[0] || "STALE DATA";
-    document.getElementById('audit-timestamp').innerText = `LAST LIVE AUDIT: ${latest}`;
-        }
-
-        function applyFilters() {
-            filters.search = document.getElementById('searchInput').value.toLowerCase();
-            render();
-        }
-
-        function toggleDropdown(id) {
+        function applyFilters() { filters.search = document.getElementById('searchInput').value.toLowerCase(); render(); }
+        function toggleDropdown(id) { 
             const el = document.querySelector(`#${id} .dropdown-menu`);
             const isShown = el.classList.contains('show');
             closeAllDropdowns();
             if (!isShown) el.classList.add('show');
         }
-
         function closeAllDropdowns(e) {
             if (e && e.target.closest('.custom-dropdown')) return;
             document.querySelectorAll('.dropdown-menu').forEach(d => d.classList.remove('show'));
         }
-
         function fullReset() {
             document.getElementById('searchInput').value = '';
             filters.search = '';
@@ -285,13 +255,13 @@
             });
             render();
         }
-
-        function sortTable(col) {
-            if(sortCol === col) sortDir *= -1;
-            else { sortCol = col; sortDir = 1; }
-            render();
+        function filterDropdown(input, containerId) {
+            const term = input.value.toLowerCase();
+            document.querySelectorAll(`#${containerId} .check-item`).forEach(item => {
+                item.classList.toggle('hidden', !item.innerText.toLowerCase().includes(term));
+            });
         }
-
+        function sortTable(col) { if(sortCol === col) sortDir *= -1; else { sortCol = col; sortDir = 1; } render(); }
         init();
     </script>
 </body>
