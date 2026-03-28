@@ -20,26 +20,24 @@
             border-bottom: 2px solid #e2e8f0;
         }
 
-        /* DYNAMIC CATEGORY OVERLAY */
+        /* CATEGORY OVERLAY STYLES */
         #categoryOverlay {
             display: none;
             position: absolute;
             top: 100%;
             left: 0;
-            width: 280px;
-            max-height: 400px;
+            width: 320px;
+            max-height: 450px;
             overflow-y: auto;
             background: white;
             border: 1px solid #e2e8f0;
             border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             padding: 16px;
             z-index: 150;
         }
 
-        #topDomainsBox:hover #categoryOverlay {
-            display: block;
-        }
+        #topDomainsBox:hover #categoryOverlay { display: block; }
 
         .spectrum-container {
             display: flex;
@@ -70,39 +68,16 @@
             100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
-        #resetBtn {
-            transition: all 0.3s ease;
-            opacity: 0.3;
-            filter: grayscale(1);
-            pointer-events: none;
-        }
+        #resetBtn { transition: all 0.3s ease; opacity: 0.3; filter: grayscale(1); pointer-events: none; }
+        #resetBtn.active { opacity: 1; filter: grayscale(0); pointer-events: auto; background: #ef4444; color: white; }
 
-        #resetBtn.active {
-            opacity: 1;
-            filter: grayscale(0);
-            pointer-events: auto;
-            background: #ef4444;
-            color: white;
-        }
-
-        .clickable-row:hover {
-            background-color: #f1f5f9 !important;
-            box-shadow: inset 12px 0 0 0 #3b82f6;
-        }
-
-        .hover-hint {
-            color: #3b82f6;
-            font-size: 10px;
-            font-weight: 700;
-            opacity: 0;
-            transition: 0.2s;
-            margin-left: 8px;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
+        .clickable-row:hover { background-color: #f1f5f9 !important; box-shadow: inset 12px 0 0 0 #3b82f6; }
+        .hover-hint { color: #3b82f6; font-size: 10px; font-weight: 700; opacity: 0; transition: 0.2s; margin-left: 8px; display: inline-flex; align-items: center; gap: 4px; }
         .clickable-row:hover .hover-hint { opacity: 1; }
+
+        /* CUSTOM CHECKBOX STYLE */
+        .check-container { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 4px 0; }
+        .check-container input { cursor: pointer; width: 14px; height: 14px; }
     </style>
 </head>
 <body class="text-slate-900">
@@ -137,12 +112,15 @@
                     </div>
 
                     <div id="topDomainsBox" class="hidden 2xl:block border-l-2 border-slate-200 pl-8 relative cursor-help">
-                        <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Top Categories <i class="fas fa-chevron-down ml-1 opacity-30"></i></p>
+                        <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Domain Insights <i class="fas fa-filter ml-1 opacity-30"></i></p>
                         <div id="domainPills" class="flex gap-2 mt-1.5"></div>
                         
                         <div id="categoryOverlay">
-                            <p class="text-[10px] font-black text-slate-400 uppercase mb-3 border-b pb-2 tracking-widest">Full Category Breakdown</p>
-                            <div id="fullCategoryList" class="space-y-2"></div>
+                            <div class="flex justify-between items-center mb-3 border-b pb-2">
+                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Select Domains</p>
+                                <button onclick="clearDomainSelection()" class="text-[9px] font-bold text-blue-600 hover:underline">Select All</button>
+                            </div>
+                            <div id="fullCategoryList" class="space-y-1"></div>
                         </div>
                     </div>
                 </div>
@@ -164,14 +142,13 @@
                 </div>
             </header>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-2">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-2">
                 <div class="relative group">
-                    <input type="text" id="searchInput" placeholder="Search Identity..." class="w-full p-3 pl-11 border-2 border-slate-200 rounded-xl bg-white focus:ring-4 focus:ring-blue-500/10 outline-none text-sm font-semibold transition-all">
-                    <i class="fas fa-search absolute left-4 top-4 text-slate-300 text-lg group-focus-within:text-blue-500"></i>
+                    <input type="text" id="searchInput" placeholder="Search API Name..." class="w-full p-2.5 pl-11 border-2 border-slate-200 rounded-xl bg-white focus:ring-4 focus:ring-blue-500/10 outline-none text-sm font-semibold transition-all">
+                    <i class="fas fa-search absolute left-4 top-3.5 text-slate-300 group-focus-within:text-blue-500"></i>
                 </div>
-                <select id="domainFilter" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 cursor-pointer"></select>
-                <select id="modelFilter" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 cursor-pointer"></select>
-                <select id="scopeFilter" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 cursor-pointer"></select>
+                <select id="modelFilter" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 cursor-pointer"></select>
+                <select id="scopeFilter" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 cursor-pointer"></select>
             </div>
         </div>
 
@@ -179,9 +156,7 @@
             <table class="min-w-full">
                 <thead>
                     <tr>
-                        <th onclick="sortTable('name')" class="w-[20%] py-3.5 pl-10 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 transition-colors group">
-                            API IDENTITY <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i>
-                        </th>
+                        <th onclick="sortTable('name')" class="w-[20%] py-3.5 pl-10 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 group">API IDENTITY <i class="fas fa-sort ml-1 opacity-20"></i></th>
                         <th class="w-[38%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em]">DESCRIPTION</th>
                         <th onclick="sortTable('domain')" class="w-[15%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">DOMAIN</th>
                         <th onclick="sortTable('pricing_model')" class="w-[12%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">TYPE</th>
@@ -201,19 +176,25 @@
     <script>
         let apiData = [];
         let sortDirection = 1;
+        let selectedDomains = new Set();
 
         async function init() {
             try {
                 let response = await fetch('./dataset_400.json', { cache: 'no-cache' });
                 if (!response.ok) response = await fetch('./Dataset_400.json', { cache: 'no-cache' });
                 apiData = await response.json();
-                populateDropdown('domainFilter', 'domain');
+                
+                // Set initial domains to all
+                apiData.forEach(i => selectedDomains.add(i.domain));
+                
                 populateDropdown('modelFilter', 'pricing_model');
                 populateDropdown('scopeFilter', 'scope');
                 renderTable(apiData);
-                ['searchInput', 'domainFilter', 'modelFilter', 'scopeFilter'].forEach(id => {
+                
+                ['searchInput', 'modelFilter', 'scopeFilter'].forEach(id => {
                     document.getElementById(id).addEventListener('input', () => { applyFilters(); toggleResetBtn(); });
                 });
+                
                 window.addEventListener('scroll', () => {
                     document.getElementById('backToTop').classList.toggle('hidden', window.scrollY <= 400);
                 });
@@ -230,37 +211,56 @@
             document.getElementById('specFreemium').style.width = freemium + '%';
             document.getElementById('specPaid').style.width = (100 - free - freemium) + '%';
 
-            // 2. Diversity Stat
+            // 2. Diversity
             const globalCount = filteredData.filter(i => i.scope === 'Global').length;
             document.getElementById('diversityStat').innerText = Math.round((globalCount / total) * 100) + '% Global';
 
-            // 3. Category Breakdown (Full & Top 3)
-            const counts = {};
-            filteredData.forEach(i => counts[i.domain] = (counts[i.domain] || 0) + 1);
-            const sortedDomains = Object.keys(counts).sort((a,b) => counts[b] - counts[a]);
-            
-            // Top 3 Pills
-            document.getElementById('domainPills').innerHTML = sortedDomains.slice(0, 3).map(d => 
-                `<span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-[9px] font-black border border-slate-200">${d.toUpperCase()}</span>`
-            ).join('');
+            // 3. Dynamic Category List with Checkboxes
+            const allCounts = {};
+            apiData.forEach(i => allCounts[i.domain] = (allCounts[i.domain] || 0) + 1);
+            const sortedDomains = Object.keys(allCounts).sort((a,b) => allCounts[b] - allCounts[a]);
 
-            // Full Hover List
             document.getElementById('fullCategoryList').innerHTML = sortedDomains.map(d => `
-                <div class="flex justify-between items-center text-[11px] font-bold">
-                    <span class="text-slate-600">${d}</span>
-                    <span class="text-blue-600 bg-blue-50 px-2 rounded-full">${counts[d]}</span>
+                <div class="check-container">
+                    <input type="checkbox" id="check-${d}" ${selectedDomains.has(d) ? 'checked' : ''} onchange="toggleDomain('${d}')">
+                    <label for="check-${d}" class="flex justify-between w-full text-[11px] font-bold">
+                        <span class="${selectedDomains.has(d) ? 'text-slate-900' : 'text-slate-400'}">${d}</span>
+                        <span class="text-blue-600 bg-blue-50 px-2 rounded-full">${allCounts[d]}</span>
+                    </label>
                 </div>
             `).join('');
+
+            // Pills for Top 3 Selected
+            const displayPills = Array.from(selectedDomains).slice(0, 3);
+            document.getElementById('domainPills').innerHTML = displayPills.map(d => 
+                `<span class="bg-blue-600 text-white px-2 py-0.5 rounded text-[9px] font-black">${d.toUpperCase()}</span>`
+            ).join('') + (selectedDomains.size > 3 ? `<span class="text-[9px] font-bold text-slate-400">+${selectedDomains.size - 3}</span>` : '');
+        }
+
+        function toggleDomain(domain) {
+            if (selectedDomains.has(domain)) selectedDomains.delete(domain);
+            else selectedDomains.add(domain);
+            applyFilters();
+            toggleResetBtn();
+        }
+
+        function clearDomainSelection() {
+            apiData.forEach(i => selectedDomains.add(i.domain));
+            applyFilters();
+            toggleResetBtn();
         }
 
         function toggleResetBtn() {
-            const hasVal = document.getElementById('searchInput').value || document.getElementById('domainFilter').value || document.getElementById('modelFilter').value || document.getElementById('scopeFilter').value;
-            document.getElementById('resetBtn').classList.toggle('active', !!hasVal);
+            const hasInput = document.getElementById('searchInput').value !== '';
+            const isPartialDomains = selectedDomains.size < new Set(apiData.map(i => i.domain)).size;
+            document.getElementById('resetBtn').classList.toggle('active', hasInput || isPartialDomains);
         }
 
         function clearFilters() {
-            ['searchInput', 'domainFilter', 'modelFilter', 'scopeFilter'].forEach(id => document.getElementById(id).value = '');
-            toggleResetBtn(); renderTable(apiData);
+            document.getElementById('searchInput').value = '';
+            document.getElementById('modelFilter').value = '';
+            document.getElementById('scopeFilter').value = '';
+            clearDomainSelection();
         }
 
         function populateDropdown(id, key) {
@@ -275,7 +275,7 @@
             updateInfographics(data);
 
             if (data.length === 0) {
-                body.innerHTML = '<tr><td colspan="5" class="py-32 text-center text-slate-300 font-bold uppercase tracking-widest text-sm">No Results</td></tr>';
+                body.innerHTML = '<tr><td colspan="5" class="py-32 text-center text-slate-300 font-bold uppercase tracking-widest text-sm">No Results Found</td></tr>';
                 return;
             }
             body.innerHTML = data.map(api => `
@@ -296,8 +296,15 @@
 
         function applyFilters() {
             const s = document.getElementById('searchInput').value.toLowerCase();
-            const d = document.getElementById('domainFilter').value, m = document.getElementById('modelFilter').value, sc = document.getElementById('scopeFilter').value;
-            const filtered = apiData.filter(i => (i.name.toLowerCase().includes(s)) && (d === "" || i.domain === d) && (m === "" || i.pricing_model === m) && (sc === "" || i.scope === sc));
+            const m = document.getElementById('modelFilter').value;
+            const sc = document.getElementById('scopeFilter').value;
+
+            const filtered = apiData.filter(i => 
+                (i.name.toLowerCase().includes(s)) &&
+                (selectedDomains.has(i.domain)) &&
+                (m === "" || i.pricing_model === m) &&
+                (sc === "" || i.scope === sc)
+            );
             renderTable(filtered);
         }
 
