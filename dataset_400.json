@@ -6,7 +6,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Web-based prototyping environment for building applications with Google's Gemini generative AI models.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -16,7 +16,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "High-performance inference engine designed for ultra-fast execution of large language models.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -26,7 +26,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Collaborative platform providing open-source tools and infrastructure for deploying machine learning models.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -36,7 +36,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Unified interface providing access to various LLMs through a single, standardized API.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -46,7 +46,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Platform offering high-efficiency, open-weight language models optimized for performance and reasoning.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -56,7 +56,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Hardware-accelerated cloud platform optimized for training and inferencing massive AI workloads.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -66,7 +66,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Full-stack AI platform specializing in computer vision, NLP, and automated data labeling.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0.16/M",
         "last_audited": "2026-03-29"
     },
     {
@@ -76,7 +76,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Advanced AI research platform offering specialized models for coding and complex reasoning.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -86,7 +86,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Natural language interface for developers to turn text or voice into actionable data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -96,7 +96,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Simple API that predicts the age of a person based on their name.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -106,7 +106,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Data enrichment tool that predicts the gender of a person based on name.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -116,7 +116,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Predicts the nationality of a person based on their first name using statistics.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -126,7 +126,7 @@
         "pricing_model": "Free",
         "scope": "USA",
         "description": "Comprehensive visualization tool and API for accessing public US government socio-economic data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -136,7 +136,7 @@
         "pricing_model": "Free",
         "scope": "USA",
         "description": "The home of the U.S. Government\u00e2\u20ac\u2122s open data, offering multi-departmental datasets.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -146,7 +146,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Direct access to NASA's vast repository of planetary, solar, and space exploration data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -156,7 +156,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "An open, editable library catalog, building towards a web page for every book.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -166,7 +166,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Access to global development data, including indicators on economy, health, and education.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -176,7 +176,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides information about world nations via a RESTful interface for geographic data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -186,7 +186,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Independent cryptocurrency data aggregator tracking prices, volume, and market capitalization across assets.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -196,7 +196,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Reliable currency conversion API providing real-time and historical global exchange rate data.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $10",
         "last_audited": "2026-03-29"
     },
     {
@@ -206,7 +206,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables developers to interact with GitHub's version control and project management features.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -216,7 +216,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Automation interface for GitLab's DevOps platform, managing repositories, pipelines, and users.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -226,7 +226,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "REST API for managing code repositories, pull requests, and pipelines on Bitbucket.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -236,7 +236,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides access to questions and answers from the Stack Overflow network of communities.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -246,7 +246,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Search-as-a-service platform that provides fast, relevant search results for websites and apps.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -256,7 +256,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Distributed, RESTful search and analytics engine for diverse types of structured data.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -266,7 +266,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Lightweight, open-source search engine designed for fast and relevant end-user search experiences.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -276,7 +276,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Open-source, typo-tolerant search engine designed for performance and ease of developer use.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -286,7 +286,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Cloud communications platform for integrating voice, SMS, and video functionality into applications.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -296,7 +296,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Omnichannel communications API for SMS, voice, and WhatsApp integration in customer journeys.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -306,7 +306,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Global communication services provider offering APIs for voice, messaging, and video authentication.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -316,7 +316,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Scalable cloud communications platform for mobile messaging, voice, and video interaction services.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -326,7 +326,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Cloud-based email delivery platform that assists businesses with transactional and marketing emails.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -336,7 +336,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Email automation service for developers to send, receive, and track emails effortlessly.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -346,7 +346,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Reliable email delivery service specializing in fast transactional email for web applications.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0.00 /mo",
         "last_audited": "2026-03-29"
     },
     {
@@ -356,7 +356,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enterprise-level email delivery service providing analytics and high-deliverability infrastructure for marketing.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -366,7 +366,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Financial infrastructure platform for processing online payments and managing global business finances.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -376,7 +376,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Integration suite for processing online payments, subscriptions, and merchant financial services.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -386,7 +386,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Global payment platform that provides end-to-end payment capabilities and data-driven insights.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0.13",
         "last_audited": "2026-03-29"
     },
     {
@@ -396,7 +396,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Full-stack payment platform by PayPal for processing mobile and web commerce transactions.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -406,7 +406,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Fintech API that connects consumer bank accounts with financial applications for data.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -416,7 +416,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Open banking platform providing secure access to financial data and instant bank payments.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -426,7 +426,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Financial data aggregator providing real-time access to consumer-permissioned financial accounts and data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -436,7 +436,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Data aggregation and analytics platform for personal financial management and banking applications.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -446,7 +446,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Adaptable authentication and authorization platform for secure identity management across various applications.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -456,7 +456,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Backend service providing secure, easy-to-use authentication for mobile and web applications.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $300",
         "last_audited": "2026-03-29"
     },
     {
@@ -466,7 +466,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enterprise-grade identity management service for secure user authentication and single sign-on solutions.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -476,7 +476,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Comprehensive user management and authentication suite specifically optimized for React and Next.js.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0/mo",
         "last_audited": "2026-03-29"
     },
     {
@@ -486,7 +486,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables developers to integrate and customize e-commerce features within the Shopify ecosystem.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -496,7 +496,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "RESTful interface for managing products, orders, and customers in WordPress-based stores.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -506,7 +506,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enterprise-level e-commerce API for managing storefronts, catalogs, and customer data programmatically.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -516,7 +516,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Extensive API suite for customizing and integrating enterprise-scale Adobe Commerce storefronts.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -526,7 +526,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Comprehensive location intelligence services including maps, routing, and local place information.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -536,7 +536,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Location data platform for creating custom designed maps and navigation for applications.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -546,7 +546,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Cloud-based mapping and location services offering precise navigation and fleet management data.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -556,7 +556,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Collaborative, open-source world map data provided via community-maintained API endpoints.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -566,7 +566,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Access to music metadata, user playlists, and playback controls within the Spotify ecosystem.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -576,7 +576,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables integration of YouTube functionality, including video search and channel management tools.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -586,7 +586,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Allows developers to interact with SoundCloud's music repository and user-uploaded audio content.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -596,7 +596,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Advanced video hosting and management API for professional video delivery and analytics.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -606,7 +606,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Provides global weather data including current conditions, forecasts, and historical climate records.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -616,7 +616,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Real-time, historical, and forecasted weather data via a lightweight JSON REST API.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -626,7 +626,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enterprise weather data providing precise local forecasts and severe weather alert services.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -636,7 +636,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "High-resolution weather intelligence platform offering hyper-local forecasts and climate risk data.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -646,7 +646,7 @@
         "pricing_model": "Free",
         "scope": "USA",
         "description": "Real estate data service providing home valuations, property details, and neighborhood market information.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -656,7 +656,7 @@
         "pricing_model": "Freemium",
         "scope": "USA",
         "description": "API providing nationwide real estate data including rental rates, property features, and ROI.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -666,7 +666,7 @@
         "pricing_model": "Freemium",
         "scope": "USA",
         "description": "Property data API delivering comprehensive property records, titles, and structural details across US.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -676,7 +676,7 @@
         "pricing_model": "Freemium",
         "scope": "USA",
         "description": "Large-scale property data warehouse providing environmental, tax, and property ownership intelligence.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -686,7 +686,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Direct access to thousands of high-quality, professional, and royalty-free stock photographs.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -696,7 +696,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides free stock photos and videos for developers to use in creative projects.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -706,7 +706,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "RESTful interface for searching and retrieving millions of free images, videos, and music.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 429",
         "last_audited": "2026-03-29"
     },
     {
@@ -716,7 +716,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "The world's largest library of animated GIFs and stickers accessible via searchable API.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -726,7 +726,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "A niche public API providing random dog images, facts, and breed-specific information.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -736,7 +736,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Public data service delivering high-resolution cat images, facts, and breed data for developers.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0.00/Month",
         "last_audited": "2026-03-29"
     },
     {
@@ -746,7 +746,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Fun API that maps HTTP status codes to corresponding cat images for developers.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -756,7 +756,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Placeholder service providing kitten images for web layouts and design testing purposes.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 521",
         "last_audited": "2026-03-29"
     },
     {
@@ -766,7 +766,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Locates and retrieves articles from over 80,000 news sources and blogs worldwide.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0.0018",
         "last_audited": "2026-03-29"
     },
     {
@@ -776,7 +776,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Open access to the full content and metadata of Guardian newspaper articles.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -786,7 +786,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "NYT article search and top stories.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -796,7 +796,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Real-time news API providing access to global news data and breaking headlines.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -806,7 +806,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Primary source for cryptocurrency market data, including price tracking, capitalization, and exchange rankings.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $29 /mo",
         "last_audited": "2026-03-29"
     },
     {
@@ -816,7 +816,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "High-quality market data API for streaming and historical cryptocurrency pricing and blockchain data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -826,7 +826,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Trading and market data interface for the Kraken cryptocurrency exchange platform.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -836,7 +836,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Public interface for accessing real-time market data and trade execution on Binance.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -846,7 +846,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Enables developers to connect services to Notion workspaces and manage databases and pages.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -856,7 +856,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Allows programmatic interaction with Trello boards, cards, and lists for project management.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -866,7 +866,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Integration tool for automating workflows and managing tasks within the Asana platform.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -876,7 +876,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Enables developers to build custom workflows and integrations on the Monday.com work OS.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -886,7 +886,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Comprehensive suite for building apps and bots that automate tasks within Slack workspaces.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -896,7 +896,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Platform for building bots and managing server interactions for the Discord community.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -906,7 +906,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "HTTP-based interface for creating and managing automated bots within the Telegram messenger.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -916,7 +916,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enterprise-level communication tool for businesses to engage with customers via WhatsApp messaging.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -926,7 +926,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Reliable API providing real-time and historical data for stocks, forex, and digital assets.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Starts at $49.99/month",
         "last_audited": "2026-03-29"
     },
     {
@@ -936,7 +936,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Financial data platform offering institutional-grade stock market data and financial statement metrics.",
-        "current_price": "Link Error",
+        "current_price": "Link Timeout",
         "last_audited": "2026-03-29"
     },
     {
@@ -946,7 +946,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Real-time stock, crypto, and forex market data API built for speed and reliability.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -956,7 +956,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Financial data provider offering real-time stock prices, analyst ratings, and earnings data.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -966,7 +966,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Nutrition analysis and recipe search API providing detailed caloric and ingredient data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -976,7 +976,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Comprehensive food and recipe API including meal planning, nutrition, and grocery product data.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $10",
         "last_audited": "2026-03-29"
     },
     {
@@ -986,7 +986,7 @@
         "pricing_model": "Free",
         "scope": "USA",
         "description": "Authoritative database of food composition and nutritional information from the US government.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -996,7 +996,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "The world's largest verified nutrition database for restaurant and grocery item caloric tracking.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1006,7 +1006,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Provides high-precision IP geolocation, reverse geocoding, and network infrastructure insights.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1016,7 +1016,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Real-time IP address geolocation and identification API for website personalization and security.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -1026,7 +1026,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "A suite of automation APIs for email validation, phone verification, and exchange rates.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -1036,7 +1036,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "B2B marketing intelligence platform providing real-time company and person data enrichment.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1046,7 +1046,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Helps users find and verify professional email addresses from domains and company names.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -1056,7 +1056,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Sales intelligence platform providing verified contact data and engagement tools for outreach.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1066,7 +1066,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Provides B2B contact information including direct dials and emails for recruitment and sales.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -1076,7 +1076,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Identity resolution platform connecting fragmented customer data into unified, actionable profiles.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -1086,7 +1086,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables developers to integrate Zoom video conferencing, webinars, and chat into custom apps.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -1096,7 +1096,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Allows interaction with Teams channels, chats, and meetings through the Microsoft Graph API.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -1106,7 +1106,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Cisco's collaboration API for managing rooms, messages, and video calls programmatically.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -1116,7 +1116,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Automated cloud-based image and video management including transformations, optimization, and delivery.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -1126,7 +1126,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Real-time image processing service that optimizes and delivers images via high-speed CDN.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -1136,7 +1136,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Developer-friendly video infrastructure for live streaming and on-demand video playback and analytics.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $20",
         "last_audited": "2026-03-29"
     },
     {
@@ -1146,7 +1146,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enterprise-grade video platform for hosting, streaming, and monetizing high-quality digital content.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -1156,7 +1156,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Provides access to cutting-edge language and image models like GPT-4 and DALL-E.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -1166,7 +1166,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Access to Claude, an AI assistant built with a focus on safety and reliability.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1176,7 +1176,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Natural language processing API for tasks like text classification, summarization, and RAG search.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1186,7 +1186,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "AI-powered search and answer engine providing real-time data and cited information.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -1196,7 +1196,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Cloud platform that allows developers to run open-source machine learning models via API.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0.015 / thousand",
         "last_audited": "2026-03-29"
     },
     {
@@ -1206,7 +1206,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Offers infrastructure for fine-tuning and running inference on open-source AI models.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1216,7 +1216,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "GPU cloud infrastructure specifically designed for deep learning and high-compute AI training.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -1226,7 +1226,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Global GPU cloud for scaling AI workloads with focus on cost-efficiency and availability.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $5",
         "last_audited": "2026-03-29"
     },
     {
@@ -1236,7 +1236,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Open-source Firebase alternative providing a real-time Postgres database and authentication services.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -1246,7 +1246,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Backend-as-a-service platform for web and mobile developers providing APIs for storage and auth.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -1256,7 +1256,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Open-source backend in a single file, combining a database, auth, and file storage.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -1266,7 +1266,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Provides an instant, real-time GraphQL API on top of existing SQL databases.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -1276,7 +1276,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Composable content cloud for building data-driven digital experiences with real-time collaboration.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1286,7 +1286,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Headless CMS for managing and delivering content to any platform through a RESTful API.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1296,7 +1296,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Leading open-source headless CMS, allowing developers to build custom APIs with ease.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1306,7 +1306,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "SaaS headless CMS designed for developers and content creators to manage site data.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0 /month",
         "last_audited": "2026-03-29"
     },
     {
@@ -1316,7 +1316,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Cloud platform that combines the simplicity of a spreadsheet with the complexity of a database.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1326,7 +1326,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables automation of workflows by connecting thousands of different apps and web services.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -1336,7 +1336,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Visual automation platform for designing, building, and automating complex business processes.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -1346,7 +1346,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Fair-code workflow automation tool allowing developers to self-host and customize complex logic.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1356,7 +1356,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Automates tasks between apps and devices using simple conditional 'If This, Then That' logic.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0.00 / forever",
         "last_audited": "2026-03-29"
     },
     {
@@ -1366,7 +1366,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "API for automatically generating social media images, e-commerce banners, and PDFs from templates.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -1376,7 +1376,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Automation platform for scaling creative production by generating dynamic image and video assets.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $15/mo",
         "last_audited": "2026-03-29"
     },
     {
@@ -1386,7 +1386,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Cloud-based video editing API for automated video creation and large-scale media rendering.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0.30 / Per",
         "last_audited": "2026-03-29"
     },
     {
@@ -1396,7 +1396,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Video automation API designed for social media content creation and dynamic video personalization.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1406,7 +1406,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Allows developers to integrate Canva's design tools and media into third-party applications.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -1416,7 +1416,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables programmatic access to Figma design files for automated exports and plugin development.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $16 /mo",
         "last_audited": "2026-03-29"
     },
     {
@@ -1436,7 +1436,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Provides access to a massive library of high-quality icons and illustrations for designers.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1446,7 +1446,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "The world's most diverse collection of icons and stock photos accessible via API.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $25/mo",
         "last_audited": "2026-03-29"
     },
     {
@@ -1456,7 +1456,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables dynamic icon loading and management of professional icon kits for websites.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -1466,7 +1466,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Interactive directory of open-source designer fonts available for use on web and mobile.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -1476,7 +1476,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Subscription service providing a vast library of high-quality fonts for professional typography.",
-        "current_price": "Free / Freemium",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -1486,7 +1486,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Interface for managing global CDN services, security rules, and serverless edge computing.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -1496,7 +1496,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Developer-friendly cloud platform for deploying and scaling applications on virtual private servers.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $0.15 /M",
         "last_audited": "2026-03-29"
     },
     {
@@ -1506,7 +1506,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Scalable cloud infrastructure provider offering compute, storage, and networking services for developers.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -1516,7 +1516,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Frontend-as-a-service platform for deploying high-performance web applications with automated CI/CD.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $20/mo",
         "last_audited": "2026-03-29"
     },
     {
@@ -1526,7 +1526,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Unified platform for modern web projects, offering hosting, serverless functions, and edge computing.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -1536,7 +1536,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "PaaS platform enabling developers to build, run, and operate applications entirely in the cloud.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1546,7 +1546,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Infrastructure platform that manages servers and databases automatically for developer ease.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $5",
         "last_audited": "2026-03-29"
     },
     {
@@ -1556,7 +1556,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "App delivery platform that runs application servers close to users for global performance.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $29/month",
         "last_audited": "2026-03-29"
     },
     {
@@ -1566,7 +1566,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Zero-config cloud platform for hosting static sites, web services, and databases.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $10",
         "last_audited": "2026-03-29"
     },
     {
@@ -1576,7 +1576,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Serverless data platform providing Redis and Kafka for modern, low-latency applications.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -1586,7 +1586,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Fully managed, high-performance in-memory database service optimized for sub-millisecond data access.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -1596,7 +1596,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Fully managed multi-cloud database service built for modern application development and scale.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $0/hour",
         "last_audited": "2026-03-29"
     },
     {
@@ -1606,7 +1606,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Distributed document-relational database with GraphQL support and multi-region ACID transactions.",
-        "current_price": "Link Error",
+        "current_price": "Link Timeout",
         "last_audited": "2026-03-29"
     },
     {
@@ -1616,7 +1616,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Serverless MySQL platform that enables seamless database scaling and branching workflows.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $15",
         "last_audited": "2026-03-29"
     },
     {
@@ -1626,7 +1626,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Serverless open-source Postgres database that separates storage from compute for efficiency.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -1636,7 +1636,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Fully managed, distributed SQL database for high-throughput transactional and analytical workloads.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -1646,7 +1646,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Cloud-native, distributed SQL database built for survival and massive horizontal scalability.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0 / month",
         "last_audited": "2026-03-29"
     },
     {
@@ -1656,7 +1656,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Customer data platform that collects, cleans, and routes user data across multiple destinations.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1666,7 +1666,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Product analytics platform providing deep insights into user behavior and digital journey optimization.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1676,7 +1676,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Event-based analytics for tracking user interactions and conversion funnels across products.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Link Timeout",
         "last_audited": "2026-03-29"
     },
     {
@@ -1686,7 +1686,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "All-in-one product OS providing analytics, feature flags, and session recording tools.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $20",
         "last_audited": "2026-03-29"
     },
     {
@@ -1696,7 +1696,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Error tracking and performance monitoring platform helping developers diagnose and fix app issues.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -1706,7 +1706,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Combines session replay with performance monitoring to help fix frontend user friction.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $0 / month",
         "last_audited": "2026-03-29"
     },
     {
@@ -1716,7 +1716,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Full-stack observability platform for monitoring application performance and cloud infrastructure health.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $0.40/GB",
         "last_audited": "2026-03-29"
     },
     {
@@ -1726,7 +1726,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Monitoring and security platform for cloud-scale applications, providing unified logs and metrics.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $700",
         "last_audited": "2026-03-29"
     },
     {
@@ -1736,7 +1736,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Customer service platform providing conversational AI, ticketing, and targeted messaging for users.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $29/mo",
         "last_audited": "2026-03-29"
     },
     {
@@ -1746,7 +1746,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Customer service software providing CRM and support ticketing infrastructure for large enterprises.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $19/month",
         "last_audited": "2026-03-29"
     },
     {
@@ -1756,7 +1756,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Cloud-based customer support software for managing multi-channel helpdesk ticketing and resolution.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $19 /agent",
         "last_audited": "2026-03-29"
     },
     {
@@ -1766,7 +1766,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Customer support tool providing a shared inbox and knowledge base for team-based help.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $10/mo",
         "last_audited": "2026-03-29"
     },
     {
@@ -1776,7 +1776,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Customer feedback and product roadmap platform for gathering and prioritizing user feature requests.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $19/mo",
         "last_audited": "2026-03-29"
     },
     {
@@ -1786,7 +1786,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Product management platform for aligning teams around user needs and development strategy.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $15",
         "last_audited": "2026-03-29"
     },
     {
@@ -1796,7 +1796,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Feature management platform for safely deploying code and controlling feature rollouts via flags.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $10",
         "last_audited": "2026-03-29"
     },
     {
@@ -1806,7 +1806,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Open-source feature flag and remote config service for managing software deployments in real-time.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $50",
         "last_audited": "2026-03-29"
     },
     {
@@ -1816,7 +1816,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Digital experience platform providing A/B testing, experimentation, and personalization for websites.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1826,7 +1826,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Feature delivery platform combining feature flags with data analytics for experimental deployment.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1836,7 +1836,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Experimentation and conversion rate optimization platform for web personalization and A/B testing.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -1846,7 +1846,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Visual feedback tool providing heatmaps and session recordings to understand user behavior.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1856,7 +1856,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Digital experience intelligence platform that captures every user interaction to diagnose friction.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -1866,7 +1866,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Qualitative analytics for web and mobile that provides session replays and event tracking.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1876,7 +1876,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Session replay and heatmap tool for analyzing user movement and optimizing conversion funnels.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -1886,7 +1886,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Visual optimization tool providing heatmaps, snapshots, and recordings to improve website UI.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $29 /mo",
         "last_audited": "2026-03-29"
     },
     {
@@ -1896,7 +1896,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Industry-standard platform for tracking website traffic and analyzing user acquisition and behavior.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -1906,7 +1906,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Privacy-focused website analytics service that provides metrics without tracking personal data.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $15/month",
         "last_audited": "2026-03-29"
     },
     {
@@ -1916,7 +1916,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Lightweight and open-source website analytics that prioritize user privacy and performance.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -1926,7 +1926,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Privacy-first analytics tool that tracks website visits without cookies or personal storage.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $15 /month",
         "last_audited": "2026-03-29"
     },
     {
@@ -1936,7 +1936,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Open-source business intelligence tool that simplifies data visualization and SQL querying.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -1946,7 +1946,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enterprise visual analytics platform for transforming raw data into interactive dashboards.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1956,7 +1956,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enterprise-grade data exploration and business intelligence platform integrated into Google Cloud.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -1966,7 +1966,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Microsoft's business analytics service providing interactive visualizations and business intelligence tools.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $14.00",
         "last_audited": "2026-03-29"
     },
     {
@@ -1976,7 +1976,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Multi-platform open-source analytics and interactive visualization web application for metrics.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -1986,7 +1986,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Open-source monitoring and alerting toolkit designed for reliability in cloud-native environments.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -1996,7 +1996,7 @@
         "pricing_model": "Free",
         "scope": "Space",
         "description": "Provides the Astronomy Picture of the Day along with a professional astronomer's description.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2006,7 +2006,7 @@
         "pricing_model": "Free",
         "scope": "Space",
         "description": "Direct access to image data collected by NASA's Curiosity, Opportunity, and Spirit rovers on Mars.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2016,7 +2016,7 @@
         "pricing_model": "Free",
         "scope": "Space",
         "description": "Public API providing access to European Space Agency satellite data and mission updates.",
-        "current_price": "Link Error",
+        "current_price": "Link Timeout",
         "last_audited": "2026-03-29"
     },
     {
@@ -2026,7 +2026,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Systematic identification and prioritization of drug targets using human genetics and genomics data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2036,7 +2036,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Database of bioactive molecules with drug-like properties, mapping chemical and biological data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2046,7 +2046,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides information about the 3D structures of proteins, nucleic acids, and complex assemblies.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2056,7 +2056,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Database of privately and publicly funded clinical studies conducted around the world.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2066,7 +2066,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Access to billions of biomedical citations and abstracts from the MEDLINE database via NCBI.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2076,7 +2076,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "International network providing open access to data about all types of life on Earth.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -2086,7 +2086,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Real-time data on bird sightings and distributions globally, maintained by the Cornell Lab of Ornithology.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -2096,7 +2096,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Access to observation data from the world's largest community-science platform for naturalists.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2106,7 +2106,7 @@
         "pricing_model": "Free",
         "scope": "USA",
         "description": "Provides authoritative information on US seafood including sustainability, health, and population status.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2116,7 +2116,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Open-source API for real-time tracking of disease data, including COVID-19 and influenza statistics.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2126,7 +2126,7 @@
         "pricing_model": "Free",
         "scope": "UK",
         "description": "Enables researchers to access genomic data from the UK's 100,000 Genomes Project.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2136,7 +2136,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Mapping of all human proteins in cells, tissues, and organs using antibody-based proteomics.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -2146,7 +2146,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Access to experimental particle physics data from various experiments at the Large Hadron Collider.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -2156,7 +2156,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Digital library and search engine for high-energy physics literature and community data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2166,7 +2166,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Independent climate science data including global surface temperature records and air quality metrics.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -2176,7 +2176,7 @@
         "pricing_model": "Free",
         "scope": "USA",
         "description": "Provides real-time and historical water data from sensors across the United States.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2186,7 +2186,7 @@
         "pricing_model": "Free",
         "scope": "Space",
         "description": "A comprehensive REST API for data regarding all planets and moons in our solar system.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2196,7 +2196,7 @@
         "pricing_model": "Free",
         "scope": "USA",
         "description": "Syndication API providing the latest authoritative cancer research and clinical trial information.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2206,7 +2206,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Comprehensive database combining detailed drug data with comprehensive drug target information.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2216,7 +2216,7 @@
         "pricing_model": "Free",
         "scope": "USA",
         "description": "Provides tools for exploring medical drug naming conventions and drug-drug interactions.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2226,7 +2226,7 @@
         "pricing_model": "Free",
         "scope": "USA",
         "description": "Provides high-quality health information including official drug labels and package inserts.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2236,7 +2236,7 @@
         "pricing_model": "Free",
         "scope": "USA",
         "description": "Public database of food, drug, and medical device reports from the US Food and Drug Administration.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2246,7 +2246,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Global science initiative providing access to genomic data of influenza and COVID-19 viruses.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2256,7 +2256,7 @@
         "pricing_model": "Free",
         "scope": "USA",
         "description": "Information and data repository from the National Human Genome Research Institute.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2266,7 +2266,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Large-scale gene function analysis tool based on evolutionary classification of proteins.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2276,7 +2276,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Online database of the biology and genomics of the model organism Caenorhabditis elegans.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2286,7 +2286,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "The primary repository for genetic and molecular data concerning the Drosophila model organism.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -2296,7 +2296,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Programmatic access to the Metropolitan Museum of Art's digitized collection and object data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2306,7 +2306,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides data on artworks from the Art Institute of Chicago's world-class collection.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2316,7 +2316,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Access to metadata and images of artworks in the Rijksmuseum's national collection in Amsterdam.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -2326,7 +2326,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "API for the V&A Museum's extensive collection, focusing on design, fashion, and decorative arts.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2336,7 +2336,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides structured data and high-resolution images from Harvard's three university art museums.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2346,7 +2346,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "The Smithsonian's Design Museum API, providing data on historical and contemporary design artifacts.",
-        "current_price": "Free / Freemium",
+        "current_price": "Link Timeout",
         "last_audited": "2026-03-29"
     },
     {
@@ -2356,7 +2356,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Open access API for the Cleveland Museum of Art's entire collection of global artworks.",
-        "current_price": "Link Error",
+        "current_price": "Link Timeout",
         "last_audited": "2026-03-29"
     },
     {
@@ -2366,7 +2366,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables developers to fetch data about artists, albums, and tracks from the Spotify catalog.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2376,7 +2376,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Community-maintained encyclopedia of music metadata, providing structured data on recordings and releases.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2386,7 +2386,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides access to the world's largest collection of song lyrics and music knowledge.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2396,7 +2396,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables users to fetch information about music listening trends, artist popularity, and social data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2406,7 +2406,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides access to Deezer's global music library, allowing for search and playlist integration.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2416,7 +2416,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "The largest database of physical music releases, including vinyl, CD, and tape metadata.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -2426,7 +2426,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables the integration of video search, channel management, and analytics from YouTube.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2436,7 +2436,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Professional video hosting and management API for creators and enterprise video delivery.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2446,7 +2446,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "A community-built movie and TV database providing posters, trailers, and cast information.",
-        "current_price": "Link Error",
+        "current_price": "Link Timeout",
         "last_audited": "2026-03-29"
     },
     {
@@ -2456,7 +2456,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides up-to-date information on television show schedules, cast details, and episodes.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2466,7 +2466,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "RESTful web service to obtain movie information, all content and images are contributed by users.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2476,7 +2476,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Extensive video game database providing metadata for thousands of games, companies, and platforms.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -2486,7 +2486,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "The largest video game database service providing recommendations and data for over 500,000 titles.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $149/m",
         "last_audited": "2026-03-29"
     },
     {
@@ -2496,7 +2496,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Enables developers to query data from Valve's Steam gaming platform including user achievements.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2506,7 +2506,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Reference API for the 5th edition of the Dungeons & Dragons tabletop roleplaying game.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2516,7 +2516,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "A comprehensive database of Pok\u00c3\u00a9mon statistics, abilities, and evolutionary paths for developers.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2526,7 +2526,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Simple API that provides a virtual deck of cards for building board and card game applications.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2536,7 +2536,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "XML-based API for accessing the world's largest database of board game metadata and rankings.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -2546,7 +2546,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Access to over 5 million high-quality, royalty-free photographs through a powerful developer interface.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2556,7 +2556,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Enables the seamless integration of thousands of free-to-use professional photos and videos.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -2566,7 +2566,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides access to over 2 million high-quality images, illustrations, and vector graphics for free.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 429",
         "last_audited": "2026-03-29"
     },
     {
@@ -2576,7 +2576,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "The world's largest library of animated GIFs, stickers, and short videos for app integration.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2586,7 +2586,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Google-owned GIF search engine API used for sharing animated reactions in social messaging.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2596,7 +2596,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "An open and collaborative project to create a web page for every book ever published.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2606,7 +2606,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Enables the search and preview of millions of books from the Google Books digital archive.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2626,7 +2626,7 @@
         "pricing_model": "Free",
         "scope": "USA",
         "description": "Provides access to millions of digitized cultural heritage materials from libraries across the US.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 405",
         "last_audited": "2026-03-29"
     },
     {
@@ -2636,7 +2636,7 @@
         "pricing_model": "Free",
         "scope": "UK",
         "description": "The national library of the United Kingdom, providing metadata for its vast collection of records.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -2646,7 +2646,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "The largest wiki for comic books, characters, and storylines accessible through a RESTful API.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2656,7 +2656,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Programmatic access to over 70 years of Marvel Comics data, characters, and cover art.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $9.99",
         "last_audited": "2026-03-29"
     },
     {
@@ -2666,7 +2666,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Open-source PHP/REST API for MyAnimeList, providing anime, manga, and character data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2676,7 +2676,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "GraphQL-based API for searching and tracking Japanese animation and manga content.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2686,7 +2686,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides data on the world's leading artists, galleries, and auction houses in the art market.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2696,7 +2696,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Simple and open API for retrieving word definitions, phonetics, and usage examples.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2706,7 +2706,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Access to Merriam-Webster's Collegiate and Medical dictionaries for professional language tools.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2716,7 +2716,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Retrieves collections of quotations from notable people and literary works in every language.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -2726,7 +2726,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Open-source API for random and searchable famous quotes, categorized by tag and author.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2736,7 +2736,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Simple JSON API for receiving random pieces of advice and wisdom for web applications.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2746,7 +2746,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Fun, open-source API for retrieving categorized jokes including general and programming humor.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2756,7 +2756,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "The internet's biggest open-source collection of open-source dog images and breed data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2766,7 +2766,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Provides data on cat breeds and high-resolution feline images for developers and hobbyists.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0.00/Month",
         "last_audited": "2026-03-29"
     },
     {
@@ -2776,7 +2776,7 @@
         "pricing_model": "Free",
         "scope": "USA",
         "description": "Authoritative USDA database providing extensive data on food ingredients and nutritional values.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2786,7 +2786,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "A collaborative database of food products from around the world with nutritional and ethical data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2796,7 +2796,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Collaborative database of food products from around the world with nutritional and ethical data.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2806,7 +2806,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides data about all kinds of fruit, including nutrition, genus, and order information.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2816,7 +2816,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Community-driven API for generating random taco recipes based on the TacoFancy repository.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2826,7 +2826,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides data on BrewDog's beer catalog, including ingredients, ABV, and food pairing suggestions.",
-        "current_price": "Link Error",
+        "current_price": "Link Timeout",
         "last_audited": "2026-03-29"
     },
     {
@@ -2836,7 +2836,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Extensive database for breweries and beers, offering detailed data for craft beer enthusiasts.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2846,7 +2846,7 @@
         "pricing_model": "Free",
         "scope": "USA/Global",
         "description": "Public database of breweries, cideries, and more, focusing on location and metadata.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2856,7 +2856,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "An open, crowd-sourced database of drinks and cocktails from around the world.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $10",
         "last_audited": "2026-03-29"
     },
     {
@@ -2866,7 +2866,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Provides access to a large database of recipes with high-quality images and ingredient lists.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2886,7 +2886,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Access to Yelp's vast database of local business reviews, photos, and metadata.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2896,7 +2896,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Location intelligence platform for discovering venues and personalized recommendations.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $200",
         "last_audited": "2026-03-29"
     },
     {
@@ -2906,7 +2906,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables programmatic management of collections, environments, and mocks within Postman.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -2916,7 +2916,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Collaborative design and testing platform for REST, SOAP, and GraphQL APIs.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $10/25",
         "last_audited": "2026-03-29"
     },
     {
@@ -2926,7 +2926,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Full-featured HTTP client for Mac that allows for visual API testing and documentation.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2936,7 +2936,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Industry-standard suite of tools for designing, building, and documenting RESTful APIs.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -2946,7 +2946,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "API design and documentation platform focusing on governance and collaborative modeling.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $44 / month",
         "last_audited": "2026-03-29"
     },
     {
@@ -2956,7 +2956,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Turns API documentation into interactive developer hubs with live coding and analytics.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $3",
         "last_audited": "2026-03-29"
     },
     {
@@ -2966,7 +2966,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Documentation platform for teams to publish technical knowledge bases and API references.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $25",
         "last_audited": "2026-03-29"
     },
     {
@@ -2976,7 +2976,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Standardized format for grouping API requests to simplify testing and collaboration.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -2986,7 +2986,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Free fake online REST API for testing and prototyping frontend code.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -2996,7 +2996,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Hosted REST-API ready to respond with real-world data for testing frontend apps.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3006,7 +3006,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Generates realistic mock data in multiple formats for testing and development.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3016,7 +3016,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Zero-config mock server for intercepting and mocking REST API requests in real-time.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3026,7 +3026,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Instantly test webhooks and HTTP requests with a unique URL and real-time dashboard.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -3036,7 +3036,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Serverless integration platform for connecting APIs and creating event-driven workflows.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3046,7 +3046,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Serverless compute service that runs code in response to events and manages resources.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3056,7 +3056,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Serverless environment to build and connect cloud services with code.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3066,7 +3066,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Event-driven serverless compute platform that simplifies complex orchestration problems.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3076,7 +3076,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Edge functions for Supabase that allow for global deployment of serverless logic.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3086,7 +3086,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Serverless platform running at the network edge for low-latency code execution.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $0.30 / million",
         "last_audited": "2026-03-29"
     },
     {
@@ -3096,7 +3096,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Seamlessly deploy serverless logic alongside your frontend with automatic scaling.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3106,7 +3106,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Simplifies serverless development by managing the deployment and scaling of backend logic.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3116,7 +3116,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Standardized API for processing online payments and managing diverse financial operations.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3126,7 +3126,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables a streamlined payment experience for millions of global PayPal users.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3136,7 +3136,7 @@
         "pricing_model": "Freemium",
         "scope": "India",
         "description": "Leading Indian payment gateway for processing local and international payments effortlessly.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3146,7 +3146,7 @@
         "pricing_model": "Freemium",
         "scope": "India",
         "description": "Comprehensive payment suite for Indian businesses supporting UPI, cards, and wallets.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3156,7 +3156,7 @@
         "pricing_model": "Freemium",
         "scope": "India",
         "description": "Simplifies digital payments and e-commerce for Indian small businesses and freelancers.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3166,7 +3166,7 @@
         "pricing_model": "Freemium",
         "scope": "India",
         "description": "Full-stack payment solution for Indian businesses focusing on automated payouts and collections.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -3176,7 +3176,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Merchant of record platform for SaaS companies managing global tax and compliance.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $100",
         "last_audited": "2026-03-29"
     },
     {
@@ -3186,7 +3186,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Simplifies selling digital and physical products with built-in payment processing and delivery.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $0.50",
         "last_audited": "2026-03-29"
     },
     {
@@ -3196,7 +3196,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "All-in-one platform for SaaS payments, subscriptions, and global tax compliance.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $0 / m",
         "last_audited": "2026-03-29"
     },
     {
@@ -3206,7 +3206,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Global e-commerce partner for software companies focusing on subscription management and tax.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -3216,7 +3216,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Subscription billing and revenue management platform for high-growth SaaS businesses.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3226,7 +3226,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enterprise-level subscription management platform optimizing recurring revenue and billing.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $1",
         "last_audited": "2026-03-29"
     },
     {
@@ -3236,7 +3236,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "B2B SaaS financial management platform focusing on subscription billing and metrics.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -3246,7 +3246,7 @@
         "pricing_model": "Freemium",
         "scope": "USA",
         "description": "Cloud-based software that automates back-office financial operations for small businesses.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $1000",
         "last_audited": "2026-03-29"
     },
     {
@@ -3256,7 +3256,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Automates the entire expense management process from receipt scanning to reimbursement.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -3266,7 +3266,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Accounting software for small businesses focusing on invoicing, expenses, and time tracking.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $23.00",
         "last_audited": "2026-03-29"
     },
     {
@@ -3286,7 +3286,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Cloud-based accounting software for small businesses with powerful bank feed and reporting APIs.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $78.30",
         "last_audited": "2026-03-29"
     },
     {
@@ -3296,7 +3296,7 @@
         "pricing_model": "Free",
         "scope": "USA/Canada",
         "description": "Free financial software for small businesses providing invoicing, accounting, and receipt scanning.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $50",
         "last_audited": "2026-03-29"
     },
     {
@@ -3306,7 +3306,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enterprise-level business management software for accounting, payroll, and HR operations.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -3316,7 +3316,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Online accounting software for managing business finances and automating back-office workflows.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3326,7 +3326,7 @@
         "pricing_model": "Freemium",
         "scope": "India",
         "description": "Enables integration with Tally.ERP for automated accounting, inventory, and payroll management.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -3336,7 +3336,7 @@
         "pricing_model": "Freemium",
         "scope": "India",
         "description": "Enables automated tax filing and GST compliance for Indian businesses and individuals.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3346,7 +3346,7 @@
         "pricing_model": "Freemium",
         "scope": "USA",
         "description": "Automates sales tax calculations, reporting, and filing for modern e-commerce businesses.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -3356,7 +3356,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Provides automated cloud-based solutions for transactional tax compliance across various jurisdictions.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3366,7 +3366,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Worldwide tax management platform for e-commerce, providing automated tax receipts and reports.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3376,7 +3376,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Automates document-heavy workflows by turning PDFs into web forms and managing e-signatures.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3386,7 +3386,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Workplace productivity platform for building online forms and automating document generation.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Starts at $83",
         "last_audited": "2026-03-29"
     },
     {
@@ -3396,7 +3396,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Industry-leading e-signature platform for managing digital agreements and automated signatures.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Link Timeout",
         "last_audited": "2026-03-29"
     },
     {
@@ -3406,7 +3406,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Secure e-signature solution that integrates directly into your application for signing agreements.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -3416,7 +3416,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "All-in-one document automation software for streamlining proposals, quotes, and contracts.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3426,7 +3426,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Sales enablement platform for managing document tracking, e-signatures, and personalized video.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3436,7 +3436,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Online PDF editor and e-signature platform for signing and managing documents in the cloud.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3446,7 +3446,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Multi-tool API for PDF manipulation, data extraction, and high-quality document generation.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -3466,7 +3466,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Universal file converter API supporting over 200 formats including audio, video, and documents.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3476,7 +3476,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Fast and reliable online file conversion service supporting diverse file types via API.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $50.00",
         "last_audited": "2026-03-29"
     },
     {
@@ -3486,7 +3486,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Online file conversion platform specializing in high-speed processing of large file batches.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -3496,7 +3496,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables easy data extraction from complex websites using a browser-based scraper and API.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $2.5/GB",
         "last_audited": "2026-03-29"
     },
     {
@@ -3506,7 +3506,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Handles proxies, browsers, and CAPTCHAs to provide seamless web scraping results.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Error 403",
         "last_audited": "2026-03-29"
     },
     {
@@ -3516,7 +3516,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enterprise-grade web scraping platform focusing on high-quality data extraction and proxy management.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $0.06",
         "last_audited": "2026-03-29"
     },
     {
@@ -3526,7 +3526,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Cloud platform for web scraping and automation that turns any website into a structured API.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Link Timeout",
         "last_audited": "2026-03-29"
     },
     {
@@ -3536,7 +3536,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "World-leading proxy network providing tools for large-scale data collection and web scraping.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $1/1k",
         "last_audited": "2026-03-29"
     },
     {
@@ -3546,7 +3546,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Provides high-quality proxy solutions and data extraction tools for enterprise market research.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Starts at $6/GB",
         "last_audited": "2026-03-29"
     },
     {
@@ -3556,7 +3556,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables seamless web crawling by managing proxies and bypassing anti-scraping technologies.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3566,7 +3566,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Provides structured JSON results for various search engines including Google, Bing, and Baidu.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3576,7 +3576,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "API for accessing and scraping search engine result pages at large scale.",
-        "current_price": "Contact Sales Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3586,7 +3586,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Real-time, scalable web scraping API that manages proxies and browser rendering.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $0",
         "last_audited": "2026-03-29"
     },
     {
@@ -3596,7 +3596,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Fast web scraping API that handles CAPTCHAs and proxies for reliable data extraction.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -3606,7 +3606,7 @@
         "pricing_model": "Freemium",
         "scope": "USA/Canada",
         "description": "Affordable geocoding and reverse geocoding API for North American addresses and data enrichment.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $1.00 /1",
         "last_audited": "2026-03-29"
     },
     {
@@ -3616,7 +3616,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Securely connects financial applications with user bank accounts for data and payments.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3626,7 +3626,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Modern API for searching, booking, and managing flights across hundreds of airlines.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3636,7 +3636,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Global distribution system providing travel data for flights, hotels, and destination search.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3646,7 +3646,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enables developers to access Skyscanner's flight, hotel, and car hire search data.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3656,7 +3656,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Simple JSON API for receiving random quotes from the artist Kanye West.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3666,7 +3666,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "A collection of the smartest things Donald Trump has ever said, accessible via API.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3676,7 +3676,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Generates random and creative insults for developers and humorous application testing.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3686,7 +3686,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides data on the films, characters, and locations from the renowned Studio Ghibli.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3696,7 +3696,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Comprehensive database for everything in the Rick and Morty television universe.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3706,7 +3706,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Provides data regarding all planets, spaceships, vehicles, and characters from Star Wars.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3716,7 +3716,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "REST API for accessing character data, houses, and quotes from the Game of Thrones series.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3726,7 +3726,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "The 'One API' providing data for J.R.R. Tolkien's Lord of the Rings universe.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3736,7 +3736,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Community-driven API providing characters, games, and monster data for Final Fantasy.",
-        "current_price": "Link Error",
+        "current_price": "Link Timeout",
         "last_audited": "2026-03-29"
     },
     {
@@ -3746,7 +3746,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Industry-leading mapping service providing geocoding, routing, and interactive street-level imagery.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Error 404",
         "last_audited": "2026-03-29"
     },
     {
@@ -3756,7 +3756,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Highly customizable location data platform for mobile and web applications with advanced styling.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3766,7 +3766,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Enterprise-grade location intelligence offering precise fleet tracking and global navigation data.",
-        "current_price": "Verified: Paid Plan",
+        "current_price": "Contact Sales",
         "last_audited": "2026-03-29"
     },
     {
@@ -3776,7 +3776,7 @@
         "pricing_model": "Free",
         "scope": "Global",
         "description": "Collaborative, community-driven world map data provided via open-source API endpoints.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Free Tier Available",
         "last_audited": "2026-03-29"
     },
     {
@@ -3786,7 +3786,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Real-time traffic analytics and routing services for automotive and logistics applications.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $2.50",
         "last_audited": "2026-03-29"
     },
     {
@@ -3796,7 +3796,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Microsoft's mapping platform providing aerial imagery, spatial analytics, and fleet management tools.",
-        "current_price": "Audit: Review Required",
+        "current_price": "Link Timeout",
         "last_audited": "2026-03-29"
     },
     {
@@ -3806,7 +3806,7 @@
         "pricing_model": "Freemium",
         "scope": "Global",
         "description": "Affordable geocoding and mapping service leveraging open-source data for high-volume requests.",
-        "current_price": "Verified: Free/Freemium",
+        "current_price": "Starts at $25",
         "last_audited": "2026-03-29"
     },
     {
