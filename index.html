@@ -20,6 +20,27 @@
             border-bottom: 2px solid #e2e8f0;
         }
 
+        /* DYNAMIC CATEGORY OVERLAY */
+        #categoryOverlay {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 280px;
+            max-height: 400px;
+            overflow-y: auto;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            z-index: 150;
+        }
+
+        #topDomainsBox:hover #categoryOverlay {
+            display: block;
+        }
+
         .spectrum-container {
             display: flex;
             height: 10px;
@@ -64,17 +85,11 @@
             color: white;
         }
 
-        .clickable-row {
-            cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
         .clickable-row:hover {
             background-color: #f1f5f9 !important;
             box-shadow: inset 12px 0 0 0 #3b82f6;
         }
 
-        /* MODIFICATION: Hint moved to first column, lower case */
         .hover-hint {
             color: #3b82f6;
             font-size: 10px;
@@ -121,9 +136,14 @@
                         </div>
                     </div>
 
-                    <div id="topDomainsBox" class="hidden 2xl:block border-l-2 border-slate-200 pl-8">
-                        <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Top Categories</p>
+                    <div id="topDomainsBox" class="hidden 2xl:block border-l-2 border-slate-200 pl-8 relative cursor-help">
+                        <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Top Categories <i class="fas fa-chevron-down ml-1 opacity-30"></i></p>
                         <div id="domainPills" class="flex gap-2 mt-1.5"></div>
+                        
+                        <div id="categoryOverlay">
+                            <p class="text-[10px] font-black text-slate-400 uppercase mb-3 border-b pb-2 tracking-widest">Full Category Breakdown</p>
+                            <div id="fullCategoryList" class="space-y-2"></div>
+                        </div>
                     </div>
                 </div>
                 
@@ -146,12 +166,12 @@
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-2">
                 <div class="relative group">
-                    <input type="text" id="searchInput" placeholder="Search..." class="w-full p-2.5 pl-11 border-2 border-slate-200 rounded-xl bg-white focus:ring-4 focus:ring-blue-500/10 outline-none text-sm font-semibold transition-all">
-                    <i class="fas fa-search absolute left-4 top-3.5 text-slate-300 group-focus-within:text-blue-500"></i>
+                    <input type="text" id="searchInput" placeholder="Search Identity..." class="w-full p-3 pl-11 border-2 border-slate-200 rounded-xl bg-white focus:ring-4 focus:ring-blue-500/10 outline-none text-sm font-semibold transition-all">
+                    <i class="fas fa-search absolute left-4 top-4 text-slate-300 text-lg group-focus-within:text-blue-500"></i>
                 </div>
-                <select id="domainFilter" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 cursor-pointer"></select>
-                <select id="modelFilter" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 cursor-pointer"></select>
-                <select id="scopeFilter" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 cursor-pointer"></select>
+                <select id="domainFilter" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 cursor-pointer"></select>
+                <select id="modelFilter" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 cursor-pointer"></select>
+                <select id="scopeFilter" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-bold text-slate-600 cursor-pointer"></select>
             </div>
         </div>
 
@@ -159,8 +179,8 @@
             <table class="min-w-full">
                 <thead>
                     <tr>
-                        <th onclick="sortTable('name')" class="w-[20%] py-3.5 pl-10 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 group">
-                            API IDENTITY <i class="fas fa-sort ml-1 opacity-20"></i>
+                        <th onclick="sortTable('name')" class="w-[20%] py-3.5 pl-10 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400 transition-colors group">
+                            API IDENTITY <i class="fas fa-sort ml-1 opacity-20 group-hover:opacity-100"></i>
                         </th>
                         <th class="w-[38%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em]">DESCRIPTION</th>
                         <th onclick="sortTable('domain')" class="w-[15%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">DOMAIN</th>
@@ -202,21 +222,35 @@
 
         function updateInfographics(filteredData) {
             const total = filteredData.length || 1;
+            
+            // 1. Model Ratio
             const free = (filteredData.filter(i => i.pricing_model === 'Free').length / total) * 100;
             const freemium = (filteredData.filter(i => i.pricing_model === 'Freemium').length / total) * 100;
             document.getElementById('specFree').style.width = free + '%';
             document.getElementById('specFreemium').style.width = freemium + '%';
             document.getElementById('specPaid').style.width = (100 - free - freemium) + '%';
 
+            // 2. Diversity Stat
             const globalCount = filteredData.filter(i => i.scope === 'Global').length;
             document.getElementById('diversityStat').innerText = Math.round((globalCount / total) * 100) + '% Global';
 
+            // 3. Category Breakdown (Full & Top 3)
             const counts = {};
             filteredData.forEach(i => counts[i.domain] = (counts[i.domain] || 0) + 1);
-            const sortedDomains = Object.keys(counts).sort((a,b) => counts[b] - counts[a]).slice(0, 3);
-            document.getElementById('domainPills').innerHTML = sortedDomains.map(d => 
+            const sortedDomains = Object.keys(counts).sort((a,b) => counts[b] - counts[a]);
+            
+            // Top 3 Pills
+            document.getElementById('domainPills').innerHTML = sortedDomains.slice(0, 3).map(d => 
                 `<span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-[9px] font-black border border-slate-200">${d.toUpperCase()}</span>`
             ).join('');
+
+            // Full Hover List
+            document.getElementById('fullCategoryList').innerHTML = sortedDomains.map(d => `
+                <div class="flex justify-between items-center text-[11px] font-bold">
+                    <span class="text-slate-600">${d}</span>
+                    <span class="text-blue-600 bg-blue-50 px-2 rounded-full">${counts[d]}</span>
+                </div>
+            `).join('');
         }
 
         function toggleResetBtn() {
@@ -250,9 +284,7 @@
                         <span class="text-blue-600 font-black text-[15px] tracking-tight group-hover:text-blue-800 transition-colors">${api.name}</span>
                         <span class="hover-hint">visit site <i class="fas fa-chevron-right ml-1"></i></span>
                     </td>
-                    <td class="w-[38%] py-5 pr-12 text-[13px] text-slate-500 font-semibold leading-relaxed relative">
-                        ${api.description || '...'}
-                    </td>
+                    <td class="w-[38%] py-5 pr-12 text-[13px] text-slate-500 font-semibold leading-relaxed relative">${api.description || '...'}</td>
                     <td class="w-[15%] py-5 text-[11px] font-black text-slate-400 uppercase tracking-tighter">${api.domain || 'N/A'}</td>
                     <td class="w-[12%] py-5 text-[12px] text-slate-700 font-black tracking-tighter">${api.pricing_model || 'N/A'}</td>
                     <td class="w-[15%] py-5 text-[11px] font-black uppercase tracking-tighter ${api.current_price ? 'text-emerald-600' : 'text-slate-300'}">
