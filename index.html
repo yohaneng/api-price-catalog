@@ -8,66 +8,76 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         html { scroll-behavior: smooth; }
-        /* This makes the top section stay fixed while the table body scrolls */
-        .sticky-top-bar {
+        
+        /* The Filter Panel */
+        .sticky-top-section {
             position: sticky;
             top: 0;
-            z-index: 50;
-            background: #f8fafc; /* Matches body bg */
+            z-index: 100;
+            background: #f8fafc;
+            padding-bottom: 1rem;
         }
+
+        /* The Table Header - Docked perfectly under filters */
         .table-header-sticky {
             position: sticky;
-            top: 280px; /* Adjust this to match the height of your filters */
-            z-index: 40;
+            top: 212px; /* Adjusted to sit flush under the filter panel */
+            z-index: 90;
         }
+
+        /* Responsive adjustment for mobile if needed */
+        @media (max-width: 768px) {
+            .table-header-sticky { top: 380px; }
+        }
+
         #backToTop.hidden { opacity: 0; pointer-events: none; transform: translateY(20px); }
     </style>
 </head>
 <body class="bg-slate-50 min-h-screen font-sans text-slate-900">
 
-    <button id="backToTop" onclick="window.scrollTo(0,0)" class="hidden fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center hover:bg-blue-700 z-50 transition-all">
+    <button id="backToTop" onclick="window.scrollTo(0,0)" class="hidden fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center hover:bg-blue-700 z-[200] transition-all">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <div class="sticky-top-bar px-4 md:px-8 pt-8 pb-4 border-b border-slate-200 shadow-sm">
+    <div class="sticky-top-section px-4 md:px-8 pt-8 border-b border-slate-200 shadow-sm">
         <div class="max-w-full mx-auto">
             <header class="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div>
                     <h1 class="text-3xl font-extrabold tracking-tight text-slate-900">API Pricing Catalog</h1>
-                    <p class="text-slate-500 text-md">PhD Research Audit: Digital Interface Transparency</p>
+                    <p class="text-slate-500 text-md italic">PhD Research Audit: Digital Interface Transparency</p>
                 </div>
                 <div class="flex items-center gap-3">
-                    <button onclick="clearFilters()" class="flex items-center gap-2 bg-white hover:bg-red-50 text-red-600 px-4 py-2 rounded-xl border border-red-100 text-sm font-bold transition-colors shadow-sm">
+                    <button onclick="clearFilters()" class="flex items-center gap-2 bg-white hover:bg-red-50 text-red-600 px-4 py-2.5 rounded-xl border border-red-100 text-sm font-bold transition-all shadow-sm">
                         <i class="fas fa-filter-circle-xmark"></i> Clear Filters
                     </button>
-                    <div id="counter" class="bg-blue-600 text-white px-4 py-2 rounded-xl font-bold text-sm shadow-md">
-                        Loading...
+                    <div id="counter" class="bg-slate-800 text-white px-4 py-2.5 rounded-xl font-bold text-sm shadow-md min-w-[160px] text-center">
+                        Syncing...
                     </div>
                 </div>
             </header>
 
             <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div class="relative">
-                    <input type="text" id="searchInput" placeholder="Search API name..." class="w-full p-2.5 pl-10 border border-slate-100 rounded-xl bg-slate-50 focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                    <input type="text" id="searchInput" placeholder="Search API name..." class="w-full p-2.5 pl-10 border border-slate-200 rounded-xl bg-slate-50 focus:ring-2 focus:ring-blue-500 outline-none text-sm">
                     <i class="fas fa-search absolute left-3 top-3.5 text-slate-300"></i>
                 </div>
-                <select id="domainFilter" class="w-full p-2.5 border border-slate-100 rounded-xl bg-slate-50 outline-none text-sm focus:ring-2 focus:ring-blue-500"></select>
-                <select id="modelFilter" class="w-full p-2.5 border border-slate-100 rounded-xl bg-slate-50 outline-none text-sm focus:ring-2 focus:ring-blue-500"></select>
-                <select id="scopeFilter" class="w-full p-2.5 border border-slate-100 rounded-xl bg-slate-50 outline-none text-sm focus:ring-2 focus:ring-blue-500"></select>
+                <select id="domainFilter" class="w-full p-2.5 border border-slate-200 rounded-xl bg-slate-50 outline-none text-sm focus:ring-2 focus:ring-blue-500"></select>
+                <select id="modelFilter" class="w-full p-2.5 border border-slate-200 rounded-xl bg-slate-50 outline-none text-sm focus:ring-2 focus:ring-blue-500"></select>
+                <select id="scopeFilter" class="w-full p-2.5 border border-slate-200 rounded-xl bg-slate-50 outline-none text-sm focus:ring-2 focus:ring-blue-500"></select>
             </div>
         </div>
     </div>
 
-    <div class="max-w-full mx-auto px-4 md:px-8 py-6">
+    <div class="max-w-full mx-auto px-4 md:px-8 pb-12 mt-4">
         <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
-            <table class="min-w-full divide-y divide-slate-200">
-                <thead class="bg-slate-800 text-white sticky top-[230px] z-30">
+            <table class="min-w-full border-collapse">
+                <thead class="bg-slate-900 text-white table-header-sticky">
                     <tr>
-                        <th onclick="sortTable('name')" class="px-6 py-4 text-left text-xs font-bold uppercase cursor-pointer hover:bg-slate-700">Name <i class="fas fa-sort ml-1 opacity-50"></i></th>
-                        <th class="px-6 py-4 text-left text-xs font-bold uppercase">Description</th>
-                        <th onclick="sortTable('domain')" class="px-6 py-4 text-left text-xs font-bold uppercase cursor-pointer hover:bg-slate-700">Domain <i class="fas fa-sort ml-1 opacity-50"></i></th>
-                        <th onclick="sortTable('pricing_model')" class="px-6 py-4 text-left text-xs font-bold uppercase cursor-pointer hover:bg-slate-700">Model <i class="fas fa-sort ml-1 opacity-50"></i></th>
-                        <th onclick="sortTable('current_price')" class="px-6 py-4 text-left text-xs font-bold uppercase cursor-pointer hover:bg-slate-700">Price <i class="fas fa-sort ml-1 opacity-50"></i></th>
+                        <th onclick="sortTable('name')" class="px-6 py-4 text-left text-xs font-bold uppercase cursor-pointer hover:bg-slate-800 border-b border-slate-700">Name <i class="fas fa-sort ml-1 opacity-40"></i></th>
+                        <th class="px-6 py-4 text-left text-xs font-bold uppercase border-b border-slate-700">Description</th>
+                        <th onclick="sortTable('domain')" class="px-6 py-4 text-left text-xs font-bold uppercase cursor-pointer hover:bg-slate-800 border-b border-slate-700">Domain <i class="fas fa-sort ml-1 opacity-40"></i></th>
+                        <th onclick="sortTable('pricing_model')" class="px-6 py-4 text-left text-xs font-bold uppercase cursor-pointer hover:bg-slate-800 border-b border-slate-700">Model <i class="fas fa-sort ml-1 opacity-40"></i></th>
+                        <th onclick="sortTable('current_price')" class="px-6 py-4 text-left text-xs font-bold uppercase cursor-pointer hover:bg-slate-800 border-b border-slate-700">Price <i class="fas fa-sort ml-1 opacity-40"></i></th>
                     </tr>
                 </thead>
                 <tbody id="tableBody" class="divide-y divide-slate-100 bg-white">
@@ -97,10 +107,9 @@
 
                 window.addEventListener('scroll', () => {
                     const btn = document.getElementById('backToTop');
-                    if (window.scrollY > 400) btn.classList.remove('hidden');
-                    else btn.classList.add('hidden');
+                    btn.classList.toggle('hidden', window.scrollY <= 400);
                 });
-            } catch (err) { console.error(err); }
+            } catch (err) { console.error("Initialization error:", err); }
         }
 
         function clearFilters() {
@@ -120,24 +129,24 @@
 
         function renderTable(data) {
             const body = document.getElementById('tableBody');
-            document.getElementById('counter').innerText = `Showing ${data.length} / ${apiData.length} APIs`;
+            document.getElementById('counter').innerText = `${data.length} / ${apiData.length} APIs`;
 
             if (data.length === 0) {
-                body.innerHTML = '<tr><td colspan="5" class="p-20 text-center text-slate-400">No matches found.</td></tr>';
+                body.innerHTML = '<tr><td colspan="5" class="p-20 text-center text-slate-400 font-medium">No results match your criteria.</td></tr>';
                 return;
             }
 
             body.innerHTML = data.map(api => `
-                <tr class="hover:bg-blue-50/40 transition-colors border-b border-slate-50">
-                    <td class="px-6 py-5 whitespace-nowrap">
-                        <a href="${api.pricing_url}" target="_blank" class="text-blue-600 font-bold hover:underline">${api.name}</a>
+                <tr class="hover:bg-blue-50/30 transition-colors">
+                    <td class="px-6 py-5 font-bold text-blue-600">
+                        <a href="${api.pricing_url}" target="_blank" class="hover:underline">${api.name}</a>
                     </td>
-                    <td class="px-6 py-5 text-sm text-slate-500 max-w-md italic">${api.description || 'Description pending...'}</td>
-                    <td class="px-6 py-5 text-sm text-slate-600 font-medium">${api.domain || 'N/A'}</td>
-                    <td class="px-6 py-5 text-sm text-slate-700">${api.pricing_model || 'N/A'}</td>
+                    <td class="px-6 py-5 text-sm text-slate-500 max-w-md leading-relaxed">${api.description || '...'}</td>
+                    <td class="px-6 py-5 text-sm text-slate-600">${api.domain || 'N/A'}</td>
+                    <td class="px-6 py-5 text-sm text-slate-600">${api.pricing_model || 'N/A'}</td>
                     <td class="px-6 py-5">
-                        <span class="${api.current_price ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-400'} px-3 py-1 rounded-full text-[10px] font-black uppercase border border-current">
-                            ${api.current_price || 'Updating'}
+                        <span class="${api.current_price ? 'text-green-600 bg-green-50 border-green-100' : 'text-slate-400 bg-slate-50 border-slate-100'} px-3 py-1 rounded-full text-[10px] font-bold border uppercase tracking-tighter">
+                            ${api.current_price || 'Live Audit...'}
                         </span>
                     </td>
                 </tr>
