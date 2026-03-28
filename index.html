@@ -20,7 +20,6 @@
             border-bottom: 2px solid #e2e8f0;
         }
 
-        /* DYNAMIC SPECTRUM */
         .spectrum-container {
             display: flex;
             height: 10px;
@@ -65,7 +64,6 @@
             color: white;
         }
 
-        /* MODIFICATION #1: Blue line further to the left */
         .clickable-row {
             cursor: pointer;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -73,19 +71,20 @@
 
         .clickable-row:hover {
             background-color: #f1f5f9 !important;
-            box-shadow: inset 12px 0 0 0 #3b82f6; /* Increased inset for gap */
+            box-shadow: inset 12px 0 0 0 #3b82f6;
         }
 
+        /* MODIFICATION: Hint moved to first column, lower case */
         .hover-hint {
-            position: absolute;
-            right: 24px;
-            top: 50%;
-            transform: translateY(-50%);
             color: #3b82f6;
-            font-size: 11px;
-            font-weight: 800;
+            font-size: 10px;
+            font-weight: 700;
             opacity: 0;
             transition: 0.2s;
+            margin-left: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .clickable-row:hover .hover-hint { opacity: 1; }
@@ -98,7 +97,8 @@
     </button>
 
     <div class="glass-header">
-        <div class="px-6 md:px-12 pt-5 pb-2"> <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-4">
+        <div class="px-6 md:px-12 pt-5 pb-2">
+            <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-4">
                 <div class="flex items-center gap-8">
                     <div>
                         <div class="flex items-center">
@@ -123,8 +123,7 @@
 
                     <div id="topDomainsBox" class="hidden 2xl:block border-l-2 border-slate-200 pl-8">
                         <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Top Categories</p>
-                        <div id="domainPills" class="flex gap-2 mt-1.5">
-                            </div>
+                        <div id="domainPills" class="flex gap-2 mt-1.5"></div>
                     </div>
                 </div>
                 
@@ -166,7 +165,7 @@
                         <th class="w-[38%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em]">DESCRIPTION</th>
                         <th onclick="sortTable('domain')" class="w-[15%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">DOMAIN</th>
                         <th onclick="sortTable('pricing_model')" class="w-[12%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">TYPE</th>
-                        <th onclick="sortTable('current_price')" class="w-[15%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">AUDIT</th>
+                        <th onclick="sortTable('current_price')" class="w-[15%] py-3.5 text-left text-[14px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-blue-400">PRICING</th>
                     </tr>
                 </thead>
             </table>
@@ -203,23 +202,18 @@
 
         function updateInfographics(filteredData) {
             const total = filteredData.length || 1;
-            
-            // 1. Model Ratio
             const free = (filteredData.filter(i => i.pricing_model === 'Free').length / total) * 100;
             const freemium = (filteredData.filter(i => i.pricing_model === 'Freemium').length / total) * 100;
             document.getElementById('specFree').style.width = free + '%';
             document.getElementById('specFreemium').style.width = freemium + '%';
             document.getElementById('specPaid').style.width = (100 - free - freemium) + '%';
 
-            // 2. Global Diversity
             const globalCount = filteredData.filter(i => i.scope === 'Global').length;
             document.getElementById('diversityStat').innerText = Math.round((globalCount / total) * 100) + '% Global';
 
-            // 3. Top Domains Pills
             const counts = {};
             filteredData.forEach(i => counts[i.domain] = (counts[i.domain] || 0) + 1);
             const sortedDomains = Object.keys(counts).sort((a,b) => counts[b] - counts[a]).slice(0, 3);
-            
             document.getElementById('domainPills').innerHTML = sortedDomains.map(d => 
                 `<span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-[9px] font-black border border-slate-200">${d.toUpperCase()}</span>`
             ).join('');
@@ -252,11 +246,12 @@
             }
             body.innerHTML = data.map(api => `
                 <tr class="clickable-row group bg-white" onclick="window.open('${api.pricing_url}', '_blank')">
-                    <td class="w-[20%] py-5 pl-10 pr-4"> <span class="text-blue-600 font-black text-[15px] tracking-tight group-hover:text-blue-800 transition-colors">${api.name}</span>
+                    <td class="w-[20%] py-5 pl-10 pr-4">
+                        <span class="text-blue-600 font-black text-[15px] tracking-tight group-hover:text-blue-800 transition-colors">${api.name}</span>
+                        <span class="hover-hint">visit site <i class="fas fa-chevron-right ml-1"></i></span>
                     </td>
                     <td class="w-[38%] py-5 pr-12 text-[13px] text-slate-500 font-semibold leading-relaxed relative">
                         ${api.description || '...'}
-                        <div class="hover-hint">VISIT SITE <i class="fas fa-chevron-right ml-1"></i></div>
                     </td>
                     <td class="w-[15%] py-5 text-[11px] font-black text-slate-400 uppercase tracking-tighter">${api.domain || 'N/A'}</td>
                     <td class="w-[12%] py-5 text-[12px] text-slate-700 font-black tracking-tighter">${api.pricing_model || 'N/A'}</td>
