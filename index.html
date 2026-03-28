@@ -17,7 +17,6 @@
             backdrop-filter: blur(24px); border-bottom: 2px solid #e2e8f0;
         }
 
-        /* CUSTOM DROPDOWN SYSTEM */
         .custom-dropdown { position: relative; width: 100%; }
         .dropdown-trigger {
             width: 100%; padding: 12px 20px; border: 2px solid #e2e8f0;
@@ -36,7 +35,6 @@
         }
         .dropdown-menu.show { display: block; }
 
-        /* OVERLAY STYLES */
         #categoryOverlay {
             display: none; position: absolute; top: 100%; left: 0; width: 360px;
             max-height: 500px; overflow-y: auto; background: white;
@@ -45,7 +43,6 @@
         }
         #topDomainsBox:hover #categoryOverlay { display: block; }
 
-        /* STICKY HEADER FOR DROPDOWNS & OVERLAY */
         .overlay-sticky-header { 
             position: sticky; top: 0; background: white; 
             padding: 12px 16px; border-bottom: 1px solid #f1f5f9; z-index: 10;
@@ -67,12 +64,10 @@
         .check-item:hover { background: #f8fafc; }
         .check-item input { pointer-events: none; width: 16px; height: 16px; accent-color: #3b82f6; }
 
-        /* DROPDOWN SEARCH INPUT */
         .inner-search {
             width: 100%; padding: 6px 10px; border: 1px solid #e2e8f0; border-radius: 8px;
             font-size: 11px; font-weight: 600; outline: none;
         }
-        .inner-search:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
     </style>
 </head>
 <body class="text-slate-900" onclick="closeAllDropdowns(event)">
@@ -95,9 +90,9 @@
                         <div id="categoryOverlay">
                             <div class="overlay-sticky-header">
                                 <div class="flex justify-between items-center mb-3">
-                                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Global Audit</p>
-                                    <div class="flex gap-2"> <button onclick="selectAll('domain')" class="text-[9px] font-bold text-blue-600 hover:bg-blue-50 px-2 py-1 rounded">ALL</button>
-                                        <button onclick="deselectAll('domain')" class="text-[9px] font-bold text-red-500 hover:bg-red-50 px-2 py-1 rounded">NONE</button>
+                                    <div class="check-item p-0" onclick="toggleAll('domain')">
+                                        <input type="checkbox" id="master-domain-overlay">
+                                        <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Select All Categories</span>
                                     </div>
                                 </div>
                                 <input type="text" placeholder="Search categories..." onkeyup="filterDropdown(this, 'overlayList')" class="inner-search">
@@ -123,7 +118,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div class="relative">
-                    <input type="text" id="searchInput" onkeyup="applyFilters()" placeholder="Search Identity (sequential)..." class="w-full p-3 pl-12 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-semibold focus:border-blue-500">
+                    <input type="text" id="searchInput" onkeyup="applyFilters()" placeholder="Search API Name (Sequential)..." class="w-full p-3 pl-12 border-2 border-slate-200 rounded-xl bg-white outline-none text-sm font-semibold focus:border-blue-500">
                     <i class="fas fa-search absolute left-5 top-4 text-slate-300"></i>
                 </div>
 
@@ -133,14 +128,13 @@
                     </div>
                     <div class="dropdown-menu">
                         <div class="overlay-sticky-header">
-                            <div class="flex justify-between items-center mb-3">
-                                <input type="text" placeholder="Search domains..." onkeyup="filterDropdown(this, 'dd-domain-list')" class="inner-search w-3/4">
-                                <div class="flex gap-2"> <button onclick="selectAll('domain')" class="text-[9px] font-bold text-blue-600">ALL</button>
-                                    <button onclick="deselectAll('domain')" class="text-[9px] font-bold text-red-500">NONE</button>
-                                </div>
+                            <div class="check-item p-0 mb-3" onclick="toggleAll('domain')">
+                                <input type="checkbox" id="master-domain">
+                                <span class="text-[10px] font-black text-slate-800 uppercase">Select All</span>
                             </div>
+                            <input type="text" placeholder="Search domains..." onkeyup="filterDropdown(this, 'list-domain')" class="inner-search">
                         </div>
-                        <div class="list-container" id="dd-domain-list"></div>
+                        <div class="list-container" id="list-domain"></div>
                     </div>
                 </div>
 
@@ -149,14 +143,13 @@
                         <span class="label">All Pricing Models</span><i class="fas fa-chevron-down mr-1"></i>
                     </div>
                     <div class="dropdown-menu">
-                        <div class="overlay-sticky-header flex justify-between items-center">
-                            <p class="text-[9px] font-bold text-slate-400">PRICING MODELS</p>
-                            <div class="flex gap-2">
-                                <button onclick="selectAll('pricing_model')" class="text-[9px] font-bold text-blue-600">ALL</button>
-                                <button onclick="deselectAll('pricing_model')" class="text-[9px] font-bold text-red-500">NONE</button>
+                        <div class="overlay-sticky-header">
+                            <div class="check-item p-0" onclick="toggleAll('pricing_model')">
+                                <input type="checkbox" id="master-pricing_model">
+                                <span class="text-[10px] font-black text-slate-800 uppercase">Select All</span>
                             </div>
                         </div>
-                        <div class="list-container"></div>
+                        <div class="list-container" id="list-pricing_model"></div>
                     </div>
                 </div>
 
@@ -165,14 +158,13 @@
                         <span class="label">All Scopes</span><i class="fas fa-chevron-down mr-1"></i>
                     </div>
                     <div class="dropdown-menu">
-                        <div class="overlay-sticky-header flex justify-between items-center">
-                            <p class="text-[9px] font-bold text-slate-400">AUDIT SCOPE</p>
-                            <div class="flex gap-2">
-                                <button onclick="selectAll('scope')" class="text-[9px] font-bold text-blue-600">ALL</button>
-                                <button onclick="deselectAll('scope')" class="text-[9px] font-bold text-red-500">NONE</button>
+                        <div class="overlay-sticky-header">
+                            <div class="check-item p-0" onclick="toggleAll('scope')">
+                                <input type="checkbox" id="master-scope">
+                                <span class="text-[10px] font-black text-slate-800 uppercase">Select All</span>
                             </div>
                         </div>
-                        <div class="list-container"></div>
+                        <div class="list-container" id="list-scope"></div>
                     </div>
                 </div>
             </div>
@@ -206,19 +198,22 @@
         let sortCol = 'name', sortDir = 1;
 
         async function init() {
-            const resp = await fetch('./dataset_400.json');
-            apiData = await resp.json();
-            ['domain', 'pricing_model', 'scope'].forEach(key => {
-                const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean).sort();
-                vals.forEach(v => filters[key].add(v));
-                buildDropdown(key, vals);
-            });
-            render();
+            try {
+                const resp = await fetch('./dataset_400.json');
+                apiData = await resp.json();
+                
+                ['domain', 'pricing_model', 'scope'].forEach(key => {
+                    const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean).sort();
+                    vals.forEach(v => filters[key].add(v)); // Load all initially
+                    buildDropdown(key, vals);
+                });
+                render();
+            } catch (err) { console.error(err); }
         }
 
         function buildDropdown(key, vals) {
-            const id = key === 'pricing_model' ? 'model' : key;
-            const container = document.querySelector(`#dd-${id} .list-container`);
+            const container = document.getElementById(`list-${key}`);
+            if (!container) return;
             container.innerHTML = vals.map(v => `
                 <div class="check-item" data-val="${v.toLowerCase()}" onclick="toggleFilter('${key}', '${v}')">
                     <input type="checkbox" id="check-${key}-${v}" ${filters[key].has(v) ? 'checked' : ''}>
@@ -230,62 +225,26 @@
             `).join('');
         }
 
-        // MOD 3: SEARCH WITHIN DROPDOWN LOGIC
-        function filterDropdown(input, containerId) {
-            const term = input.value.toLowerCase();
-            const items = document.querySelectorAll(`#${containerId} .check-item`);
-            items.forEach(item => {
-                const val = item.getAttribute('data-val');
-                item.classList.toggle('hidden', !val.includes(term));
-            });
-        }
-
         function toggleFilter(key, val) {
             if (filters[key].has(val)) filters[key].delete(val);
             else filters[key].add(val);
             render();
         }
 
-        function selectAll(key) {
-            const vals = [...new Set(apiData.map(i => i[key]))].filter(Boolean);
-            vals.forEach(v => filters[key].add(v));
-            render();
-        }
-
-        function deselectAll(key) {
-            filters[key].clear();
-            render();
-        }
-
-        function toggleDropdown(id) {
-            const el = document.querySelector(`#${id} .dropdown-menu`);
-            const isShown = el.classList.contains('show');
-            closeAllDropdowns();
-            if (!isShown) el.classList.add('show');
-        }
-
-        function closeAllDropdowns(e) {
-            if (e && e.target.closest('.custom-dropdown')) return;
-            document.querySelectorAll('.dropdown-menu').forEach(d => d.classList.remove('show'));
-        }
-
-        function applyFilters() {
-            filters.search = document.getElementById('searchInput').value.toLowerCase();
+        function toggleAll(key) {
+            const allVals = [...new Set(apiData.map(i => i[key]))].filter(Boolean);
+            if (filters[key].size === allVals.length) filters[key].clear();
+            else allVals.forEach(v => filters[key].add(v));
             render();
         }
 
         function render() {
-            // MOD 1: Sequential Substring Search Logic
-            let filtered = apiData.filter(i => {
-                const name = i.name.toLowerCase();
-                // Sequential check: does it contain the substring exactly as typed?
-                const matchesSearch = name.includes(filters.search);
-                
-                return matchesSearch &&
-                       filters.domain.has(i.domain) &&
-                       filters.pricing_model.has(i.pricing_model) &&
-                       filters.scope.has(i.scope);
-            });
+            let filtered = apiData.filter(i => 
+                i.name.toLowerCase().includes(filters.search) &&
+                filters.domain.has(i.domain) &&
+                filters.pricing_model.has(i.pricing_model) &&
+                filters.scope.has(i.scope)
+            );
 
             filtered.sort((a,b) => {
                 const valA = (a[sortCol] || '').toString().toLowerCase();
@@ -297,7 +256,7 @@
                 <tr class="clickable-row group bg-white" onclick="window.open('${api.pricing_url}', '_blank')">
                     <td class="w-[20%] py-5 pl-10 pr-4">
                         <span class="text-blue-600 font-black text-[15px]">${api.name}</span>
-                        <span class="hover-hint text-[10px] font-bold text-blue-500 ml-2 opacity-0 group-hover:opacity-100 transition-opacity tracking-tight">visit site <i class="fas fa-chevron-right"></i></span>
+                        <span class="hover-hint text-[10px] font-bold text-blue-500 ml-2 opacity-0 group-hover:opacity-100 transition-opacity">visit site <i class="fas fa-chevron-right"></i></span>
                     </td>
                     <td class="w-[30%] py-5 pr-12 text-[13px] text-slate-500 font-semibold leading-relaxed">${api.description || '...'}</td>
                     <td class="w-[12%] py-5 text-[11px] font-black text-slate-400 uppercase tracking-tighter">${api.domain}</td>
@@ -308,7 +267,41 @@
             `).join('');
 
             updateInfographics(filtered);
-            updateVisuals();
+            updateTriStateCheckboxes();
+        }
+
+        function updateTriStateCheckboxes() {
+            ['domain', 'pricing_model', 'scope'].forEach(key => {
+                const allPossible = [...new Set(apiData.map(i => i[key]))].filter(Boolean).length;
+                const currentCount = filters[key].size;
+                
+                const masterCheck = document.getElementById(`master-${key}`);
+                const masterOverlay = document.getElementById(`master-domain-overlay`);
+
+                const updateEl = (el) => {
+                    if (!el) return;
+                    el.checked = currentCount === allPossible;
+                    el.indeterminate = currentCount > 0 && currentCount < allPossible;
+                };
+
+                updateEl(masterCheck);
+                if (key === 'domain') updateEl(masterOverlay);
+
+                // Update individual checkboxes inside list
+                document.querySelectorAll(`#list-${key} input`).forEach(cb => {
+                    const val = cb.id.replace(`check-${key}-`, "");
+                    cb.checked = filters[key].has([...filters[key]].find(f => f === val));
+                });
+
+                // Trigger label update
+                const trig = document.querySelector(`#dd-${key} .dropdown-trigger`);
+                if (trig) {
+                    const isFilt = currentCount < allPossible;
+                    trig.classList.toggle('filtered', isFilt);
+                    trig.querySelector('.label').innerText = isFilt ? `${currentCount} Selected` : (key === 'pricing_model' ? 'All Pricing Models' : `All ${key}s`);
+                    trig.querySelector('i').className = isFilt ? 'fas fa-filter mr-2' : 'fas fa-chevron-down mr-2';
+                }
+            });
         }
 
         function updateInfographics(data) {
@@ -337,23 +330,29 @@
             document.getElementById('resetBtn').classList.toggle('active', data.length < apiData.length);
         }
 
-        function updateVisuals() {
-            ['domain', 'pricing_model', 'scope'].forEach(key => {
-                const id = key === 'pricing_model' ? 'model' : key;
-                const trig = document.querySelector(`#dd-${id} .dropdown-trigger`);
-                const allLen = new Set(apiData.map(i => i[key])).size;
-                const isFilt = filters[key].size < allLen;
-                
-                trig.classList.toggle('filtered', isFilt);
-                let label = isFilt ? `${filters[key].size} Selected` : (key === 'pricing_model' ? 'All Pricing Models' : `All ${key}s`);
-                trig.querySelector('.label').innerText = label;
-                trig.querySelector('i').className = isFilt ? 'fas fa-filter mr-2' : 'fas fa-chevron-down mr-2';
-                
-                document.querySelectorAll(`#dd-${id} input`).forEach(input => {
-                    const val = input.parentElement.getAttribute('data-val');
-                    input.checked = filters[key].has([...filters[key]].find(f => f.toLowerCase() === val));
-                });
+        function applyFilters() {
+            filters.search = document.getElementById('searchInput').value.toLowerCase();
+            render();
+        }
+
+        function filterDropdown(input, containerId) {
+            const term = input.value.toLowerCase();
+            document.querySelectorAll(`#${containerId} .check-item`).forEach(item => {
+                const val = item.getAttribute('data-val');
+                item.classList.toggle('hidden', !val.includes(term));
             });
+        }
+
+        function toggleDropdown(id) {
+            const el = document.querySelector(`#${id} .dropdown-menu`);
+            const isShown = el.classList.contains('show');
+            closeAllDropdowns();
+            if (!isShown) el.classList.add('show');
+        }
+
+        function closeAllDropdowns(e) {
+            if (e && e.target.closest('.custom-dropdown')) return;
+            document.querySelectorAll('.dropdown-menu').forEach(d => d.classList.remove('show'));
         }
 
         function fullReset() {
